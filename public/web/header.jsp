@@ -1,5 +1,2 @@
 <%@ page language="java" %>
-<ul>
-    <li></li>
-    <li></li>
-</ul>
+<p>Je suis un header</p>
