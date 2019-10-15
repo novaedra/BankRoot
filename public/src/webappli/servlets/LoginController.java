@@ -1,6 +1,6 @@
 package webappli.servlets;
 
-import com.webappli.utils.Database;
+import webappli.utils.Database;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

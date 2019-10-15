@@ -3,7 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-
     <display-name>login</display-name>
     <servlet>
         <description/>
@@ -25,13 +24,12 @@
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/LogoutController</url-pattern>
     </servlet-mapping>
-
     <session-config>
         <session-timeout>10</session-timeout>
     </session-config>
 
-    <welcome-file-list>
-        <welcome-file>formConnexion.jsp</welcome-file>
-    </welcome-file-list>
+<!--    <welcome-file-list>-->
+<!--        <welcome-file>formConnexion.jsp</welcome-file>-->
+<!--    </welcome-file-list>-->
 
 </web-app>
