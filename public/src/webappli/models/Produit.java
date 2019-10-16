@@ -1,4 +1,4 @@
-package webappli.utils;
+package webappli.models;
 
 public class Produit {
     private int id;

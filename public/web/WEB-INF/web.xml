@@ -24,9 +24,9 @@
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/LogoutController</url-pattern>
     </servlet-mapping>
-    <session-config>
-        <session-timeout>10</session-timeout>
-    </session-config>
+    <!--    <session-config>-->
+    <!--        <session-timeout>10</session-timeout>-->
+    <!--    </session-config>-->
 
     <welcome-file-list>
         <welcome-file>formConnexion.jsp</welcome-file>

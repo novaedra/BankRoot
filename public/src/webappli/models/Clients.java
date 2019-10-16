@@ -1,4 +1,6 @@
-package webappli.utils;
+package webappli.models;
+
+import webappli.utils.Database;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
