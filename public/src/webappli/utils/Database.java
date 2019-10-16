@@ -97,7 +97,9 @@ public class Database {
         close();
 
         System.out.println("[DB] Exiting UPDATE.");
+
     }
+
 
     public static void delete(BaseModelORM _object) {
         System.out.println("[DB] Entering DELETE.");
