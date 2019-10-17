@@ -39,10 +39,10 @@ public class LoginController extends HttpServlet {
 
 
             while (rs.next()) {
-                this.getServletContext().getRequestDispatcher("/showClients.jsp").forward(request,response);
+                this.getServletContext().getRequestDispatcher("showClients.jsp").forward(request,response);
                 return;
             }
-            this.getServletContext().getRequestDispatcher("/error.jsp").forward(request,response);
+            this.getServletContext().getRequestDispatcher("error.jsp").forward(request,response);
             return;
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

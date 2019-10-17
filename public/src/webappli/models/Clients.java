@@ -47,7 +47,7 @@ public class Clients {
                 clients1.setId(data.getInt("id"));
                 clients1.setNom(data.getString("nom"));
                 clients1.setPrenom(data.getString("prenom"));
-                clients1.setEmail(data.getString("email"));
+                clients1.setEmail(data.getString("mail"));
                 clients1.setTelephone(data.getString("telephone"));
 
                 results.add(clients1);
