@@ -13,8 +13,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
-@WebServlet(name = "Register", urlPatterns = "/Register")
-public class Register extends HttpServlet {
+@WebServlet(name = "Inscription", urlPatterns = "/Inscription")
+public class Inscription extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nom = request.getParameter("nom");
@@ -40,6 +40,7 @@ public class Register extends HttpServlet {
         }
         request.setAttribute("nom", nom);
         request.setAttribute("mail", mail);
+        request.setAttribute("password", password);
         RequestDispatcher view = request.getRequestDispatcher("viewInscription.jsp");
         view.forward(request, response);
     }

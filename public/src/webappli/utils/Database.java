@@ -7,9 +7,10 @@ public class Database {
     public static Connection getConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-
-            Connection connection = DriverManager.getConnection("jbdc:mysql://localhost:3306/bankroot", "root", "");
-            return connection;
+            String url = "jdbc:mysql://localhost:3306/bankroot";
+            String user = "root";
+            String password = "";
+            Connection connection = DriverManager.getConnection(url, user, password);
         } catch (Exception e) {
             e.printStackTrace();
         }

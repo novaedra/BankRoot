@@ -24,7 +24,7 @@ public class Login extends HttpServlet {
 
         try {
             Connection connection = Database.getConnection();
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM admin WHERE email=?");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM admin WHERE mail=?");
             statement.setString(1, mail);
             ResultSet data = statement.executeQuery();
 
