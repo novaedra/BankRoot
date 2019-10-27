@@ -3,33 +3,4 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-    <display-name>login</display-name>
-    <servlet>
-        <description/>
-        <display-name>LoginController</display-name>
-        <servlet-name>LoginController</servlet-name>
-        <servlet-class>webappli.servlets.LoginController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>LoginController</servlet-name>
-        <url-pattern>/LoginController</url-pattern>
-    </servlet-mapping>
-    <display-name>logout</display-name>
-    <servlet>
-        <display-name>LogoutController</display-name>
-        <servlet-name>LogoutController</servlet-name>
-        <servlet-class>webappli.servlets.LogoutController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>LogoutController</servlet-name>
-        <url-pattern>/LogoutController</url-pattern>
-    </servlet-mapping>
-        <session-config>
-            <session-timeout>10</session-timeout>
-        </session-config>
-
-    <welcome-file-list>
-        <welcome-file>formConnexion.jsp</welcome-file>
-    </welcome-file-list>
-
 </web-app>
