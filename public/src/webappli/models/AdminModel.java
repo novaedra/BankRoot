@@ -6,14 +6,12 @@ public class AdminModel extends BaseModelORM {
     private Integer id;
     private String nom;
     private String prenom;
+    private String ident;
     private String password;
-    // private String datenaiss;
-    // private String adresse;
+    private String birthday;
+    private String adresse;
     private String mail;
-    // private String mailPerso;
     private String telephone;
-    // private String telPerso;
-    // private Boolean SupAdmin;
     private String tableName;
 
     public Integer getId() {
@@ -40,6 +38,15 @@ public class AdminModel extends BaseModelORM {
         return this;
     }
 
+    public String getIdent() {
+        return ident;
+    }
+
+    public AdminModel setIdent(String ident) {
+        this.ident = ident;
+        return this;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -51,22 +58,21 @@ public class AdminModel extends BaseModelORM {
 
     }
 
-//    public String getDateNaiss() {
-//        return datenaiss;
-//    }
-//
-//    public AdminModel setDateNaiss(String datenaiss) {
-//        this.datenaiss = datenaiss;
-//        return this;
-//    }
-//
-//    public String getAdresse() {
-//        return adresse;
-//    }
-//
-//    public void setAdresse(String adresse) {
-//        this.adresse = adresse;
-//    }
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
 
     public String getMail() {
         return mail;
@@ -77,14 +83,6 @@ public class AdminModel extends BaseModelORM {
         return this;
     }
 
-    //    public String getMailPerso() {
-//        return mailPerso;
-//    }
-//
-//    public void setMailPerso(String mailPerso) {
-//        this.mailPerso = mailPerso;
-//    }
-//
     public String getTelephone() {
         return telephone;
     }
@@ -93,22 +91,7 @@ public class AdminModel extends BaseModelORM {
         this.telephone = telephone;
         return this;
     }
-//
-//    public String getTelPerso() {
-//        return telPerso;
-//    }
-//
-//    public void setTelPerso(String telPerso) {
-//        this.telPerso = telPerso;
-//    }
-//
-//    public Boolean getSupAdmin() {
-//        return SupAdmin;
-//    }
-//
-//    public void setSupAdmin(Boolean supAdmin) {
-//        SupAdmin = supAdmin;
-//    }
+
 
     @Override
     public String getTableName() {
