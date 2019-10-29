@@ -1,6 +1,7 @@
 package webappli.models;
 
 import webappli.utils.Database;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -9,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class ClientModel {
+public class ClientModel extends BaseModelORM {
     private int id;
     private String nom;
     private String prenom;
@@ -25,8 +26,9 @@ public class ClientModel {
     private float age;
     private String labelPro;
     private String labelPerso;
+    private String tableName;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -154,52 +156,57 @@ public class ClientModel {
         this.age = age;
     }
 
-    public String getStatusPro() {
-        try {
-
-
-            Connection connection = Database.getConnection();
-            Statement statement = connection.createStatement();
-            ResultSet data = statement.executeQuery("SELECT * FROM status_pro WHERE id='" + statusPro_id + "'");
-
-            while (data.next()) {
-
-                String labelPro = data.getString("label");
-
-                return labelPro;
-            }
-
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+//   // public String getStatusPro() {
+//        try {
+//
+//
+//            Connection connection = Database.connect();
+//            Statement statement = connection.createStatement();
+//            ResultSet data = statement.executeQuery("SELECT * FROM statusPro WHERE id='" + statusPro_id + "'");
+//
+//            while (data.next()) {
+//
+//                String labelPro = data.getString("label");
+//
+//                return labelPro;
+//            }
+//
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
 
     public void setStatusPro(String labelPro) {
         this.labelPro = labelPro;
     }
 
-    public String getStatusPerso() {
-        try {
-            Connection connection = Database.getConnection();
-            Statement statement = connection.createStatement();
-
-            ResultSet data = statement.executeQuery("SELECT * FROM statusPerso WHERE id='" + statusPerso_id + "'");
-
-            while (data.next()) {
-                String labelPerso = data.getString("label");
-
-                return labelPerso;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+//    public String getStatusPerso() {
+//        try {
+//            Connection connection = Database.connect();
+//            Statement statement = connection.createStatement();
+//
+//            ResultSet data = statement.executeQuery("SELECT * FROM statusPerso WHERE id='" + statusPerso_id + "'");
+//
+//            while (data.next()) {
+//                String labelPerso = data.getString("label");
+//
+//                return labelPerso;
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
 
     public void setStatusPerso(String labelPerso) {
         this.labelPerso = labelPerso;
     }
 
+    @Override
+    public String getTableName() {
+        this.tableName = "clients";
+        return this.tableName;
+    }
 }

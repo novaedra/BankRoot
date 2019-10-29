@@ -2,7 +2,7 @@ package webappli.models;
 
 import java.util.Date;
 
-public class AdminModel {
+public class AdminModel extends BaseModelORM {
     private int id;
     private String nom;
     private String prenom;
@@ -15,8 +15,9 @@ public class AdminModel {
     private String telPro;
     private String telPerso;
     private Boolean SupAdmin;
+    private String tableName;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -110,5 +111,11 @@ public class AdminModel {
 
     public void setSupAdmin(Boolean supAdmin) {
         SupAdmin = supAdmin;
+    }
+
+    @Override
+    public String getTableName() {
+        this.tableName = "bradmin";
+        return this.tableName;
     }
 }

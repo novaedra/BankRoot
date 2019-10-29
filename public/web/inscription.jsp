@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="includes/header.jsp" %>
+<%@include file="includes/head.jsp" %>
 <form method="post" action="Inscription">
     <input type="text" name="nom" placeholder="Nom">
     <input type="email" name="mail" placeholder="Adresse Mail">
