@@ -6,16 +6,16 @@ import java.sql.*;
 
 public class Database {
     private static Connection dbConnection = null;
-    private static String database = "bankroot";
+    private static String database = "postgres";
     private static String user = "postgres";
-    private static String password = "postgres";
+    private static String password = "root";
 
     private static void connect() {
         if (dbConnection == null) {
             System.out.println("[DB] Entering Database Connect.");
             try {
                 Class.forName("org.postgresql.Driver");
-                System.out.println("Hello Driver");
+                System.out.println("[DB] Driver OK.");
                 dbConnection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/" + database, user, password);
             } catch (Exception e) {
                 System.out.println(e);
