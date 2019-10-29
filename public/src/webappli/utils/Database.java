@@ -74,6 +74,43 @@ public class Database {
         return _newId;
     }
 
+    public static Integer select(BaseModelORM _object) {
+        Integer _newId = null;
+
+        System.out.println("[DB] Entering SELECT.");
+
+        connect();
+
+        if (dbConnection != null) {
+            System.out.println("[DB] Got connection. Preparing statement.");
+
+            PreparedStatement _selectQuery = _object.getSelectQuery(dbConnection);
+
+            try {
+                _selectQuery.executeUpdate();
+
+                System.out.println("[DB] Statement ran. Picking last inserted ID.");
+
+                // ... yeah. Bit strange, but works, so ...
+                ResultSet keys = _selectQuery.getGeneratedKeys();
+                keys.next();
+
+                _newId = keys.getInt(1);
+
+
+                _object.setId(_newId);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        close();
+
+        System.out.println("[DB] Exiting SELECT.");
+
+        return _newId;
+    }
+
 
     public static void update(BaseModelORM _object) {
         System.out.println("[DB] Entering UPDATE.");

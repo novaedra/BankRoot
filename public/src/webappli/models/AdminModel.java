@@ -3,16 +3,15 @@ package webappli.models;
 import java.util.Date;
 
 public class AdminModel extends BaseModelORM {
-    private int id;
+    private Integer id;
     private String nom;
-    // private String prenom;
-    // private String identifiant;
+    private String prenom;
     private String password;
-    // private Date dateNaiss;
+    // private String datenaiss;
     // private String adresse;
-    private String mailPro;
+    private String mail;
     // private String mailPerso;
-    // private String telPro;
+    private String telephone;
     // private String telPerso;
     // private Boolean SupAdmin;
     private String tableName;
@@ -21,48 +20,44 @@ public class AdminModel extends BaseModelORM {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getNom() {
         return nom;
     }
 
-    public void setNom(String nom) {
+    public AdminModel setNom(String nom) {
         this.nom = nom;
+
+        return this;
     }
 
-//    public String getPrenom() {
-//        return prenom;
-//    }
-//
-//    public void setPrenom(String prenom) {
-//        this.prenom = prenom;
-//    }
-//
-//    public String getIdentifiant() {
-//        return identifiant;
-//    }
-//
-//    public void setIdentifiant(String identifiant) {
-//        this.identifiant = identifiant;
-//    }
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public AdminModel setPrenom(String prenom) {
+        this.prenom = prenom;
+        return this;
+    }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public AdminModel setPassword(String password) {
         this.password = password;
+        return this;
+
+
     }
 
-//    public Date getDateNaiss() {
-//        return dateNaiss;
+//    public String getDateNaiss() {
+//        return datenaiss;
 //    }
 //
-//    public void setDateNaiss(Date dateNaiss) {
-//        this.dateNaiss = dateNaiss;
+//    public AdminModel setDateNaiss(String datenaiss) {
+//        this.datenaiss = datenaiss;
+//        return this;
 //    }
 //
 //    public String getAdresse() {
@@ -73,15 +68,16 @@ public class AdminModel extends BaseModelORM {
 //        this.adresse = adresse;
 //    }
 
-    public String getMailPro() {
-        return mailPro;
+    public String getMail() {
+        return mail;
     }
 
-    public void setMailPro(String mailPro) {
-        this.mailPro = mailPro;
+    public AdminModel setMailPro(String mail) {
+        this.mail = mail;
+        return this;
     }
 
-//    public String getMailPerso() {
+    //    public String getMailPerso() {
 //        return mailPerso;
 //    }
 //
@@ -89,13 +85,14 @@ public class AdminModel extends BaseModelORM {
 //        this.mailPerso = mailPerso;
 //    }
 //
-//    public String getTelPro() {
-//        return telPro;
-//    }
-//
-//    public void setTelPro(String telPro) {
-//        this.telPro = telPro;
-//    }
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public AdminModel setTelephone(String telephone) {
+        this.telephone = telephone;
+        return this;
+    }
 //
 //    public String getTelPerso() {
 //        return telPerso;

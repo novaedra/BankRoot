@@ -6,11 +6,24 @@
 <body>
 <%
     String nom = (String) request.getAttribute("nom");
+    String prenom = (String) request.getAttribute("prenom");
     String mail = (String) request.getAttribute("mail");
+    String telephone = (String) request.getAttribute("telephone");
     String password = (String) request.getAttribute("password");
-    out.println("Nom : " + nom);
-    out.println("Mail : " + mail);
-    out.println("Mdp : " + password);
 %>
+<div class="text-center">
+    <ul>
+        <li>Nom : <%= nom %>
+        </li>
+        <li>Prénom : <%= prenom %>
+        </li>
+        <li>Mail : <%= mail %>
+        </li>
+        <li>Téléphone : <%= telephone %>
+        </li>
+        <li>Mot de Passe : <%= password %>
+        </li>
+    </ul>
+</div>
 </body>
 </html>
