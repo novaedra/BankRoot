@@ -144,6 +144,7 @@ public class BaseModelORM {
     }
 
 
+
     public PreparedStatement getUpdateQuery(Connection dbConnection) {
         String updateQueryString = this.getUpdateString();
         PreparedStatement statement = null;

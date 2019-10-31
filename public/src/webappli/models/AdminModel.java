@@ -38,8 +38,8 @@ public class AdminModel extends BaseModelORM {
         return this;
     }
 
-    public String getIdent() {
-        return ident;
+    public String getIdent(String ident) {
+        return this.ident;
     }
 
     public AdminModel setIdent(String ident) {
@@ -47,8 +47,8 @@ public class AdminModel extends BaseModelORM {
         return this;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPassword(String password) {
+        return this.password;
     }
 
     public AdminModel setPassword(String password) {
@@ -74,8 +74,8 @@ public class AdminModel extends BaseModelORM {
         this.adresse = adresse;
     }
 
-    public String getMail() {
-        return mail;
+    public String getMail(String mail) {
+        return this.mail;
     }
 
     public AdminModel setMailPro(String mail) {
