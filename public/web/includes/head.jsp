@@ -3,10 +3,11 @@
 <html lang="fr">
 <head>
     <title>BankRoot</title>
-    <link rel="stylesheet" href="assets/mdBootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/mdBootstrap/mdb.min.css">
-    <link rel="stylesheet" href="assets/mdBootstrap/mdb.lite.min.css">
-    <link rel="stylesheet" href="assets/mdBootstrap/style.min.css">
-    <link rel="stylesheet" href="assets/mdBootstrap/modules/animations-extended.min.css">
+<%--    <link rel="stylesheet" href="assets/mdBootstrap/bootstrap.min.css">--%>
+<%--    <link rel="stylesheet" href="assets/mdBootstrap/mdb.min.css">--%>
+<%--    <link rel="stylesheet" href="assets/mdBootstrap/mdb.lite.min.css">--%>
+<%--    <link rel="stylesheet" href="assets/mdBootstrap/style.min.css">--%>
+<%--    <link rel="stylesheet" href="assets/mdBootstrap/modules/animations-extended.min.css">--%>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>

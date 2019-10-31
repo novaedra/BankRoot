@@ -1,10 +1,7 @@
 <%@ page import="java.sql.Date" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Vue Inscription</title>
-</head>
-<body>
+<%@include file="includes/head.jsp" %>
+<%@include file="includes/navbar.jsp" %>
 <%
     String nom = (String) request.getAttribute("nom");
     String prenom = (String) request.getAttribute("prenom");
@@ -35,5 +32,4 @@
         </li>
     </ul>
 </div>
-</body>
-</html>
+<%@include file="includes/footer.jsp" %>
