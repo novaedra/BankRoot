@@ -1,4 +1,4 @@
-package webappli.utils;
+package webappli.utils.authentificators;
 
 import webappli.models.Admins;
 import com.google.zxing.BarcodeFormat;

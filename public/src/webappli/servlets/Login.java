@@ -5,9 +5,7 @@ import webappli.models.Admins;
 import webappli.utils.BCrypt;
 import webappli.utils.Database;
 import webappli.utils.Filtre;
-import webappli.utils.GoogleAuth;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @WebServlet(name = "Login", urlPatterns = "/Login")
 public class Login extends HttpServlet {
