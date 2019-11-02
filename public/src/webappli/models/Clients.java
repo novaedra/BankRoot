@@ -2,134 +2,142 @@ package webappli.models;
 
 import webappli.utils.Database;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class ClientModel extends BaseModelORM {
+public class Clients extends BaseModelORM {
+
+    // Données contenues en BDD
     private int id;
     private String nom;
     private String prenom;
     private String mail;
     private String telephone;
     private String adresse;
-    private Date dateNaiss;
+    private Date birthday;
     private int enfants;
     private boolean autoCnil;
     private boolean prospect;
     private int statusPro_id;
     private int statusPerso_id;
+    private String tableName;
+    // Méthodes pour une lecture plus claire de l'âge et des situations pro et perso.
     private float age;
     private String labelPro;
     private String labelPerso;
-    private String tableName;
+
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNom() {
         return nom;
     }
 
-    public void setNom(String nom) {
+    public Clients setNom(String nom) {
         this.nom = nom;
+        return this;
     }
 
     public String getPrenom() {
         return prenom;
     }
 
-    public void setPrenom(String prenom) {
+    public Clients setPrenom(String prenom) {
         this.prenom = prenom;
+        return this;
     }
 
     public String getMail() {
         return mail;
     }
 
-    public void setMail(String mail) {
+    public Clients setMail(String mail) {
         this.mail = mail;
+        return this;
     }
 
     public String getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(String telephone) {
+    public Clients setTelephone(String telephone) {
         this.telephone = telephone;
+        return this;
     }
 
     public String getAdresse() {
         return adresse;
     }
 
-    public void setAdresse(String adresse) {
+    public Clients setAdresse(String adresse) {
         this.adresse = adresse;
+        return this;
     }
 
-    public Date getDateNaiss() {
-        return dateNaiss;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setDateNaiss(Date dateNaiss) {
-        this.dateNaiss = dateNaiss;
+    public Clients setBirthday(Date birthday) {
+        this.birthday = birthday;
+        return this;
     }
 
     public int getEnfants() {
         return enfants;
     }
 
-    public void setEnfants(int enfants) {
+    public Clients setEnfants(int enfants) {
         this.enfants = enfants;
+        return this;
     }
 
     public boolean isAutoCnil() {
         return autoCnil;
     }
 
-    public void setAutoCnil(boolean autoCnil) {
+    public Clients setAutoCnil(boolean autoCnil) {
         this.autoCnil = autoCnil;
+        return this;
     }
 
     public boolean isProspect() {
         return prospect;
     }
 
-    public void setProspect(boolean prospect) {
+    public Clients setProspect(boolean prospect) {
         this.prospect = prospect;
+        return this;
     }
 
     public int getStatusPro_id() {
         return statusPro_id;
     }
 
-    public void setStatusPro_id(int statusPro_id) {
+    public Clients setStatusPro_id(int statusPro_id) {
         this.statusPro_id = statusPro_id;
+        return this;
     }
 
     public int getStatusPerso_id() {
         return statusPerso_id;
     }
 
-    public void setStatusPerso_id(int statusPerso_id) {
+    public Clients setStatusPerso_id(int statusPerso_id) {
         this.statusPerso_id = statusPerso_id;
+        return this;
     }
 
     public float getAge() {
         int age;
-        Date date = dateNaiss;
+        Date date = birthday;
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        String dateNaiss = dateFormat.format(date);
-        String[] parts = dateNaiss.split("-");
+        String birthday = dateFormat.format(date);
+        String[] parts = birthday.split("-");
         String part1 = parts[0];
         String part2 = parts[1];
         String part3 = parts[2];
@@ -152,8 +160,9 @@ public class ClientModel extends BaseModelORM {
         return age;
     }
 
-    public void setAge(float age) {
+    public Clients setAge(float age) {
         this.age = age;
+        return this;
     }
 
 //   // public String getStatusPro() {
@@ -206,7 +215,7 @@ public class ClientModel extends BaseModelORM {
 
     @Override
     public String getTableName() {
-        this.tableName = "clients";
+        this.tableName = "brclients";
         return this.tableName;
     }
 }

@@ -1,17 +1,17 @@
 package webappli.models;
 
-import java.util.Date;
-
-public class AdminModel extends BaseModelORM {
+public class Admins extends BaseModelORM {
     private Integer id;
     private String nom;
     private String prenom;
     private String ident;
     private String password;
+    private String twoFactorKey;
     private String birthday;
     private String adresse;
     private String mail;
     private String telephone;
+    private Boolean supAdmin;
     private String tableName;
 
     public Integer getId() {
@@ -23,7 +23,7 @@ public class AdminModel extends BaseModelORM {
         return nom;
     }
 
-    public AdminModel setNom(String nom) {
+    public Admins setNom(String nom) {
         this.nom = nom;
 
         return this;
@@ -33,7 +33,7 @@ public class AdminModel extends BaseModelORM {
         return prenom;
     }
 
-    public AdminModel setPrenom(String prenom) {
+    public Admins setPrenom(String prenom) {
         this.prenom = prenom;
         return this;
     }
@@ -42,43 +42,51 @@ public class AdminModel extends BaseModelORM {
         return this.ident;
     }
 
-    public AdminModel setIdent(String ident) {
+    public Admins setIdent(String ident) {
         this.ident = ident;
         return this;
     }
 
-    public String getPassword(String password) {
+    public String getPassword() {
         return this.password;
     }
 
-    public AdminModel setPassword(String password) {
+    public Admins setPassword(String password) {
         this.password = password;
         return this;
+    }
 
+    public String getTwoFactorKey() {
+        return twoFactorKey;
+    }
 
+    public void setTwoFactorKey(String twoFactorKey) {
+        this.twoFactorKey = twoFactorKey;
     }
 
     public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public Admins setBirthday(String birthday) {
         this.birthday = birthday;
+        return this;
     }
 
     public String getAdresse() {
         return adresse;
     }
 
-    public void setAdresse(String adresse) {
+    public Admins setAdresse(String adresse) {
         this.adresse = adresse;
+        return this;
     }
 
-    public String getMail(String mail) {
+    public String getMail() {
         return this.mail;
     }
 
-    public AdminModel setMailPro(String mail) {
+    public Admins setMail(String mail) {
         this.mail = mail;
         return this;
     }
@@ -87,11 +95,19 @@ public class AdminModel extends BaseModelORM {
         return telephone;
     }
 
-    public AdminModel setTelephone(String telephone) {
+    public Admins setTelephone(String telephone) {
         this.telephone = telephone;
         return this;
     }
 
+    public Boolean getSupAdmin() {
+        return supAdmin;
+    }
+
+    public Admins setSupAdmin(Boolean supAdmin) {
+        this.supAdmin = supAdmin;
+        return this;
+    }
 
     @Override
     public String getTableName() {

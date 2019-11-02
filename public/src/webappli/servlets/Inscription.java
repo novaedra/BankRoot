@@ -1,10 +1,9 @@
 package webappli.servlets;
 
-import webappli.models.AdminModel;
+import webappli.models.Admins;
 import webappli.utils.BCrypt;
 import webappli.utils.Database;
 
-import javax.resource.spi.AdministeredObject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,10 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 
 @WebServlet(name = "Inscription", urlPatterns = "/Inscription")
 public class Inscription extends HttpServlet {
@@ -32,16 +27,16 @@ public class Inscription extends HttpServlet {
         String hash = BCrypt.hashpw(password, BCrypt.gensalt(12));
 
         System.out.println("[DB] Try to insert new Admin");
-        AdminModel _newAdmin = new AdminModel();
+        Admins _newAdmin = new Admins();
         _newAdmin.setNom(nom);
         _newAdmin.setPrenom(prenom);
         _newAdmin.setIdent(ident);
-        _newAdmin.setMailPro(mail);
+        _newAdmin.setMail(mail);
         _newAdmin.setTelephone(telephone);
         _newAdmin.setBirthday(birthday);
         _newAdmin.setAdresse(adresse);
         _newAdmin.setPassword(hash);
-        Integer id = Database.insert(_newAdmin);
+        Database.insert(_newAdmin);
 
         request.setAttribute("nom", nom);
         request.setAttribute("prenom", prenom);
