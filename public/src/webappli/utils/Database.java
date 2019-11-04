@@ -7,25 +7,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Database {
-    private static Connection dbConnection = null;
+    private static Connection dbConnection;
     private static String database = "postgres";
     private static String user = "postgres";
     private static String password = "root";
+    private static String url = "jbdc:postgresql://localhost:5432";
 
-    private static void connect() {
+    public static void connect() {
         if (dbConnection == null) {
             System.out.println("[DB] Entering Database Connect.");
             try {
                 Class.forName("org.postgresql.Driver");
                 System.out.println("[DB] Driver OK.");
-                dbConnection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/" + database, user, password);
+                dbConnection = DriverManager.getConnection(url + database, user, password);
             } catch (Exception e) {
                 System.out.println(e);
             }
         }
     }
 
-    private static void close() {
+    public static void close() {
         if (dbConnection != null) {
             System.out.println("[DB] Closing database connection.");
             try {
@@ -198,5 +199,22 @@ public class Database {
         close();
 
         System.out.println("[DB] Databse closing");
+    }
+
+    public static void updateId(BaseModelORM _object, Integer id) {
+        System.out.println("[DB] Entering UpdateId");
+        connect();
+
+        if (dbConnection != null) {
+            System.out.println("[DB] Got Connection.");
+            PreparedStatement _updateIdQuery = _object.getUpdateIdQuery(dbConnection, id);
+            try {
+                _updateIdQuery.execute();
+                System.out.println("[DB] Update done.");
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        close();
     }
 }

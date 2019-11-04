@@ -18,19 +18,10 @@ import java.util.List;
 @WebServlet(name = "Login", urlPatterns = "/Login")
 public class Login extends HttpServlet {
 
-    private Admins getAdmin() {
-        Admins authAdmin = new Admins();
-        authAdmin.setMail("");
-        authAdmin.setTwoFactorKey("");
-        authAdmin.setId(1);
-
-        return authAdmin;
-
-    }
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Admins admins = new Admins();
         List<String> adminMail = new ArrayList<>();
+
         ArrayList<String> fields = new ArrayList<>();
         fields.add("*");
 
