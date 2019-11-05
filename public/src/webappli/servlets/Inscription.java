@@ -40,7 +40,6 @@ public class Inscription extends HttpServlet {
         request.setAttribute("telephone", telephone);
         request.setAttribute("birthday", birthday);
         request.setAttribute("password", hash);
-        RequestDispatcher view = request.getRequestDispatcher("viewInscription.jsp");
-        view.forward(request, response);
+        request.getRequestDispatcher("viewInscription.jsp").forward(request, response);
     }
 }

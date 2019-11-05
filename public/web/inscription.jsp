@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="includes/head.jsp" %>
+<%@include file="includes/session.jsp" %>
+
 <form class="justify-content-center" method="post" action="Inscription">
     <div class="form-row mb-4">
         <div class="">

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class Login extends HttpServlet {
             mail = "'" + mail + "'";
             filters.add(Filtre.add("=", "mail", mail));
             List<Admins> selMdp = Database.select(admins, fields, filters);
-            String password = "";
+            String password = "?";
             for (Admins adminMdp : selMdp) {
                 password = adminMdp.getPassword();
             }
@@ -49,9 +50,13 @@ public class Login extends HttpServlet {
                 System.out.println("Connexion refusée.");
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             }
-            HttpSession session = request.getSession();
+//            HttpSession session = request.getSession();
+//            session.setAttribute("mail", mail);
+//            request.getRequestDispatcher("session.jsp").forward(request, response);
+            HttpSession session = request.getSession(true);
             session.setAttribute("mail", mail);
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            session.setMaxInactiveInterval(300);
+            response.sendRedirect("index.jsp");
 
         } else {
             System.out.println("Connexion refusée.");
