@@ -8,10 +8,10 @@ import java.util.List;
 
 public class Database {
     private static Connection dbConnection;
-    private static String database = "postgres";
+    private static String database = "bankroot";
     private static String user = "postgres";
-    private static String password = "root";
-    private static String url = "jbdc:postgresql://localhost:5432";
+    private static String password = "rootroot";
+    private static String url = "jdbc:postgresql://localhost:5432/";
 
     public static void connect() {
         if (dbConnection == null) {

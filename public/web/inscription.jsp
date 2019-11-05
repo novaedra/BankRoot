@@ -8,9 +8,6 @@
         <div class="">
             <input class="form-control" type="text" name="prenom" placeholder="Prénom">
         </div>
-        <div>
-            <input class="form-control" type="text" name="ident" placeholder="Identifiant">
-        </div>
         <div class="">
             <input class="form-control" type="text" name="mail" placeholder="Adresse Mail">
         </div>
@@ -19,9 +16,6 @@
         </div>
         <div>
             <input class="form-control" type="date" name="birthday" placeholder="Date de naissance">
-        </div>
-        <div>
-            <input class="form-control" type="text" name="adresse" placeholder="Adresse">
         </div>
         <div class="">
             <input class="form-control" type="password" name="password" placeholder="Mot de Passe">
