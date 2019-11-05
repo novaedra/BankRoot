@@ -15,9 +15,9 @@
     .st3{fill:#BB7F52;}
     .st4{fill:#FFFFFF;stroke:#603813;stroke-width:2;stroke-miterlimit:10;}
     .st5{fill:#42210B;stroke:#42210B;stroke-width:2;stroke-miterlimit:10;}
-    .st6{fill:#FF7BAC;stroke:#42210B;stroke-width:2;stroke-miterlimit:10;}
+    .st6{fill:#176734;}
     .st7{opacity:0.33;}
-    .st8{fill:#FFE6F0;}
+    .st8{fill:lightgreen;}
 </style>
     <g id="groot">
         <g id="body">
@@ -134,5 +134,6 @@
         </g>
     </g>
 </svg>
+<h2>404 - la ressource que vous recherchez n'existe pas ou a été effacée</h2>
 </body>
 </html>
