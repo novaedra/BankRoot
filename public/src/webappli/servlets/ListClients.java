@@ -7,14 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Mail")
-public class Mail extends HttpServlet {
+@WebServlet(name = "ListClients", urlPatterns = "/ListClients")
+public class ListClients extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       // SendMail.sendMail();
-        response.sendRedirect("index.jsp");
+
+
     }
 }
