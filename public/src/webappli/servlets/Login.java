@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,9 +44,17 @@ public class Login extends HttpServlet {
             }
             if (BCrypt.checkpw(request.getParameter("password"), password)) {
                 System.out.println("Connexion OK.");
+
             } else {
                 System.out.println("Connexion refusée.");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
             }
+            HttpSession session = request.getSession();
+            session.setAttribute("mail", mail);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+
+        } else {
+            System.out.println("Connexion refusée.");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }

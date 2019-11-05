@@ -24,7 +24,7 @@ public class Inscription extends HttpServlet {
         String password = request.getParameter("password");
         String hash = BCrypt.hashpw(password, BCrypt.gensalt(12));
 
-        System.out.println("[DB] Try to insert new Admin");
+        System.out.println("[DB] Try to insert a new Admin");
         Admins _newAdmin = new Admins();
         _newAdmin.setNom(nom);
         _newAdmin.setPrenom(prenom);
