@@ -12,7 +12,8 @@
     String adresse = (String) request.getAttribute("adresse");
     String password = (String) request.getAttribute("password");
 %>
-<div class="text-center">
+<div class="liste">
+    <img src="assets/img/BankRoot.svg" alt="logo bankroot"><br/>
     <ul>
         <li>Nom : <%= nom %>
         </li>

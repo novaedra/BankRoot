@@ -1,5 +1,6 @@
 :root {
     --custom-color: #176734;
+    --blanc: rgb(250, 250, 250);
 }
 
 * {
@@ -14,10 +15,11 @@ html, body {
 }
 
 body {
-    text-align: center;
-    background-image: url(../img/root.jpg);
-    background-repeat: no-repeat;
+    min-height: 95vh;
+    min-width: 95vw;
+    background: #333 url(../img/root.jpg) no-repeat fixed;
     background-size: cover;
+    text-align: center;
 }
 
 body::-webkit-scrollbar {
@@ -26,29 +28,30 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar-thumb {
     background-color: var(--custom-color);
-    border-radius: 15px;
 }
 
 form {
     margin: 50px auto;
     background-color: var(--custom-color);
-    padding: 50px 25px 60px;
     width: 60%;
+    min-width: 400px;
+    padding-bottom: 20px;
 }
 
-form img{
+form img {
     width: 20%;
+    padding: 0;
+    margin: 10px auto
 }
 
 input {
-    width: 50%;
+    width: 65%;
     min-width: 150px;
-    height: 45px;
-    min-height: 45px;
+    height: 50px;
+    min-height: 3vh;
     outline: none;
     border: 1px solid #ddd;
     padding: 0 10px;
-    border-radius: 5px;
     color: #333;
     font-size: 1em;
     margin: 10px 0;
@@ -56,20 +59,20 @@ input {
 }
 
 input:focus {
-     border-radius: 0;
     border: 1px solid black;
     transition: 0.25s;
- }
+}
 
 button[type="submit"] {
     width: 50%;
     min-width: 150px;
-    height: 45px;
+    height: 50px;
+    min-height: 3vh;
     outline: none;
     border: 1px solid white;
     padding: 0 10px;
     font-size: 1em;
-    margin: 10px 0;
+    margin: 20px auto 10px auto;
     cursor: pointer;
     background-color: var(--custom-color);
     color: white;
@@ -83,66 +86,228 @@ button[type="submit"]:hover {
     color: var(--custom-color);
 }
 
-nav {
-    width:100%;
+.liste {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    width: 60%;
+    min-width: 400px;
+    padding: 25px;
+    margin: 25px auto;
+    background-color: var(--blanc);
+    border-top-right-radius: 15%;
+    border-bottom-left-radius: 15%;
 }
 
-#menu-accordeon {
+.liste ul {
+    list-style: none;
+    padding: 20px;
+    width: 75%;
+    margin: 10px auto;
+    border-top: 1px solid var(--custom-color);
+    border-bottom: 1px solid var(--custom-color);
+    text-align: left;
+}
+
+.liste img {
+    width: 20%;
+    margin: 10px;
+}
+
+.liste ul li {
+    color: var(--custom-color);
+    font-size: 1.5em;
+    margin: 1px;
+    line-height: 1.5em;
+    width: 100%;
+}
+
+/*=============================================================*/
+/*css menu liste client dashboard*/
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    min-width: 250px;
+}
+
+.dropdown {
+    float: left;
+    position: relative;
+    display: inline-block;
+}
+
+#dropdown-content {
+    left: 0;
+    display: none;
     position: absolute;
-    top: 2vh;
-    right: 2vw;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    text-align: center;
-    width: 200px;
-    transform: translate3d(-5vh, 2vh, 0);
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 250px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
 }
 
-#menu-accordeon ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    text-align: center;
-}
-
-#menu-accordeon li {
-    background-color: var(--custom-color);
-    border: solid 1px #333A40
-}
-
-#menu-accordeon li li {
-    max-height: 0;
-    overflow: hidden;
-    transition: 1s;
-    background: #444;
-    border: none;
-}
-
-#menu-accordeon a {
-    display: block;
+#dropdown-content a {
+    color: black;
+    padding: 12px 16px;
     text-decoration: none;
-    color: #fff;
-    padding: 8px 0;
-    font-size: 1.2em
+    display: block;
+    border-bottom: 1px solid black;
+    cursor: pointer;
 }
 
-#menu-accordeon ul li a, #menu-accordeon li:hover li a {
-    font-size: 1em
+#dropdown-content a:hover {
+    background-color: #f1f1f1;
 }
 
-#menu-accordeon li:hover {
-    background: #729EBF
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
 }
 
-#menu-accordeon li li:hover {
-    background: #999;
+.dropbtn img {
+    width: 5%;
 }
 
-#menu-accordeon ul li:last-child {
-    border: none;
+/*=============================================================*/
+/*css masquer étiquette produit*/
+
+*[id^="client"] {
+    margin-top: 100px;
+    border-radius: 0;
+    display: none;
 }
 
-#menu-accordeon li:hover li {
-    max-height: 15em;
+*[id^="client"] button {
+    border: black;
+    color: white;
+    padding: 10px 15px;
+    background-color: var(--custom-color);
+    cursor: pointer;
+}
+
+/*=============================================================*/
+/*css navbar*/
+
+nav {
+    width: 100%;
+}
+
+#navbar {
+    margin: 0;
+    padding: 0;
+}
+
+#navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    overflow: hidden;
+    background-color: var(--custom-color);
+    text-align: center;
+}
+
+#navbar li {
+    display: inline-block;
+    margin: 0 20px;
+    min-width: 150px;
+}
+
+#navbar li a {
+    width: 100%;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: .5s;
+}
+
+#navbar li a:hover:not(.active) {
+    text-decoration: underline;
+    background-color: var(--blanc);
+    color: var(--custom-color);
+    transition: .75s;
+}
+
+#navbar img {
+    width: 20px;
+    float: right;
+}
+
+#navbar .active {
+    background-color: var(--blanc);
+    color: var(--custom-color);
+}
+
+/*=============================================================*/
+/*css responsive mobile*/
+
+@media screen and (max-width: 640px) {
+
+    .menuClient li {
+        width: 95%;
+    }
+
+    .menuClient ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    *[id^="client"] {
+        width: 95%;
+        padding: 5px;
+    }
+}
+
+/*=============================================================*/
+/*css input date*/
+
+input[type="date"] {
+    position: relative;
+    font-size: 1rem;
+    font-family: monospace;
+    border-radius: 0.25rem;
+    background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='22' viewBox='0 0 20 22'%3E%3Cg fill='none' fill-rule='evenodd' stroke='%23688EBB' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' transform='translate(1 1)'%3E%3Crect width='18' height='18' y='2' rx='2'/%3E%3Cpath d='M13 0L13 4M5 0L5 4M0 8L18 8'/%3E%3C/g%3E%3C/svg%3E") right 1rem center no-repeat;
+
+    cursor: pointer;
+}
+
+input[type="date"]:focus {
+    outline: none;
+    border-color: black;
+    box-shadow: 0 0 0 0.25rem rgba(0, 120, 250, 0.1);
+}
+
+::-webkit-datetime-edit-text {
+    opacity: 0;
+}
+
+::-webkit-clear-button,
+::-webkit-inner-spin-button {
+    display: none;
+}
+
+::-webkit-calendar-picker-indicator {
+    position: absolute;
+    width: 2.5rem;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    cursor: pointer;
+    color: var(--custom-color);
+    background: var(--custom-color);
+
+}
+
+input[type="date"]:hover::-webkit-calendar-picker-indicator {
+    opacity: 0.05;
+}
+
+input[type="date"]:hover::-webkit-calendar-picker-indicator:hover {
+    opacity: 0.15;
 }
