@@ -5,11 +5,11 @@ public class Admins extends BaseModelORM {
     private String nom;
     private String prenom;
     private String password;
-//    private String twoFactorKey;
+    //    private String twoFactorKey;
     private String birthday;
     private String mail;
     private String telephone;
-//    private Boolean supAdmin;
+    private Integer supAdmin;
     private String tableName;
 
     public Integer getId() {
@@ -22,6 +22,7 @@ public class Admins extends BaseModelORM {
     }
 
     public Admins setNom(String nom) {
+
         this.nom = nom;
 
         return this;
@@ -81,15 +82,15 @@ public class Admins extends BaseModelORM {
         this.telephone = telephone;
         return this;
     }
-//
-//    public Boolean getSupAdmin() {
-//        return supAdmin;
-//    }
-//
-//    public Admins setSupAdmin(Boolean supAdmin) {
-//        this.supAdmin = supAdmin;
-//        return this;
-//    }
+
+    public Integer getSupAdmin() {
+        return supAdmin;
+    }
+
+    public Admins setSupAdmin(Integer supAdmin) {
+        this.supAdmin = supAdmin;
+        return this;
+    }
 
     @Override
     public String getTableName() {

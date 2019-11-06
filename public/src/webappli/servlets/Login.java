@@ -35,7 +35,6 @@ public class Login extends HttpServlet {
             adminMail.add(admin.getMail());
         }
         if (adminMail.contains(mail)) {
-            System.out.println("");
             mail = "'" + mail + "'";
             filters.add(Filtre.add("=", "mail", mail));
             List<Admins> selMdp = Database.select(admins, fields, filters);
@@ -50,9 +49,6 @@ public class Login extends HttpServlet {
                 System.out.println("Connexion refusée.");
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             }
-//            HttpSession session = request.getSession();
-//            session.setAttribute("mail", mail);
-//            request.getRequestDispatcher("session.jsp").forward(request, response);
             HttpSession session = request.getSession(true);
             session.setAttribute("mail", mail);
             session.setMaxInactiveInterval(300);
