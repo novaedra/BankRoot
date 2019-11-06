@@ -26,7 +26,8 @@
     </tr>
     </tbody>
     <%
-        }} else {
+            }} else {
+
             out.println("Vous ne disposez pas des droits nécessaires pour obtenir ces informations.");
         }
     %>
