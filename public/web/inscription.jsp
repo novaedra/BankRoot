@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="includes/head.jsp" %>
-<form class="justify-content-center" method="post" action="Inscription">
+<form method="post" action="Inscription">
     <img src="assets/img/BankRoot.svg" alt="logo bankroot"><br/>
     <input class="form-control" type="text" name="nom" placeholder="Nom">
     <input class="form-control" type="text" name="prenom" placeholder="Prénom">

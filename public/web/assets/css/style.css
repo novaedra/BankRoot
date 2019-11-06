@@ -90,7 +90,7 @@ button[type="submit"]:hover {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     width: 60%;
     min-width: 400px;
-    padding: 25px;
+    padding: 30px;
     margin: 25px auto;
     background-color: var(--blanc);
     border-top-right-radius: 15%;
@@ -100,10 +100,10 @@ button[type="submit"]:hover {
 .liste ul {
     list-style: none;
     padding: 20px;
-    width: 75%;
+    width: 95%;
     margin: 10px auto;
-    border-top: 1px solid var(--custom-color);
-    border-bottom: 1px solid var(--custom-color);
+    border-right: 1px solid var(--custom-color);
+    border-left: 1px solid var(--custom-color);
     text-align: left;
 }
 
@@ -115,13 +115,17 @@ button[type="submit"]:hover {
 .liste ul li {
     color: var(--custom-color);
     font-size: 1.5em;
-    margin: 1px;
-    line-height: 1.5em;
+    margin: 15px auto;
+    padding: 10px;
     width: 100%;
 }
 
 /*=============================================================*/
 /*css menu liste client dashboard*/
+
+#menuDeroulant {
+    transition: .75s ease-out;
+}
 
 .dropbtn {
     background-color: #4CAF50;
@@ -150,42 +154,50 @@ button[type="submit"]:hover {
     z-index: 1;
 }
 
-#dropdown-content a {
+.btnClient {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    border-bottom: 1px solid black;
     cursor: pointer;
 }
 
-#dropdown-content a:hover {
-    background-color: #f1f1f1;
+.btnClient.active {
+    background-color: #41AC53;
+    color: white;
 }
 
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+#dropdown-content a:hover {
+    background-color: #41AC53;
+    color: white;
+    transform: scale(1.1);
 }
 
 .dropbtn img {
-    width: 5%;
+    width: 10%;
 }
 
 /*=============================================================*/
 /*css masquer étiquette produit*/
 
 *[id^="client"] {
+    width: 70%;
+    float: right;
     margin-top: 100px;
-    border-radius: 0;
+    margin-right: 30px;
     display: none;
+    padding: 0;
+    border-radius: 25px;
 }
 
 *[id^="client"] button {
     border: black;
     color: white;
-    padding: 10px 15px;
+    padding: 20px 30px;
+    margin-bottom: 15px;
     background-color: var(--custom-color);
     cursor: pointer;
+    border-radius: 5px;
 }
 
 /*=============================================================*/
@@ -225,41 +237,13 @@ nav {
     transition: .5s;
 }
 
-#navbar li a:hover:not(.active) {
-    text-decoration: underline;
-    background-color: var(--blanc);
-    color: var(--custom-color);
-    transition: .75s;
-}
-
 #navbar img {
     width: 20px;
     float: right;
 }
 
-#navbar .active {
-    background-color: var(--blanc);
-    color: var(--custom-color);
-}
-
-/*=============================================================*/
-/*css responsive mobile*/
-
-@media screen and (max-width: 640px) {
-
-    .menuClient li {
-        width: 95%;
-    }
-
-    .menuClient ul {
-        padding: 0;
-        margin: 0;
-    }
-
-    *[id^="client"] {
-        width: 95%;
-        padding: 5px;
-    }
+#navbar li:hover {
+    background-color: #378c45;
 }
 
 /*=============================================================*/
@@ -310,4 +294,30 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator {
 
 input[type="date"]:hover::-webkit-calendar-picker-indicator:hover {
     opacity: 0.15;
+}
+
+/*=============================================================*/
+/*css responsive mobile*/
+
+@media screen and (max-width: 640px) {
+
+    .menuClient li {
+        width: 95%;
+    }
+
+    .menuClient ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    *[id^="client"] {
+        width: 100%;
+        padding: 10px;
+        position: relative;
+        margin: 100px auto 0 auto;
+    }
+
+    input {
+        width: 80%;
+    }
 }

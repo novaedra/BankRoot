@@ -15,28 +15,28 @@
 %>
 
 <div class="dropdown">
-    <button onclick="showClientList()" class="dropbtn">liste des clients<br/><img id="menuDeroulant" alt="icône menu déroulant" src="assets/img/menu_dropdown.svg"/></button>
+    <button onclick="showClientList()" class="dropbtn"><img id="menuDeroulant" alt="icône menu déroulant" src="assets/img/menu_dropdown.svg"/></button>
     <div id="dropdown-content" style="display: none;">
-        <a onclick="showClientDetail('client1')">wwwwwwwwwwwwwwwwwww Léo</a>
-        <a onclick="showClientDetail('client2')">Client 2</a>
-        <a onclick="showClientDetail('client3')">Client 3</a>
-        <a onclick="showClientDetail('client4')">Client 4</a>
-        <a onclick="showClientDetail('client5')">Client 5</a>
-        <a onclick="showClientDetail('client6')">Client 6</a>
-        <a onclick="showClientDetail('client7')">Client 7</a>
-        <a onclick="showClientDetail('client8')">Client 8</a>
-        <a onclick="showClientDetail('client9')">Client 9</a>
-        <a onclick="showClientDetail('client10')">Client 10</a>
-        <a onclick="showClientDetail('client11')">Client 11</a>
-        <a onclick="showClientDetail('client12')">Client 12</a>
-        <a onclick="showClientDetail('client13')">Client 13</a>
-        <a onclick="showClientDetail('client14')">Client 14</a>
-        <a onclick="showClientDetail('client15')">Client 15</a>
-        <a onclick="showClientDetail('client10')">Client 16</a>
-        <a onclick="showClientDetail('client11')">Client 17</a>
-        <a onclick="showClientDetail('client12')">Client 18</a>
-        <a onclick="showClientDetail('client13')">Client 19</a>
-        <a onclick="showClientDetail('client14')">Client 20</a>
+        <a class="btnClient" onclick="showClientDetail('client1')">wwwwwwwwwwwwwwwwwww Léo</a>
+        <a class="btnClient" onclick="showClientDetail('client2')">Client 2</a>
+        <a class="btnClient" onclick="showClientDetail('client3')">Client 3</a>
+        <a class="btnClient" onclick="showClientDetail('client4')">Client 4</a>
+        <a class="btnClient" onclick="showClientDetail('client5')">Client 5</a>
+        <a class="btnClient" onclick="showClientDetail('client6')">Client 6</a>
+        <a class="btnClient" onclick="showClientDetail('client7')">Client 7</a>
+        <a class="btnClient" onclick="showClientDetail('client8')">Client 8</a>
+        <a class="btnClient" onclick="showClientDetail('client9')">Client 9</a>
+        <a class="btnClient" onclick="showClientDetail('client10')">Client 10</a>
+        <a class="btnClient" onclick="showClientDetail('client11')">Client 11</a>
+        <a class="btnClient" onclick="showClientDetail('client12')">Client 12</a>
+        <a class="btnClient" onclick="showClientDetail('client13')">Client 13</a>
+        <a class="btnClient" onclick="showClientDetail('client14')">Client 14</a>
+        <a class="btnClient" onclick="showClientDetail('client15')">Client 15</a>
+        <a class="btnClient" onclick="showClientDetail('client10')">Client 16</a>
+        <a class="btnClient" onclick="showClientDetail('client11')">Client 17</a>
+        <a class="btnClient" onclick="showClientDetail('client12')">Client 18</a>
+        <a class="btnClient" onclick="showClientDetail('client13')">Client 19</a>
+        <a class="btnClient" onclick="showClientDetail('client14')">Client 20</a>
     </div>
 </div>
 
