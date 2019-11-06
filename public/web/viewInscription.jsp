@@ -1,10 +1,7 @@
-<%@ page import="java.sql.Date" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Vue Inscription</title>
-</head>
-<body>
+<%@include file="includes/head.jsp" %>
+<%@include file="includes/navbar.jsp" %>
+<%@include file="includes/session.jsp" %>
 <%
     String nom = (String) request.getAttribute("nom");
     String prenom = (String) request.getAttribute("prenom");
@@ -13,13 +10,13 @@
     String birthday = (String) request.getAttribute("birthday");
     String password = (String) request.getAttribute("password");
 %>
-<div class="text-center">
+<div class="liste">
+    <img src="assets/img/BankRoot.svg" alt="logo bankroot"><br/>
     <ul>
         <li>Nom : <%= nom %>
         </li>
         <li>Prénom : <%= prenom %>
         </li>
-
         <li>Mail : <%= mail %>
         </li>
         <li>Téléphone : <%= telephone %>
@@ -30,5 +27,4 @@
         </li>
     </ul>
 </div>
-</body>
-</html>
+<%@include file="includes/footer.jsp" %>
