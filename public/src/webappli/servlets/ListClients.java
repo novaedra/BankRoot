@@ -55,7 +55,7 @@ public class ListClients extends HttpServlet {
 //
 //            }
 //            request.setAttribute("result", result);
-//            RequestDispatcher view = request.getRequestDispatcher("listeclients.jsp");
+//            RequestDispatcher view = request.getRequestDispatcher("liste.jsp");
 //            view.forward(request, response);
 //        } catch (Exception e) {
 //            e.printStackTrace();
