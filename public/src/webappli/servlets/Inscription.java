@@ -23,16 +23,10 @@ public class Inscription extends HttpServlet {
         String mail = request.getParameter("mail");
         String telephone = request.getParameter("telephone");
         String birthday = request.getParameter("birthday");
-        Integer supAdmin = Integer.getInteger(request.getParameter("supAdmin"));
+        String role = request.getParameter("role");
         String password = request.getParameter("password");
         String hash = BCrypt.hashpw(password, BCrypt.gensalt(12));
         System.out.println("[DB] Try to insert a new Admin");
-
-        try {
-
-        } catch (Exception e) {
-
-        }
 
 
         Admins _newAdmin = new Admins()
@@ -41,7 +35,7 @@ public class Inscription extends HttpServlet {
                 .setMail(mail)
                 .setTelephone(telephone)
                 .setBirthday(birthday)
-                .setSupAdmin(supAdmin)
+                .setRole(role)
                 .setPassword(hash);
         Database.insert(_newAdmin);
 
@@ -50,9 +44,13 @@ public class Inscription extends HttpServlet {
         request.setAttribute("mail", mail);
         request.setAttribute("telephone", telephone);
         request.setAttribute("birthday", birthday);
-        request.setAttribute("supAdmin", supAdmin);
+        request.setAttribute("role", role);
         request.setAttribute("password", hash);
         request.getRequestDispatcher("viewInscription.jsp").forward(request, response);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     }
 
 }

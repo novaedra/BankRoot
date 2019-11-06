@@ -1,6 +1,7 @@
 <%@ page import="java.sql.Date" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="includes/head.jsp" %>
+<%@include file="includes/session.jsp" %>
 <%@include file="includes/navbar.jsp" %>
 <%
     String nom = (String) request.getAttribute("nom");
@@ -15,7 +16,8 @@
 %>
 
 <div class="dropdown">
-    <button onclick="showClientList()" class="dropbtn"><img id="menuDeroulant" alt="icône menu déroulant" src="assets/img/menu_dropdown.svg"/></button>
+    <button onclick="showClientList()" class="dropbtn"><img id="menuDeroulant" alt="icône menu déroulant"
+                                                            src="assets/img/menu_dropdown.svg"/></button>
     <div id="dropdown-content" style="display: none;">
         <a class="btnClient" onclick="showClientDetail('client1')">wwwwwwwwwwwwwwwwwww Léo</a>
         <a class="btnClient" onclick="showClientDetail('client2')">Client 2</a>

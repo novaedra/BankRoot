@@ -7,8 +7,6 @@
 <%
     List<Admins> admins = (List<Admins>) request.getAttribute("resultat");
 %>
-
-<% System.out.println(admins); %>
 <table>
     <%
         if (admins != null) {

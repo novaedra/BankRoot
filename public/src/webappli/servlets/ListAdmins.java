@@ -22,8 +22,6 @@ public class ListAdmins extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
         Admins admins = new Admins();
         ArrayList f = new ArrayList();
 
@@ -33,30 +31,7 @@ public class ListAdmins extends HttpServlet {
         System.out.println(admins);
         System.out.println(resultat);
         request.setAttribute("resultat", resultat);
-        request.getRequestDispatcher("liste.jsp").forward(request, response);
-
-
-
-//        Admins admins = new Admins();
-//        ArrayList<String> fields = new ArrayList<>();
-//        ArrayList filtre = new ArrayList();
-//
-//
-//
-//        filtre.add(Filtre.add("=", "nom", ""));
-//        filtre.add(Filtre.add("=", "prenom", ""));
-//        filtre.add(Filtre.add("=", "mail", ""));
-//        System.out.println(filtre);
-//        System.out.println(fields);
-//        System.out.println(admins);
-//        fields.add("nom");
-//        fields.add("prenom");
-//        fields.add("mail");
-//
-//        List resultat = Database.select(admins, fields, filtre);
-//        System.out.println(resultat);
-//        request.setAttribute("resultat", resultat);
-//        request.getRequestDispatcher("liste.jsp").forward(request, response);
+        request.getRequestDispatcher("listeAdmins.jsp").forward(request, response);
 
     }
 }

@@ -1,23 +1,65 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="includes/session.jsp" %>
 <html>
 <head>
     <title>404</title>
-    <link rel="icon" type="image/png" href="assets/img/favicon_BankRoot.png" />
+    <link rel="icon" type="image/png" href="assets/img/favicon_BankRoot.png"/>
     <link rel="stylesheet" href="assets/css/404.css">
 </head>
 <body>
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
      viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
 <style type="text/css">
-    .st0{fill:#39B54A;stroke:#42210B;stroke-width:2;stroke-miterlimit:10;}
-    .st1{fill:#39B54A;stroke:#603813;stroke-width:2;stroke-miterlimit:10;}
-    .st2{fill:#BB7F52;stroke:#42210B;stroke-width:2;stroke-miterlimit:10;}
-    .st3{fill:#BB7F52;}
-    .st4{fill:#FFFFFF;stroke:#603813;stroke-width:2;stroke-miterlimit:10;}
-    .st5{fill:#42210B;stroke:#42210B;stroke-width:2;stroke-miterlimit:10;}
-    .st6{fill:#176734;}
-    .st7{opacity:0.33;}
-    .st8{fill:lightgreen;}
+    .st0 {
+        fill: #39B54A;
+        stroke: #42210B;
+        stroke-width: 2;
+        stroke-miterlimit: 10;
+    }
+
+    .st1 {
+        fill: #39B54A;
+        stroke: #603813;
+        stroke-width: 2;
+        stroke-miterlimit: 10;
+    }
+
+    .st2 {
+        fill: #BB7F52;
+        stroke: #42210B;
+        stroke-width: 2;
+        stroke-miterlimit: 10;
+    }
+
+    .st3 {
+        fill: #BB7F52;
+    }
+
+    .st4 {
+        fill: #FFFFFF;
+        stroke: #603813;
+        stroke-width: 2;
+        stroke-miterlimit: 10;
+    }
+
+    .st5 {
+        fill: #42210B;
+        stroke: #42210B;
+        stroke-width: 2;
+        stroke-miterlimit: 10;
+    }
+
+    .st6 {
+        fill: #176734;
+    }
+
+    .st7 {
+        opacity: 0.33;
+    }
+
+    .st8 {
+        fill: lightgreen;
+    }
 </style>
     <g id="groot">
         <g id="body">
@@ -37,7 +79,8 @@
                 <path id="XMLID_23_" class="st1" d="M159.2,168.3"/>
                 <line id="XMLID_25_" class="st1" x1="162.9" y1="166.9" x2="171" y2="165.2"/>
             </g>
-            <path id="XMLID_5_" class="st2" d="M126.4,130.4c0,0,14.7,31.6,4.2,78.6H169c0,0-17.9-44.2-13.9-77.4L126.4,130.4z"/>
+            <path id="XMLID_5_" class="st2"
+                  d="M126.4,130.4c0,0,14.7,31.6,4.2,78.6H169c0,0-17.9-44.2-13.9-77.4L126.4,130.4z"/>
         </g>
         <g id="armRight">
             <g id="leaf4">
@@ -54,7 +97,8 @@
 			c-2.8-1.7-3.5-5.2-1.7-7.9v0c1.4-2.1,4-3,6.4-2.2l5.8,3c3.2,1.7,6.8,2.8,10.4,3.2L129.8,140.4z"/>
             <polygon id="XMLID_30_" class="st3" points="129,141.3 131.8,141.5 135.8,152.5 131.2,152 		"/>
             <g id="leaf9">
-                <path id="XMLID_34_" class="st0" d="M114.4,150.7c-1.9,8.1-8.9,8.9-8.9,8.9c-3.3-7.7,3.6-11.4,3.6-11.4L114.4,150.7z"/>
+                <path id="XMLID_34_" class="st0"
+                      d="M114.4,150.7c-1.9,8.1-8.9,8.9-8.9,8.9c-3.3-7.7,3.6-11.4,3.6-11.4L114.4,150.7z"/>
                 <line id="XMLID_35_" class="st0" x1="107.9" y1="155.7" x2="110" y2="152.6"/>
             </g>
             <g id="leaf8">

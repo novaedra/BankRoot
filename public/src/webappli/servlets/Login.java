@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -23,7 +24,6 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Admins admins = new Admins();
         List<String> adminMail = new ArrayList<>();
-
         ArrayList<String> fields = new ArrayList<>();
         fields.add("*");
 
@@ -49,10 +49,17 @@ public class Login extends HttpServlet {
                 System.out.println("Connexion refusée.");
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             }
+            List<Admins> selRole = Database.select(admins, fields, filters);
+            String role = "?";
+            for (Admins admins1 : selRole) {
+                role = admins1.getRole();
+                System.out.println(role);
+            }
             HttpSession session = request.getSession(true);
             session.setAttribute("mail", mail);
+            session.setAttribute("role", role);
             session.setMaxInactiveInterval(300);
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("dashboard.jsp");
 
         } else {
             System.out.println("Connexion refusée.");

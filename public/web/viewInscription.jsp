@@ -8,6 +8,7 @@
     String mail = (String) request.getAttribute("mail");
     String telephone = (String) request.getAttribute("telephone");
     String birthday = (String) request.getAttribute("birthday");
+    String role = (String) request.getAttribute("role");
     String password = (String) request.getAttribute("password");
 %>
 <div class="liste">
@@ -22,6 +23,8 @@
         <li>Téléphone : <%= telephone %>
         </li>
         <li>Date de naissance : <%= birthday %>
+        </li>
+        <li>Rôle : <%=role %>
         </li>
         <li>Mot de Passe : <%= password %>
         </li>
