@@ -7,7 +7,7 @@ public class Admins extends BaseModelORM {
     private String nom;
     private String prenom;
     private String password;
-    //    private String twoFactorKey;
+    private String twoFactorKey;
     private String birthday;
     private String mail;
     private String telephone;
@@ -49,14 +49,15 @@ public class Admins extends BaseModelORM {
         this.password = password;
         return this;
     }
-//
-//    public String getTwoFactorKey() {
-//        return twoFactorKey;
-//    }
-//
-//    public void setTwoFactorKey(String twoFactorKey) {
-//        this.twoFactorKey = twoFactorKey;
-//    }
+
+    public String getTwoFactorKey() {
+        return twoFactorKey;
+    }
+
+    public Admins setTwoFactorKey(String twoFactorKey) {
+        this.twoFactorKey = twoFactorKey;
+        return this;
+    }
 
 
     public String getBirthday() {
