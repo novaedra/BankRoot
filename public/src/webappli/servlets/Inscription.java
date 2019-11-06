@@ -28,6 +28,13 @@ public class Inscription extends HttpServlet {
         String hash = BCrypt.hashpw(password, BCrypt.gensalt(12));
         System.out.println("[DB] Try to insert a new Admin");
 
+        try {
+
+        } catch (Exception e) {
+
+        }
+
+
         Admins _newAdmin = new Admins()
                 .setNom(nom)
                 .setPrenom(prenom)
@@ -47,4 +54,5 @@ public class Inscription extends HttpServlet {
         request.setAttribute("password", hash);
         request.getRequestDispatcher("viewInscription.jsp").forward(request, response);
     }
+
 }
