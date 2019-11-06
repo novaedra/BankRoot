@@ -3,27 +3,30 @@ package webappli.utils;
 import webappli.models.BaseModelORM;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Database {
-    private static Connection dbConnection = null;
-    private static String database = "postgres";
+    private static Connection dbConnection;
+    private static String database = "bankroot";
     private static String user = "postgres";
     private static String password = "root";
+    private static String url = "jdbc:postgresql://localhost:5432/";
 
-    private static void connect() {
+    public static void connect() {
         if (dbConnection == null) {
             System.out.println("[DB] Entering Database Connect.");
             try {
                 Class.forName("org.postgresql.Driver");
                 System.out.println("[DB] Driver OK.");
-                dbConnection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/" + database, user, password);
+                dbConnection = DriverManager.getConnection(url + database, user, password);
             } catch (Exception e) {
                 System.out.println(e);
             }
         }
     }
 
-    private static void close() {
+    public static void close() {
         if (dbConnection != null) {
             System.out.println("[DB] Closing database connection.");
             try {
@@ -37,6 +40,7 @@ public class Database {
     }
 
     public static Integer insert(BaseModelORM _object) {
+
         Integer _newId = null;
 
         System.out.println("[DB] Entering INSERT.");
@@ -72,47 +76,11 @@ public class Database {
         System.out.println("[DB] Exiting INSERT.");
 
         return _newId;
+
     }
-
-    public static Integer select(BaseModelORM _object) {
-        Integer _newId = null;
-
-        System.out.println("[DB] Entering SELECT.");
-
-        connect();
-
-        if (dbConnection != null) {
-            System.out.println("[DB] Got connection. Preparing statement.");
-
-            PreparedStatement _selectQuery = _object.getSelectQuery(dbConnection);
-
-            try {
-                _selectQuery.executeUpdate();
-
-                System.out.println("[DB] Statement ran. Picking last inserted ID.");
-
-                // ... yeah. Bit strange, but works, so ...
-                ResultSet keys = _selectQuery.getGeneratedKeys();
-                keys.next();
-
-                _newId = keys.getInt(1);
-
-
-                _object.setId(_newId);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
-        close();
-
-        System.out.println("[DB] Exiting SELECT.");
-
-        return _newId;
-    }
-
 
     public static void update(BaseModelORM _object) {
+
         System.out.println("[DB] Entering UPDATE.");
 
         connect();
@@ -134,5 +102,119 @@ public class Database {
         close();
 
         System.out.println("[DB] Exiting UPDATE.");
+
+    }
+
+    public static List select(BaseModelORM _object, ArrayList<String> fields) {
+
+        System.out.println("[DB] Entering SELECT");
+
+        connect();
+
+        List resultat = new ArrayList<>();
+
+        if (dbConnection != null) {
+            System.out.println("[DB] Got connection , Preparing statement");
+
+            PreparedStatement _selectQuery = _object.getSelectQuery(dbConnection, fields);
+
+            try {
+
+                ResultSet rs = _selectQuery.executeQuery();
+
+                while (rs.next()) {
+                    BaseModelORM _newObject = (BaseModelORM) Class.forName(_object.getClass().getName()).newInstance();
+                    resultat.add(_newObject.populate(rs, fields));
+                }
+
+                System.out.println("[DB] Statement ran.");
+
+            } catch (Exception e) {
+
+                e.printStackTrace();
+            }
+
+            close();
+
+            System.out.println("[DB] Exiting Select");
+        }
+        return resultat;
+    }
+
+    public static List select(BaseModelORM _object, ArrayList<String> fields, ArrayList<String> filter) {
+
+        System.out.println("[DB] Entering SELECT");
+
+        connect();
+
+        List resultat = new ArrayList<>();
+
+        if (dbConnection != null) {
+            System.out.println("[DB] Got connection , Preparing statement");
+
+            PreparedStatement _selectQuery = _object.getSelectQuery(dbConnection, fields, filter);
+
+            try {
+
+                ResultSet rs = _selectQuery.executeQuery();
+
+                while (rs.next()) {
+                    BaseModelORM _newObject = (BaseModelORM) Class.forName(_object.getClass().getName()).newInstance();
+                    resultat.add(_newObject.populate(rs, fields));
+                }
+
+                System.out.println("[DB] Statement ran.");
+
+            } catch (Exception e) {
+
+                e.printStackTrace();
+            }
+
+            close();
+
+            System.out.println("[DB] Exiting Select");
+        }
+        return resultat;
+    }
+
+    public static void delete(BaseModelORM _object, Integer id) {
+
+        System.out.println("[DB] Entering DELETE");
+
+        connect();
+
+        if (dbConnection != null) {
+            System.out.println("[DB] Got to connection");
+
+            PreparedStatement _removeQuery = _object.getDeleteQuery(dbConnection, id);
+
+            try {
+                _removeQuery.execute();
+
+                System.out.println("[DB] Delete done.");
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
+        close();
+
+        System.out.println("[DB] Databse closing");
+    }
+
+    public static void updateId(BaseModelORM _object, Integer id) {
+        System.out.println("[DB] Entering UpdateId");
+        connect();
+
+        if (dbConnection != null) {
+            System.out.println("[DB] Got Connection.");
+            PreparedStatement _updateIdQuery = _object.getUpdateIdQuery(dbConnection, id);
+            try {
+                _updateIdQuery.execute();
+                System.out.println("[DB] Update done.");
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        close();
     }
 }
