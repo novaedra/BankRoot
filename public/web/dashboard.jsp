@@ -6,12 +6,10 @@
 <%
     String nom = (String) request.getAttribute("nom");
     String prenom = (String) request.getAttribute("prenom");
-    String ident = (String) request.getAttribute("ident");
     String mail = (String) request.getAttribute("mail");
     String telephone = (String) request.getAttribute("telephone");
     String birthday = (String) request.getAttribute("birthday");
     String adresse = (String) request.getAttribute("adresse");
-    String password = (String) request.getAttribute("password");
     String age = (String) request.getAttribute("age");
 %>
 

@@ -12,7 +12,7 @@ public class Mail {
 
         //Le compte google par lequel les messages sont envoyés :
         final String mail = "bankroot@gmail.com";
-        final String password = "mbnroakot&";
+        final String password = "mNb*n1roakFo$t&ls41Kza!";
 
         Properties prop = new Properties();
         prop.put("mail.smtp.host", "smtp.gmail.com");
@@ -36,7 +36,7 @@ public class Mail {
             String send_at = new SimpleDateFormat("ddmmyyyy_hh-mm-ss").format(new Date());
             message.setSubject("Nouvelle offre");
             message.setSentDate(new Date());
-            message.setText("Salut Michel," + "\n\n Une nouvelle offre pour toi !" );
+            message.setText("Salut Michel," + "\n\n Une nouvelle offre pour toi !");
 
             Transport.send(message);
 

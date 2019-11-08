@@ -1,6 +1,4 @@
-package webappli.servlets;
-
-import webappli.utils.Mail;
+package webappli.servlets.logs;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,14 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "SendMail", urlPatterns = "/sendMail")
-public class SendMail extends HttpServlet {
+@WebServlet(name = "UpdateStA")
+public class UpdateStA extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String mail = request.getParameter("mail");
-        Mail.sendMail(mail);
+
     }
 }
