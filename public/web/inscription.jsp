@@ -2,10 +2,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@include file="includes/head.jsp" %>
 <%@include file="includes/session.jsp" %>
-<%--<% if (session != null) {--%>
-<%--    if (session.getAttribute("role").equals("supAdmin")) {--%>
+<% if (session != null) {
+    if (session.getAttribute("role").equals("supAdmin")) {
 
-<%--%>--%>
+%>
 
 
 <form method="post" action="Inscription">
@@ -42,9 +42,9 @@
 
 </form>
 <%@include file="includes/footer.jsp" %>
-<%--<% } else {--%>
-<%--    response.sendRedirect("dashboard.jsp");--%>
-<%--}--%>
+<% } else {
+    response.sendRedirect("dashboard.jsp");
+}
 
-<%--}--%>
-<%--%>--%>
+}
+%>

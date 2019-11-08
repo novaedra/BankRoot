@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "Login", urlPatterns = "/Login")
-public class    Login extends HttpServlet {
+public class Login extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Admins admins = new Admins();
@@ -32,7 +32,7 @@ public class    Login extends HttpServlet {
         for (Admins admin : selMail) {
             adminMail.add(admin.getMail());
         }
-        if (adminMail.contains(mail)) {
+        if (adminMail.contains(mail) && mail.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
             mail = "'" + mail + "'";
             filters.add(Filtre.add("=", "mail", mail));
             List<Admins> selMdp = Database.select(admins, fields, filters);
@@ -51,10 +51,22 @@ public class    Login extends HttpServlet {
             String role = "?";
             for (Admins admins1 : selRole) {
                 role = admins1.getRole();
-                System.out.println(role);
+            }
+            List<Admins> selPrenom = Database.select(admins, fields, filters);
+            String prenom = "?";
+            for (Admins admins1 : selRole) {
+                prenom = admins1.getPrenom();
+
+            }
+            List<Admins> selNom = Database.select(admins, fields, filters);
+            String nom = "?";
+            for (Admins admins1 : selRole) {
+                nom = admins1.getNom();
             }
             HttpSession session = request.getSession(true);
             session.setAttribute("mail", mail);
+            session.setAttribute("prenom", prenom);
+            session.setAttribute("nom", nom);
             session.setAttribute("role", role);
             session.setMaxInactiveInterval(300);
             response.sendRedirect("dashboard.jsp");
