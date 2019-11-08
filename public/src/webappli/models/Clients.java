@@ -1,7 +1,5 @@
 package webappli.models;
 
-import webappli.utils.Database;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -25,8 +23,6 @@ public class Clients extends BaseModelORM {
     private String tableName;
     // Méthodes pour une lecture plus claire de l'âge et des situations pro et perso.
     private float age;
-    private String labelPro;
-    private String labelPerso;
 
 
     public Integer getId() {
@@ -163,54 +159,6 @@ public class Clients extends BaseModelORM {
     public Clients setAge(float age) {
         this.age = age;
         return this;
-    }
-
-//   // public String getStatusPro() {
-//        try {
-//
-//
-//            Connection connection = Database.connect();
-//            Statement statement = connection.createStatement();
-//            ResultSet data = statement.executeQuery("SELECT * FROM statusPro WHERE id='" + statusPro_id + "'");
-//
-//            while (data.next()) {
-//
-//                String labelPro = data.getString("label");
-//
-//                return labelPro;
-//            }
-//
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
-
-    public void setStatusPro(String labelPro) {
-        this.labelPro = labelPro;
-    }
-
-//    public String getStatusPerso() {
-//        try {
-//            Connection connection = Database.connect();
-//            Statement statement = connection.createStatement();
-//
-//            ResultSet data = statement.executeQuery("SELECT * FROM statusPerso WHERE id='" + statusPerso_id + "'");
-//
-//            while (data.next()) {
-//                String labelPerso = data.getString("label");
-//
-//                return labelPerso;
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
-
-    public void setStatusPerso(String labelPerso) {
-        this.labelPerso = labelPerso;
     }
 
     @Override

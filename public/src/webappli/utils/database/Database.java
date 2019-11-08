@@ -1,4 +1,4 @@
-package webappli.utils;
+package webappli.utils.database;
 
 import webappli.models.BaseModelORM;
 

@@ -1,10 +1,10 @@
-package webappli.servlets;
+package webappli.servlets.logs;
 
 
 import webappli.models.Admins;
-import webappli.utils.BCrypt;
-import webappli.utils.Database;
-import webappli.utils.Filtre;
+import webappli.utils.securite.BCrypt;
+import webappli.utils.database.Database;
+import webappli.utils.database.Filtre;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,9 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.xml.crypto.Data;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 

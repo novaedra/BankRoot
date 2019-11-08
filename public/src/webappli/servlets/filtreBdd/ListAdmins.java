@@ -1,17 +1,14 @@
-package webappli.servlets;
+package webappli.servlets.filtreBdd;
 
 import webappli.models.Admins;
-import webappli.utils.Database;
-import webappli.utils.Filtre;
+import webappli.utils.database.Database;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.*;
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 

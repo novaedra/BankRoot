@@ -1,17 +1,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@include file="includes/head.jsp" %>
 <%@include file="includes/session.jsp" %>
-
 <% if (session != null) {
-    String supAdmin = "supAdmin";
-    if (session.getAttribute("role") == supAdmin) {
+    if (session.getAttribute("role").equals("supAdmin")) {
+        System.out.println(session.getAttribute("role"));
 %>
+
 
 <form method="post" action="Inscription">
     <img src="assets/img/BankRoot.svg" alt="logo bankroot"><br/>
+
     <input class="form-control" type="text" name="nom" placeholder="Nom">
     <input class="form-control" type="text" name="prenom" placeholder="Prénom">
-    <input class="form-control" type="text" name="mail" placeholder="Adresse Mail">
+    <input class="form-control" type="text" name="mail" placeholder="Adresse Mail" value="<c:out value="${admins.mail}"/>">
+    <span>${form.erreurs['mail']}</span>
     <input class="form-control" type="text" name="telephone" placeholder="Téléphone">
     <input class="form-control" type="date" name="birthday" placeholder="Date de naissance">
     <label for="admin">Administrateur</label>
