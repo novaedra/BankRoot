@@ -1,15 +1,17 @@
 package webappli.models;
 
+import javax.validation.constraints.*;
+
 public class Admins extends BaseModelORM {
     private Integer id;
     private String nom;
     private String prenom;
     private String password;
-    //    private String twoFactorKey;
+    private String twoFactorKey;
     private String birthday;
     private String mail;
     private String telephone;
-    private Integer supAdmin;
+    private String role;
     private String tableName;
 
     public Integer getId() {
@@ -27,6 +29,7 @@ public class Admins extends BaseModelORM {
 
         return this;
     }
+
 
     public String getPrenom() {
         return prenom;
@@ -46,14 +49,16 @@ public class Admins extends BaseModelORM {
         this.password = password;
         return this;
     }
-//
-//    public String getTwoFactorKey() {
-//        return twoFactorKey;
-//    }
-//
-//    public void setTwoFactorKey(String twoFactorKey) {
-//        this.twoFactorKey = twoFactorKey;
-//    }
+
+    public String getTwoFactorKey() {
+        return twoFactorKey;
+    }
+
+    public Admins setTwoFactorKey(String twoFactorKey) {
+        this.twoFactorKey = twoFactorKey;
+        return this;
+    }
+
 
     public String getBirthday() {
         return birthday;
@@ -74,6 +79,7 @@ public class Admins extends BaseModelORM {
         return this;
     }
 
+
     public String getTelephone() {
         return telephone;
     }
@@ -83,12 +89,13 @@ public class Admins extends BaseModelORM {
         return this;
     }
 
-    public Integer getSupAdmin() {
-        return supAdmin;
+
+    public String getRole() {
+        return role;
     }
 
-    public Admins setSupAdmin(Integer supAdmin) {
-        this.supAdmin = supAdmin;
+    public Admins setRole(String supadmin) {
+        this.role = supadmin;
         return this;
     }
 
