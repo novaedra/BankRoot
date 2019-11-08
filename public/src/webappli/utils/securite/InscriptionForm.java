@@ -4,7 +4,9 @@ import webappli.models.Admins;
 import webappli.utils.database.Database;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public final class InscriptionForm {
@@ -106,9 +108,19 @@ public final class InscriptionForm {
     }
 
     private void validationMail(String mail) throws Exception {
+        Admins _adminCtrl = new Admins();
+        List<String> adminMail = new ArrayList<>();
+        ArrayList<String> fields = new ArrayList<>();
+        fields.add("*");
+        List<Admins> selMail = Database.select(_adminCtrl, fields);
+        for (Admins admin : selMail) {
+            adminMail.add(admin.getMail());
+        }
         if (mail != null) {
             if (!mail.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
                 throw new Exception("Merci de saisir une adresse mail valide.");
+            } else if (adminMail.contains(mail)) {
+                throw new Exception("Ce mail est déjà attribué à un compte Admin.");
             }
         } else {
             throw new Exception("Merci de saisir une adresse mail.");
@@ -116,8 +128,18 @@ public final class InscriptionForm {
     }
 
     private void validationTelehone(String telephone) throws Exception {
+        Admins _adminCtrl2 = new Admins();
+        List<String> adminTel = new ArrayList<>();
+        ArrayList<String> fields = new ArrayList<>();
+        fields.add("*");
+        List<Admins> selTel = Database.select(_adminCtrl2, fields);
+        for (Admins admin : selTel) {
+            adminTel.add(admin.getTelephone());
+        }
         if (telephone == null || telephone.length() < 9) {
             throw new Exception("Le téléphone doit contenir au moins 10 numéros.");
+        } else if(adminTel.contains(telephone)) {
+            throw new Exception("Ce téléphone est déjà attribué à un Admin.");
         }
     }
 
