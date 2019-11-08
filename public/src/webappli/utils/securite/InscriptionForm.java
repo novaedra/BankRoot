@@ -1,6 +1,7 @@
 package webappli.utils.securite;
 
 import webappli.models.Admins;
+import webappli.utils.database.Database;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -23,7 +24,7 @@ public final class InscriptionForm {
         return resultat;
     }
 
-    private Map<String, String> getErreurs() {
+    public Map<String, String> getErreurs() {
         return erreurs;
     }
 
@@ -37,6 +38,7 @@ public final class InscriptionForm {
         String role = getValeurChamp(request, champ_role);
         String password = getValeurChamp(request, champ_password);
         String confirmation = getValeurChamp(request, champ_confirmation);
+        String hash = BCrypt.hashpw(password, BCrypt.gensalt(12));
         Admins admins = new Admins();
         try {
             validationNom(nom);
@@ -60,6 +62,11 @@ public final class InscriptionForm {
             setErreur(champ_telephone, e.getMessage());
         }
         try {
+            validationRole(role);
+        } catch (Exception e) {
+            setErreur(champ_role, e.getMessage());
+        }
+        try {
             validationBirthday(birthday);
 
         } catch (Exception e) {
@@ -67,21 +74,33 @@ public final class InscriptionForm {
         }
         try {
             validationPassword(password, confirmation);
+
         } catch (Exception e) {
             setErreur(champ_password, e.getMessage());
             setErreur(champ_confirmation, null);
+        }
+
+        if (erreurs.isEmpty()) {
+            admins.setNom(nom);
+            admins.setPrenom(prenom);
+            admins.setMail(mail);
+            admins.setTelephone(telephone);
+            admins.setBirthday(birthday);
+            admins.setRole(role);
+            admins.setPassword(hash);
+            Database.insert(admins);
         }
         return admins;
     }
 
     private void validationNom(String nom) throws Exception {
-        if (nom != null && nom.length() < 3) {
+        if (nom == null || nom.length() < 3) {
             throw new Exception("Le nom d'utilisateur doit contenir au moins 3 caractères.");
         }
     }
 
     private void validationPrenom(String prenom) throws Exception {
-        if (prenom != null && prenom.length() < 3) {
+        if (prenom == null || prenom.length() < 3) {
             throw new Exception("Le Prénom d'utilisateur doit contenir au moins 3 caractères.");
         }
     }
@@ -97,7 +116,7 @@ public final class InscriptionForm {
     }
 
     private void validationTelehone(String telephone) throws Exception {
-        if (telephone != null && telephone.length() < 10) {
+        if (telephone == null || telephone.length() < 9) {
             throw new Exception("Le téléphone doit contenir au moins 10 numéros.");
         }
     }
@@ -108,8 +127,16 @@ public final class InscriptionForm {
         }
     }
 
+    private void validationRole(String role) throws Exception {
+        String admin = "admin";
+        String supAdmin = "supAdmin";
+        if (!role.equals(admin) && !role.equals(supAdmin)) {
+            throw new Exception("La valeur ne correspond à aucun rôle");
+        }
+    }
+
     private void validationPassword(String password, String confirmation) throws Exception {
-        if (password != null && confirmation != null) {
+        if (password != null || confirmation != null) {
             if (!password.equals(confirmation)) {
                 throw new Exception("Les mots de passe entrés sont différents, merci de les saisir à nouveau.");
             } else if (password.length() < 8) {
@@ -120,7 +147,7 @@ public final class InscriptionForm {
         }
     }
 
-    private void setErreur(String champ, String message) {
+    public void setErreur(String champ, String message) {
         erreurs.put(champ, message);
     }
 
@@ -132,4 +159,6 @@ public final class InscriptionForm {
             return valeur.trim();
         }
     }
+
 }
+
