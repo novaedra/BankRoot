@@ -35,9 +35,6 @@
     <input class="form-control" id="password" type="password" name="password" placeholder="Mot de Passe (*)"
            value="<c:out value="${admins.password}"/>"><br />
     <span>${form.erreurs['password']}</span><br />
-    <input type="password" class="form-control" id="confirmation" name="confirmation " value=""
-           placeholder="Confirmation de Mot de Passe (*)"><br />
-    <span>${form.erreurs['confirmation']}</span><br />
     <button class="btn btn-success my-4 btn-block" type="submit">Ajouter</button>
 
 </form>

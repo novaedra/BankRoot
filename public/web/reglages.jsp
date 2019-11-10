@@ -2,12 +2,13 @@
 <%@include file="includes/head.jsp" %>
 <%@include file="includes/session.jsp" %>
 
-<%
-    String base64Code = (String) request.getAttribute("qrCode");
+<h1>Changement de mot de passe</h1>
+<form action="UpdateAtA" method="post">
+    <input type="password" name="oldPassword" placeholder="Votre mot de passe actuel">
+    <input type="password" name="newPassword" placeholder="Nouveau mot de passe">
+    <input type="password" name="newConfirmation" placeholder="Confirmer le nouveau mot de passe">
+    <input type="submit" value="Changer">
+</form>
 
-%>
-<% if (base64Code != null && !base64Code.equals("")) {%>
-<img src="<%=(base64Code) %>" style="width:500px; height:500px;" />
-<% } %>
 
 <%@include file="includes/footer.jsp" %>

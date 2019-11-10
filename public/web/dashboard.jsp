@@ -11,6 +11,7 @@
     String birthday = (String) request.getAttribute("birthday");
     String adresse = (String) request.getAttribute("adresse");
     String age = (String) request.getAttribute("age");
+    System.out.println(session.getAttribute("id"));
 %>
 
 <div class="dropdown">

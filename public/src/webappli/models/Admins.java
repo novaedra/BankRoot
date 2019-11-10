@@ -1,7 +1,5 @@
 package webappli.models;
 
-import javax.validation.constraints.*;
-
 public class Admins extends BaseModelORM {
     private Integer id;
     private String nom;
@@ -13,11 +11,6 @@ public class Admins extends BaseModelORM {
     private String telephone;
     private String role;
     private String tableName;
-
-    public Integer getId() {
-        return id;
-    }
-
 
     public String getNom() {
         return nom;

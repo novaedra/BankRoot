@@ -1,5 +1,6 @@
-package webappli.utils.securite;
+package webappli.utils.controllers;
 
+import org.mindrot.jbcrypt.BCrypt;
 import webappli.models.Admins;
 import webappli.utils.database.Database;
 
@@ -17,7 +18,6 @@ public final class InscriptionForm {
     private static final String champ_birthday = "birthday";
     private static final String champ_role = "role";
     private static final String champ_password = "password";
-    private static final String champ_confirmation = "confirmation";
 
     private String resultat;
     private Map<String, String> erreurs = new HashMap<String, String>();
@@ -39,7 +39,6 @@ public final class InscriptionForm {
         String birthday = getValeurChamp(request, champ_birthday);
         String role = getValeurChamp(request, champ_role);
         String password = getValeurChamp(request, champ_password);
-        String confirmation = getValeurChamp(request, champ_confirmation);
         String hash = BCrypt.hashpw(password, BCrypt.gensalt(12));
         Admins admins = new Admins();
         try {
@@ -75,11 +74,10 @@ public final class InscriptionForm {
             setErreur(champ_birthday, e.getMessage());
         }
         try {
-            validationPassword(password, confirmation);
+            validationPassword(password);
 
         } catch (Exception e) {
             setErreur(champ_password, e.getMessage());
-            setErreur(champ_confirmation, null);
         }
 
         if (erreurs.isEmpty()) {
@@ -138,7 +136,7 @@ public final class InscriptionForm {
         }
         if (telephone == null || telephone.length() < 9) {
             throw new Exception("Le téléphone doit contenir au moins 10 numéros.");
-        } else if(adminTel.contains(telephone)) {
+        } else if (adminTel.contains(telephone)) {
             throw new Exception("Ce téléphone est déjà attribué à un Admin.");
         }
     }
@@ -157,15 +155,13 @@ public final class InscriptionForm {
         }
     }
 
-    private void validationPassword(String password, String confirmation) throws Exception {
-        if (password != null || confirmation != null) {
-            if (!password.equals(confirmation)) {
-                throw new Exception("Les mots de passe entrés sont différents, merci de les saisir à nouveau.");
-            } else if (password.length() < 8) {
+    private void validationPassword(String password) throws Exception {
+        if (password != null) {
+            if (password.length() < 8) {
                 throw new Exception("Les mots de passe doivent contenir au moins 8 caractères.");
             }
         } else {
-            throw new Exception("Merci de saisir et confirmer votre mot de passe.");
+            throw new Exception("Merci de saisir votre mot de passe.");
         }
     }
 

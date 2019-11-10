@@ -1,7 +1,7 @@
 package webappli.servlets.logs;
 
 import webappli.models.Admins;
-import webappli.utils.securite.InscriptionForm;
+import webappli.utils.controllers.InscriptionForm;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,13 +24,14 @@ public class Inscription extends HttpServlet {
         Admins admins = form.ajoutAdmin(request);
         request.setAttribute(ATT_FORM, form);
         request.setAttribute(ATT_USER, admins);
-
+        response.sendRedirect("dashboard.jsp");
         this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
+
     }
 
 }

@@ -11,7 +11,7 @@ public class Mail {
     public static void sendMail(String Mail) {
 
         //Le compte google par lequel les messages sont envoyés :
-        final String mail = "bankroot@gmail.com";
+        final String mail = "bankroot.contact@gmail.com";
         final String password = "mNb*n1roakFo$t&ls41Kza!";
 
         Properties prop = new Properties();

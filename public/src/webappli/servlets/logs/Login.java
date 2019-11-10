@@ -1,11 +1,12 @@
 package webappli.servlets.logs;
 
 
+import org.mindrot.jbcrypt.BCrypt;
 import webappli.models.Admins;
-import webappli.utils.securite.BCrypt;
 import webappli.utils.database.Database;
 import webappli.utils.database.Filtre;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @WebServlet(name = "Login", urlPatterns = "/Login")
@@ -37,40 +39,29 @@ public class Login extends HttpServlet {
             filters.add(Filtre.add("=", "mail", mail));
             List<Admins> selMdp = Database.select(admins, fields, filters);
             String password = "?";
-            for (Admins adminMdp : selMdp) {
-                password = adminMdp.getPassword();
-            }
-            if (BCrypt.checkpw(request.getParameter("password"), password)) {
-                System.out.println("Connexion OK.");
+            for (Admins adminSelect : selMdp) {
+                password = adminSelect.getPassword();
 
-            } else {
-                System.out.println("Connexion refusée.");
-                request.getRequestDispatcher("login.jsp").forward(request, response);
-            }
-            List<Admins> selRole = Database.select(admins, fields, filters);
-            String role = "?";
-            for (Admins admins1 : selRole) {
-                role = admins1.getRole();
-            }
-            List<Admins> selPrenom = Database.select(admins, fields, filters);
-            String prenom = "?";
-            for (Admins admins1 : selRole) {
-                prenom = admins1.getPrenom();
+                if (BCrypt.checkpw(request.getParameter("password"), password)) {
+                    System.out.println("Connexion OK.");
 
+                    /*Initialisation de la session*/
+                    HttpSession session = request.getSession(true);
+                    session.setAttribute("mail", adminSelect.getMail());
+                    session.setAttribute("id", adminSelect.getId());
+                    session.setAttribute("prenom", adminSelect.getPrenom());
+                    session.setAttribute("nom", adminSelect.getNom());
+                    session.setAttribute("role", adminSelect.getRole());
+                    session.setAttribute("birthday", adminSelect.getBirthday());
+                    session.setAttribute("telephone", adminSelect.getTelephone());
+                    session.setAttribute("password", password);
+                    session.setMaxInactiveInterval(300);
+                    response.sendRedirect("dashboard.jsp");
+                } else {
+                    System.out.println("Connexion refusée.");
+                    request.getRequestDispatcher("login.jsp").forward(request, response);
+                }
             }
-            List<Admins> selNom = Database.select(admins, fields, filters);
-            String nom = "?";
-            for (Admins admins1 : selRole) {
-                nom = admins1.getNom();
-            }
-            HttpSession session = request.getSession(true);
-            session.setAttribute("mail", mail);
-            session.setAttribute("prenom", prenom);
-            session.setAttribute("nom", nom);
-            session.setAttribute("role", role);
-            session.setMaxInactiveInterval(300);
-            response.sendRedirect("dashboard.jsp");
-
         } else {
             System.out.println("Connexion refusée.");
             request.getRequestDispatcher("login.jsp").forward(request, response);
@@ -79,6 +70,7 @@ public class Login extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     }
 
 }
