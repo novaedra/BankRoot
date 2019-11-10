@@ -1,5 +1,7 @@
 package com.models;
 
+import java.sql.Timestamp;
+
 public class Admins extends BaseModelORM {
     private Integer id;
     private String nom;
@@ -10,6 +12,8 @@ public class Admins extends BaseModelORM {
     private String mail;
     private String telephone;
     private String role;
+    private Timestamp created_at;
+    private Timestamp updated_at;
     private String tableName;
 
     public String getNom() {
@@ -89,6 +93,24 @@ public class Admins extends BaseModelORM {
 
     public Admins setRole(String supadmin) {
         this.role = supadmin;
+        return this;
+    }
+
+    public Timestamp getCreated_at() {
+        return created_at;
+    }
+
+    public Admins setCreated_at(Timestamp created_at) {
+        this.created_at = created_at;
+        return this;
+    }
+
+    public Timestamp getUpdated_at() {
+        return updated_at;
+    }
+
+    public Admins setUpdated_at(Timestamp updated_at) {
+        this.updated_at = updated_at;
         return this;
     }
 

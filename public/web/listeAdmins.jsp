@@ -22,7 +22,7 @@
     <%
         List<Admins> admins = (List<Admins>) request.getAttribute("resultat");
         for (Admins admin : admins) {
-            out.println("<tr><td>" + admin.getNom() + "</td>&nbsp;<td>" + admin.getPrenom() + "</td>" + "<td><a href='DetailsAdmins?mail=" + admin.getMail() + "'>Détails</a></td></tr>");
+            out.println("<tr><td>" + admin.getNom() + "</td>&nbsp;<td>" + admin.getPrenom() + "</td>" + "<td><a href='DetailsAdmins?id=" + admin.getId() + "'>Détails</a></td></tr>");
 
         }
     %>

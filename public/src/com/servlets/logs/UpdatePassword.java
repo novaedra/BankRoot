@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @WebServlet(name = "UpdatePassword", urlPatterns = "/UpdatePassword")
 public class UpdatePassword extends HttpServlet {
@@ -26,6 +28,7 @@ public class UpdatePassword extends HttpServlet {
         String sTelephone = (String) _updSess.getAttribute("telephone");
         String sBirthday = (String) _updSess.getAttribute("birthday");
         String sPassword = (String) _updSess.getAttribute("password");
+        Timestamp sCreated_at = (Timestamp) _updSess.getAttribute("sCreated_at");
         Integer id = (Integer) _updSess.getAttribute("id");
 
         /* Données du formulaire */
@@ -48,7 +51,9 @@ public class UpdatePassword extends HttpServlet {
                             .setPrenom(sPrenom)
                             .setTelephone(sTelephone)
                             .setBirthday(sBirthday)
-                            .setRole(sRole);
+                            .setRole(sRole)
+                            .setCreated_at(sCreated_at)
+                            .setUpdated_at(Timestamp.valueOf(LocalDateTime.now()));
                     Database.updateId(updPass, id);
                 }
             }

@@ -55,6 +55,7 @@ public class Login extends HttpServlet {
                     session.setAttribute("birthday", adminSelect.getBirthday());
                     session.setAttribute("telephone", adminSelect.getTelephone());
                     session.setAttribute("password", password);
+                    session.setAttribute("sCreated_at", adminSelect.getCreated_at());
                     session.setMaxInactiveInterval(300);
                     response.sendRedirect("dashboard.jsp");
                 } else {

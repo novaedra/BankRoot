@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,29 +17,21 @@ import java.util.List;
 public class DetailsAdmins extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        /* On récupère l'id de l'url */
+        String id_Admins = request.getParameter("id");
+
+        /* et on construit la requête : SELECT * FROM bradmin WHERE id ='?' */
         Admins admins = new Admins();
-        List<String> adminMail = new ArrayList<>();
-        ArrayList<String> fields = new ArrayList<>();
-
-        fields.add("*");
         ArrayList filters = new ArrayList();
-
-        String mailAdmin = request.getParameter("mail");
-        List<Admins> selMail = Database.select(admins, fields);
-        for (Admins _adminMail : selMail) {
-            mailAdmin = _adminMail.getMail();
-        }
-        mailAdmin = "'" + mailAdmin + "'";
-        filters.add(Filtre.add("=", "mail", mailAdmin));
+        ArrayList<String> fields = new ArrayList<>();
+        fields.add("*");
+        id_Admins = "'" + id_Admins + "'";
+        filters.add(Filtre.add("=", "id", id_Admins));
         List<Admins> resultat = Database.select(admins, fields, filters);
-
-        for (Admins admin : resultat) {
-            adminMail.add(admin.getMail());
-
-        }
 
         request.setAttribute("resultat", resultat);
         request.getRequestDispatcher("detailsAdmins.jsp").forward(request, response);

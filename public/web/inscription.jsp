@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@include file="includes/head.jsp" %>
+<%@include file="includes/navbar.jsp" %>
 <%@include file="includes/session.jsp" %>
 <%
     /*  Seuls les admins avec le role supAdmin peuvent accéder au contenu de cette page.
