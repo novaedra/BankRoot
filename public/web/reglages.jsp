@@ -4,7 +4,7 @@
 <%@include file="includes/navbar.jsp" %>
 
 <h1>Changement de mot de passe</h1>
-<form action="UpdateAtA" method="post">
+<form action="UpdatePassword" method="post">
     <input type="password" name="oldPassword" placeholder="Votre mot de passe actuel">
     <input type="password" name="newPassword" placeholder="Nouveau mot de passe">
     <input type="password" name="newConfirmation" placeholder="Confirmer le nouveau mot de passe">

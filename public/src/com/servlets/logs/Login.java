@@ -24,6 +24,7 @@ public class Login extends HttpServlet {
         Admins admins = new Admins();
         List<String> adminMail = new ArrayList<>();
         ArrayList<String> fields = new ArrayList<>();
+
         fields.add("*");
 
         ArrayList filters = new ArrayList();

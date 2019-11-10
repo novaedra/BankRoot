@@ -3,32 +3,38 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="includes/head.jsp" %>
 <%@include file="includes/session.jsp" %>
-<h1>Mes Admins</h1>
+
 <%
-    List<Admins> admins = (List<Admins>) request.getAttribute("resultat");
+    /*  Seuls les admins avec le role supAdmin peuvent accéder au contenu de cette page.
+     */
+    if (session != null) {
+        if (session.getAttribute("role").equals("supAdmin")) {
+
 %>
+<h1>Mes Admins</h1>
 <table>
-    <%
-        if (admins != null) {
-            for (Admins admin : admins) {
-
-    %>
+    <thead>
+    <th>Nom</th>
+    <th>Prénom</th>
+    <th></th>
+    </thead>
     <tbody>
-    <tr>
-        <th><%=admin.getNom()%>
-        </th>
-        <th><%=admin.getPrenom()%>
-        </th>
-        <th><%=admin.getMail()%>
-        </th>
-    </tr>
-    </tbody>
     <%
-            }
-        } else {
+        List<Admins> admins = (List<Admins>) request.getAttribute("resultat");
+        for (Admins admin : admins) {
+            out.println("<tr><td>" + admin.getNom() + "</td>&nbsp;<td>" + admin.getPrenom() + "</td>" + "<td><a href='DetailsAdmins?mail=" + admin.getMail() + "'>Détails</a></td></tr>");
 
-            out.println("Vous ne disposez pas des droits nécessaires pour obtenir ces informations.");
         }
     %>
+    </tbody>
 </table>
+
+
 <%@include file="includes/footer.jsp" %>
+<% } else {
+    /* S'ils ne sont qu'admin, ils sont redirigés vers le dashboard. */
+    response.sendRedirect("dashboard.jsp");
+}
+
+}
+%>
