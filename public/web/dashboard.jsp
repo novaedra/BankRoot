@@ -1,4 +1,3 @@
-<%@ page import="java.sql.Date" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="includes/head.jsp" %>
 <%@include file="includes/session.jsp" %>
@@ -11,7 +10,6 @@
     String birthday = (String) request.getAttribute("birthday");
     String adresse = (String) request.getAttribute("adresse");
     String age = (String) request.getAttribute("age");
-    System.out.println(session.getAttribute("id"));
 %>
 
 <div class="dropdown">

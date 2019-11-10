@@ -12,7 +12,7 @@
     <!--  Servlets et leur mapping  -->
     <servlet>
         <servlet-name>ListAdmins</servlet-name>
-        <servlet-class>webappli.servlets.filtreBdd.ListAdmins</servlet-class>
+        <servlet-class>com.servlets.filtreBdd.ListAdmins</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ListAdmins</servlet-name>
@@ -20,7 +20,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>ListClients</servlet-name>
-        <servlet-class>webappli.servlets.filtreBdd.ListClients</servlet-class>
+        <servlet-class>com.servlets.filtreBdd.ListClients</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ListClients</servlet-name>
@@ -28,7 +28,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>webappli.servlets.logs.Login</servlet-class>
+        <servlet-class>com.servlets.logs.Login</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
@@ -36,7 +36,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Inscription</servlet-name>
-        <servlet-class>webappli.servlets.logs.Inscription</servlet-class>
+        <servlet-class>com.servlets.logs.Inscription</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Inscription</servlet-name>
@@ -44,16 +44,21 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>UpdateAtA</servlet-name>
-        <servlet-class>webappli.servlets.logs.UpdateAtA</servlet-class>
+        <servlet-class>com.servlets.logs.UpdateAtA</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UpdateAtA</servlet-name>
         <url-pattern>/UpdateAtA</url-pattern>
     </servlet-mapping>
-
+    <!-- Pages d'erreur -->
     <error-page>
         <error-code>404</error-code>
-        <location>/404.jsp</location>
+        <location>/errorPages/notFound.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>403</error-code>
+        <location>/errorPages/forbidden.jsp</location>
     </error-page>
 
 </web-app>

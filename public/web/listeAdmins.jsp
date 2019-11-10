@@ -1,5 +1,5 @@
 <%@ page import="java.util.*" %>
-<%@ page import="webappli.models.Admins" %>
+<%@ page import="com.models.Admins" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="includes/head.jsp" %>
 <%@include file="includes/session.jsp" %>

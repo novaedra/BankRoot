@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="includes/head.jsp" %>
 <%@include file="includes/session.jsp" %>
+<%@include file="includes/navbar.jsp" %>
 
 <h1>Changement de mot de passe</h1>
 <form action="UpdateAtA" method="post">

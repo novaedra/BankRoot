@@ -1,10 +1,9 @@
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
+    /* On contrôle qu'une session a été instanciée, sinon on redirige vers la page d'accueil */
     if (session != null) {
         if (session.getAttribute("mail") != null) {
-            String mail = (String) session.getAttribute("mail");
-            String role = (String) session.getAttribute("role");
+            System.out.println("[SESSION] Connected.");
         } else {
             response.sendRedirect("login.jsp");
         }

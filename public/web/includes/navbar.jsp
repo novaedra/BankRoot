@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
+    /* On récupére les valeurs en session */
     String _prenom = (String) session.getAttribute("prenom");
     String _nom = (String) session.getAttribute("nom");
 
