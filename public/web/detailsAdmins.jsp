@@ -2,6 +2,7 @@
 <%@ page import="com.models.Admins" %>
 <%@ page import="java.sql.Time" %>
 <%@ page import="java.sql.Timestamp" %>
+<%@ page import="com.servlets.filtreBdd.DetailsAdmins" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="includes/head.jsp" %>
 <%@include file="includes/session.jsp" %>
@@ -20,12 +21,16 @@
 </p>
 <form action="DetailsAdmins" method="post">
 
+
+    <input type="hidden" value="<%= admin.getId()%>" name="id">
+    <input type="hidden" value="<%= admin.getPassword()%>" name="hash">
     <input type="text" value="<%= admin.getNom()%>" name="nom">
     <input type="text" value="<%= admin.getPrenom()%>" name="prenom">
     <input type="text" value="<%= admin.getMail()%>" name="mail">
     <input type="text" value="<%= admin.getTelephone()%>" name="telephone">
     <input type="text" value="<%= admin.getRole()%>" name="role">
     <input type="date" value="<%= admin.getBirthday()%>" name="birthday">
+
     <input type="submit" value="Mettre à jour">
 </form>
 <% }
