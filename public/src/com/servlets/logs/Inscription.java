@@ -24,8 +24,8 @@ public class Inscription extends HttpServlet {
         Admins admins = form.ajoutAdmin(request);
         request.setAttribute(ATT_FORM, form);
         request.setAttribute(ATT_USER, admins);
-        response.sendRedirect("dashboard.jsp");
         this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
+        response.sendRedirect("dashboard.jsp");
 
     }
 

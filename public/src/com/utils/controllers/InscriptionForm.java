@@ -5,6 +5,8 @@ import com.models.Admins;
 import com.utils.database.Database;
 
 import javax.servlet.http.HttpServletRequest;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -88,6 +90,8 @@ public final class InscriptionForm {
             admins.setBirthday(birthday);
             admins.setRole(role);
             admins.setPassword(hash);
+            admins.setCreated_at(Timestamp.valueOf(LocalDateTime.now()));
+            admins.setUpdated_at(null);
             Database.insert(admins);
         }
         return admins;

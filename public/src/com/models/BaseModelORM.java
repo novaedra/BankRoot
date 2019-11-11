@@ -423,6 +423,17 @@ public class BaseModelORM {
                     statement.setString(i, (String) classMethod.invoke(this));
                 }
 
+                if (field.getType() == Timestamp.class) {
+                    statement.setTimestamp(i, (Timestamp) classMethod.invoke(this));
+                }
+                if (field.getType() == Date.class) {
+                    statement.setDate(i, (Date) classMethod.invoke(this));
+                }
+
+                if (field.getType() == Boolean.class) {
+                    statement.setBoolean(i, (Boolean) classMethod.invoke(this));
+                }
+
                 i = i + 1;
             }
         } catch (Exception e) {

@@ -43,12 +43,20 @@
         <url-pattern>/Inscription</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>UpdateAtA</servlet-name>
-        <servlet-class>com.servlets.logs.UpdateAtA</servlet-class>
+        <servlet-name>UpdatePassword</servlet-name>
+        <servlet-class>com.servlets.logs.UpdatePassword</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>UpdateAtA</servlet-name>
-        <url-pattern>/UpdateAtA</url-pattern>
+        <servlet-name>UpdatePassword</servlet-name>
+        <url-pattern>/UpdatePassword</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DetailsAdmins</servlet-name>
+        <servlet-class>com.servlets.filtreBdd.DetailsAdmins</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DetailsAdmins</servlet-name>
+        <url-pattern>/DetailsAdmins</url-pattern>
     </servlet-mapping>
     <!-- Pages d'erreur -->
     <error-page>

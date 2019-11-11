@@ -24,6 +24,7 @@ public class Login extends HttpServlet {
         Admins admins = new Admins();
         List<String> adminMail = new ArrayList<>();
         ArrayList<String> fields = new ArrayList<>();
+
         fields.add("*");
 
         ArrayList filters = new ArrayList();
@@ -54,6 +55,7 @@ public class Login extends HttpServlet {
                     session.setAttribute("birthday", adminSelect.getBirthday());
                     session.setAttribute("telephone", adminSelect.getTelephone());
                     session.setAttribute("password", password);
+                    session.setAttribute("sCreated_at", adminSelect.getCreated_at());
                     session.setMaxInactiveInterval(300);
                     response.sendRedirect("dashboard.jsp");
                 } else {
