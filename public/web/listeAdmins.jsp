@@ -3,6 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="includes/head.jsp" %>
 <%@include file="includes/session.jsp" %>
+<%@include file="includes/navbar.jsp" %>
 
 <%
     /*  Seuls les admins avec le role supAdmin peuvent accéder au contenu de cette page.
@@ -38,3 +39,5 @@
 
 }
 %>
+
+<%@include file="includes/footer.jsp" %>

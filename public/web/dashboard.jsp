@@ -22,19 +22,20 @@
 <%
     List<Clients> clientsModal = (List<Clients>) request.getAttribute("resultat");
     for (Clients clientModal : clientsModal) {
-        System.out.println(clientModal.getAge());
         out.println("<div id=" + clientModal.getId() + " class='liste'>" +
-                "<ul><li>" + "Nom : " + clientModal.getNom() + "</li>" + "<li>" + "Prenom : " + clientModal.getPrenom() + "</li>"
+                "<ul><li>" + "Nom : " + clientModal.getNom() + " " + "<span style='font-weight: bold; color: black;'>" + clientModal.getNoteEp() + "</span>" +
+                "</li>" + "<li>" + "Prenom : " + clientModal.getPrenom() + "</li>"
                 + "<li>" + "Mail : " + clientModal.getMail() + "</li>" + "<li>" + "Date de naissance : " + clientModal.getBirthday() + "</li>"
                 + "<li>" + "&Acirc;ge : " + Math.round(clientModal.getAge()) + "</li>"
                 + "<li>" + "Nombre d'enfants : " + clientModal.getEnfacharges() + "</li>" + "<li>"
-                + "Adresse postale : " + clientModal.getAdresse() + "</li>" + "<li>" + "Prospect : " + clientModal.isProspect() + "</li>" + "<li>" +
-                "Autorisation CNIL : " + clientModal.isAutoricnil() + "</li>" + "<li>" + "Revenus mensuels : " + clientModal.getRevenus() + "</li>" +
-                "<li>" + "Dépenses mensuelles : " + clientModal.getDepenses() + "</li>" + "<li>" + "Situation professionelle : " + clientModal.getStatPro() + "</li>" +
-                "<li>" + "Situation matrimoniale : " + clientModal.getStatutmatri()  + "</li>" +
+                + "Adresse postale : " + clientModal.getAdresse() + "</li>" + "<li>" + "Prospect : " + clientModal.getProspect() + "</li>" + "<li>" +
+                "Autorisation CNIL : " + clientModal.getAutoriCnil() + "</li>" + "<li>" + "Revenus annuels : " + clientModal.getRevenus() + "</li>" +
+                "<li>" + "Dépenses annuelles : " + clientModal.getDepenses() + "</li>" + "<li>" + "Situation professionelle : " + clientModal.getStatPro() + "</li>" +
+                "<li>" + "Situation matrimoniale : " + clientModal.getStatutmatri() + "</li>" +
                 "</ul><button onclick='closeClientDetail(" + clientModal.getId() + ")'>Fermer</button></div>");
     }
 %>
+
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script type="text/javascript" src="assets/js/script.js"></script>
