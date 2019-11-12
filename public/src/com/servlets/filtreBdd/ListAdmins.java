@@ -22,7 +22,9 @@ public class ListAdmins extends HttpServlet {
         /* SELECT * FROM bradmin */
         Admins admins = new Admins();
         ArrayList f = new ArrayList();
+
         f.add("*");
+
         List resultat = Database.select(admins, f);
         request.setAttribute("resultat", resultat);
         request.getRequestDispatcher("listeAdmins.jsp").forward(request, response);

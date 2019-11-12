@@ -12,13 +12,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "ListClients", urlPatterns = "/ListClients")
-public class ListClients extends HttpServlet {
+@WebServlet(name = "Dashboard", urlPatterns = "/Dashboard")
+public class Dashboard extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
-    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Clients clients = new Clients();
@@ -27,8 +26,7 @@ public class ListClients extends HttpServlet {
         f.add("*");
         List resultat = Database.select(clients, f);
 
-        System.out.println(clients);
-        System.out.println(resultat);
+
         request.setAttribute("resultat", resultat);
         request.getRequestDispatcher("dashboard.jsp").forward(request, response);
     }

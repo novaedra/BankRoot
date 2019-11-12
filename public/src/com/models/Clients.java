@@ -7,8 +7,8 @@ import java.util.Date;
 
 public class Clients extends BaseModelORM {
 
+    private Integer id;
     // Données contenues en BDD
-    private int id;
     private String nom;
     private String prenom;
     private String mail;
@@ -19,15 +19,10 @@ public class Clients extends BaseModelORM {
     private boolean autoCnil;
     private boolean prospect;
     private int statusPro_id;
-    private int statusPerso_id;
+    private String statutMatri;
     private String tableName;
-    // Méthodes pour une lecture plus claire de l'âge et des situations pro et perso.
+//     Méthode pour une lecture plus claire de l'âge.
     private float age;
-
-
-    public Integer getId() {
-        return id;
-    }
 
     public String getNom() {
         return nom;
@@ -119,12 +114,12 @@ public class Clients extends BaseModelORM {
         return this;
     }
 
-    public int getStatusPerso_id() {
-        return statusPerso_id;
+    public String getStatutMatri() {
+        return statutMatri;
     }
 
-    public Clients setStatusPerso_id(int statusPerso_id) {
-        this.statusPerso_id = statusPerso_id;
+    public Clients setStatutMatri(String statutMatri) {
+        this.statutMatri = statutMatri;
         return this;
     }
 
