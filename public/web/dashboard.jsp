@@ -19,18 +19,19 @@
         %>
     </div>
 </div>
-
 <%
     List<Clients> clientsModal = (List<Clients>) request.getAttribute("resultat");
     for (Clients clientModal : clientsModal) {
+        System.out.println(clientModal.getAge());
         out.println("<div id=" + clientModal.getId() + " class='liste'>" +
                 "<ul><li>" + "Nom : " + clientModal.getNom() + "</li>" + "<li>" + "Prenom : " + clientModal.getPrenom() + "</li>"
                 + "<li>" + "Mail : " + clientModal.getMail() + "</li>" + "<li>" + "Date de naissance : " + clientModal.getBirthday() + "</li>"
+                + "<li>" + "&Acirc;ge : " + Math.round(clientModal.getAge()) + "</li>"
                 + "<li>" + "Nombre d'enfants : " + clientModal.getEnfacharges() + "</li>" + "<li>"
                 + "Adresse postale : " + clientModal.getAdresse() + "</li>" + "<li>" + "Prospect : " + clientModal.isProspect() + "</li>" + "<li>" +
-                "Autorisation CNIL : " + clientModal.isAutoCnil() + "</li>" + "<li>" + "Revenus mensuels : " + clientModal.getRevenus() + "</li>" +
-                "<li>" + "Dépenses mensuelles : " + clientModal.getDepenses() + "</li>" + "<li>" + "Situation professionelle : " + clientModal.getSitutationpro() + "</li>" +
-                "<li>" + "Situation matrimoniale : " + clientModal.getStatutmatri() + "</li>" +
+                "Autorisation CNIL : " + clientModal.isAutoricnil() + "</li>" + "<li>" + "Revenus mensuels : " + clientModal.getRevenus() + "</li>" +
+                "<li>" + "Dépenses mensuelles : " + clientModal.getDepenses() + "</li>" + "<li>" + "Situation professionelle : " + clientModal.getStatPro() + "</li>" +
+                "<li>" + "Situation matrimoniale : " + clientModal.getStatutmatri()  + "</li>" +
                 "</ul><button onclick='closeClientDetail(" + clientModal.getId() + ")'>Fermer</button></div>");
     }
 %>

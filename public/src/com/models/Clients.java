@@ -18,13 +18,14 @@ public class Clients extends BaseModelORM {
     private Integer enfacharges;
     private Integer revenus;
     private Integer depenses;
-    private boolean autoCnil;
+    private boolean autoricnil;
     private boolean prospect;
     private Integer situtationpro;
     private String statutmatri;
     private String tableName;
     //     Méthode pour une lecture plus claire de l'âge.
     private float age;
+
 
     public String getNom() {
         return nom;
@@ -89,12 +90,12 @@ public class Clients extends BaseModelORM {
         return this;
     }
 
-    public boolean isAutoCnil() {
-        return autoCnil;
+    public boolean isAutoricnil() {
+        return autoricnil;
     }
 
-    public Clients setAutoCnil(boolean autoCnil) {
-        this.autoCnil = autoCnil;
+    public Clients setAutoricnil(boolean autoricnil) {
+        this.autoricnil = autoricnil;
         return this;
     }
 
@@ -145,14 +146,20 @@ public class Clients extends BaseModelORM {
 
     public float getAge() {
         int age;
-        String date = birthday;
-        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+        try {
+            date = dateFormat.parse(birthday);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         String birthday = dateFormat.format(date);
+
         String[] parts = birthday.split("-");
+
         String part1 = parts[0];
         String part2 = parts[1];
         String part3 = parts[2];
-
         int year = Integer.parseInt(part1);
         int month = Integer.parseInt(part2);
         int day = Integer.parseInt(part3);
@@ -160,6 +167,7 @@ public class Clients extends BaseModelORM {
         int actualYear = today.get(Calendar.YEAR);
         int actualMonth = today.get(Calendar.MONTH);
         int actualDay = today.get(Calendar.DAY_OF_MONTH);
+
         if (month > actualMonth) {
             age = (actualYear - year) - 1;
         } else if (month == actualMonth && day > actualDay) {
@@ -170,6 +178,19 @@ public class Clients extends BaseModelORM {
 
         return age;
     }
+
+    public String getStatPro() {
+        String statPro = "";
+        if (situtationpro == 11) {
+            statPro = "Directeur Général";
+        }
+        if (situtationpro == 10) {
+            statPro = "Cadre Supérieur";
+        }
+
+        return statPro;
+    }
+
 
     public Clients setAge(float age) {
         this.age = age;
