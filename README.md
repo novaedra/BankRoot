@@ -14,7 +14,7 @@ Puis installer le JRE java 1.8
 
 https://codenotfound.com/java-download-install-jdk-8-windows.html
 
-Avec IntelliJ :
+## Sur IntelliJ :
 
 Importer le projet 
 
