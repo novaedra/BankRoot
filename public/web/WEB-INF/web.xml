@@ -19,12 +19,12 @@
         <url-pattern>/Liste-Admins</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>ListClients</servlet-name>
-        <servlet-class>com.servlets.filtreBdd.ListClients</servlet-class>
+        <servlet-name>Dashboard</servlet-name>
+        <servlet-class>com.servlets.filtreBdd.Dashboard</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ListClients</servlet-name>
-        <url-pattern>/Liste-Clients</url-pattern>
+        <servlet-name>Dashboard</servlet-name>
+        <url-pattern>/Dashboard</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>Login</servlet-name>

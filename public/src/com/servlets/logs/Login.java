@@ -56,8 +56,7 @@ public class Login extends HttpServlet {
                     session.setAttribute("telephone", adminSelect.getTelephone());
                     session.setAttribute("password", password);
                     session.setAttribute("sCreated_at", adminSelect.getCreated_at());
-                    session.setMaxInactiveInterval(300);
-                    response.sendRedirect("dashboard.jsp");
+                    response.sendRedirect(request.getContextPath() + "/Dashboard");
                 } else {
                     System.out.println("Connexion refusée.");
                     request.getRequestDispatcher("login.jsp").forward(request, response);
