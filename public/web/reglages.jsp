@@ -10,9 +10,11 @@
     <input type="password" name="newConfirmation" placeholder="Confirmer le nouveau mot de passe">
     <input type="submit" value="Changer">
 </form>
-<a href="doubleAuthentification.jsp">
-    <h1>Activer la double Authentification</h1>
-</a>
 
+<!--
+<a href="doubleAuthentification.jsp">
+<h1>Activer la double Authentification</h1>
+</a>
+-->
 
 <%@include file="includes/footer.jsp" %>
