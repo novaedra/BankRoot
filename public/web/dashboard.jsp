@@ -14,7 +14,6 @@
         <%
             List<Clients> clients = (List<Clients>) request.getAttribute("resultat");
             for (Clients client : clients) {
-                System.out.println(client.getId());
                 out.println("<a class='btnClient' onclick='showClientDetail(" + client.getId() + ")'>" + client.getPrenom() + " " + client.getNom() + "</a>");
             }
         %>
@@ -24,11 +23,14 @@
 <%
     List<Clients> clientsModal = (List<Clients>) request.getAttribute("resultat");
     for (Clients clientModal : clientsModal) {
-
         out.println("<div id=" + clientModal.getId() + " class='liste'>" +
-                "<ul><li>" + "Nom :" + clientModal.getNom() + "</li>" + "<li>" + "Prenom :" + clientModal.getPrenom()
-                + "<li>" + "Mail :" + clientModal.getMail()+ "<li>" + "Date de naissance :" + clientModal.getBirthday()
-                + "<li>" + "Nombre d'enfants :" + clientModal.getEnfants()+ "<li>" +
+                "<ul><li>" + "Nom : " + clientModal.getNom() + "</li>" + "<li>" + "Prenom : " + clientModal.getPrenom() + "</li>"
+                + "<li>" + "Mail : " + clientModal.getMail() + "</li>" + "<li>" + "Date de naissance : " + clientModal.getBirthday() + "</li>"
+                + "<li>" + "Nombre d'enfants : " + clientModal.getEnfacharges() + "</li>" + "<li>"
+                + "Adresse postale : " + clientModal.getAdresse() + "</li>" + "<li>" + "Prospect : " + clientModal.isProspect() + "</li>" + "<li>" +
+                "Autorisation CNIL : " + clientModal.isAutoCnil() + "</li>" + "<li>" + "Revenus mensuels : " + clientModal.getRevenus() + "</li>" +
+                "<li>" + "Dépenses mensuelles : " + clientModal.getDepenses() + "</li>" + "<li>" + "Situation professionelle : " + clientModal.getSitutationpro() + "</li>" +
+                "<li>" + "Situation matrimoniale : " + clientModal.getStatutmatri() + "</li>" +
                 "</ul><button onclick='closeClientDetail(" + clientModal.getId() + ")'>Fermer</button></div>");
     }
 %>

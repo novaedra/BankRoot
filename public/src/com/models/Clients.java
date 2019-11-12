@@ -14,14 +14,16 @@ public class Clients extends BaseModelORM {
     private String mail;
     private String telephone;
     private String adresse;
-    private Date birthday;
-    private int enfants;
+    private String birthday;
+    private Integer enfacharges;
+    private Integer revenus;
+    private Integer depenses;
     private boolean autoCnil;
     private boolean prospect;
-    private int statusPro_id;
-    private String statutMatri;
+    private Integer situtationpro;
+    private String statutmatri;
     private String tableName;
-//     Méthode pour une lecture plus claire de l'âge.
+    //     Méthode pour une lecture plus claire de l'âge.
     private float age;
 
     public String getNom() {
@@ -69,21 +71,21 @@ public class Clients extends BaseModelORM {
         return this;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public Clients setBirthday(Date birthday) {
+    public Clients setBirthday(String birthday) {
         this.birthday = birthday;
         return this;
     }
 
-    public int getEnfants() {
-        return enfants;
+    public Integer getEnfacharges() {
+        return enfacharges;
     }
 
-    public Clients setEnfants(int enfants) {
-        this.enfants = enfants;
+    public Clients setEnfacharges(Integer enfacharges) {
+        this.enfacharges = enfacharges;
         return this;
     }
 
@@ -105,27 +107,45 @@ public class Clients extends BaseModelORM {
         return this;
     }
 
-    public int getStatusPro_id() {
-        return statusPro_id;
+    public int getSitutationpro() {
+        return situtationpro;
     }
 
-    public Clients setStatusPro_id(int statusPro_id) {
-        this.statusPro_id = statusPro_id;
+    public Clients setSitutationpro(Integer situtationpro) {
+        this.situtationpro = situtationpro;
         return this;
     }
 
-    public String getStatutMatri() {
-        return statutMatri;
+    public String getStatutmatri() {
+        return statutmatri;
     }
 
-    public Clients setStatutMatri(String statutMatri) {
-        this.statutMatri = statutMatri;
+    public Clients setStatutmatri(String statutmatri) {
+        this.statutmatri = statutmatri;
+        return this;
+    }
+
+    public Integer getRevenus() {
+        return revenus;
+    }
+
+    public Clients setRevenus(Integer revenus) {
+        this.revenus = revenus;
+        return this;
+    }
+
+    public Integer getDepenses() {
+        return depenses;
+    }
+
+    public Clients setDepenses(Integer depenses) {
+        this.depenses = depenses;
         return this;
     }
 
     public float getAge() {
         int age;
-        Date date = birthday;
+        String date = birthday;
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         String birthday = dateFormat.format(date);
         String[] parts = birthday.split("-");
