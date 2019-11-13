@@ -12,7 +12,7 @@
     <!--  Servlets et leur mapping  -->
     <servlet>
         <servlet-name>ListAdmins</servlet-name>
-        <servlet-class>com.servlets.filtreBdd.ListAdmins</servlet-class>
+        <servlet-class>com.servlets.admins.ListAdmins</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ListAdmins</servlet-name>
@@ -28,7 +28,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>com.servlets.logs.Login</servlet-class>
+        <servlet-class>com.servlets.admins.Login</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
@@ -36,7 +36,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>AjoutAdmin</servlet-name>
-        <servlet-class>com.servlets.logs.AjoutAdmin</servlet-class>
+        <servlet-class>com.servlets.admins.AjoutAdmin</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AjoutAdmin</servlet-name>
@@ -44,7 +44,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>UpdatePassword</servlet-name>
-        <servlet-class>com.servlets.logs.UpdatePassword</servlet-class>
+        <servlet-class>com.servlets.admins.UpdatePassword</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UpdatePassword</servlet-name>
@@ -52,7 +52,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>DetailsAdmins</servlet-name>
-        <servlet-class>com.servlets.filtreBdd.DetailsAdmins</servlet-class>
+        <servlet-class>com.servlets.admins.DetailsAdmins</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DetailsAdmins</servlet-name>
@@ -68,7 +68,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>AjoutProduit</servlet-name>
-        <servlet-class>com.servlets.logs.AjoutProduit</servlet-class>
+        <servlet-class>com.servlets.produits.AjoutProduit</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AjoutProduit</servlet-name>

@@ -1,16 +1,23 @@
 package com.models;
 
+
 import java.sql.Timestamp;
 
 public class Produits extends BaseModelORM {
+
 
     private Integer id;
     private String nom;
     private Integer taux;
     private Integer frais;
+    private String description;
     private Timestamp created_at;
     private Timestamp updated_at;
+    String tableName = "brproduits";
 
+    public String getTableName() {
+        return tableName;
+    }
 
     public String getNom() {
         return nom;
@@ -39,6 +46,15 @@ public class Produits extends BaseModelORM {
         return this;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public Produits setDescription(String description) {
+        this.description = description;
+        return this;
+    }
+
     public Timestamp getCreated_at() {
         return created_at;
     }
@@ -56,4 +72,5 @@ public class Produits extends BaseModelORM {
         this.updated_at = updated_at;
         return this;
     }
+
 }

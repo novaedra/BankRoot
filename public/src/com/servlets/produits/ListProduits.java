@@ -1,6 +1,6 @@
-package com.servlets.filtreBdd;
+package com.servlets.produits;
 
-import com.models.Admins;
+import com.models.Produits;
 import com.utils.database.Database;
 
 import javax.servlet.ServletException;
@@ -12,22 +12,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "ListAdmins")
-public class ListAdmins extends HttpServlet {
+@WebServlet(name = "ListProduits", urlPatterns = "/Liste-Produits")
+public class ListProduits extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        /* SELECT * FROM bradmin */
-        Admins admins = new Admins();
+        Produits produits = new Produits();
         ArrayList f = new ArrayList();
 
         f.add("*");
 
-        List resultat = Database.select(admins, f);
+        List resultat = Database.select(produits, f);
         request.setAttribute("resultat", resultat);
-        request.getRequestDispatcher("listeAdmins.jsp").forward(request, response);
 
+        request.getRequestDispatcher("listeProduits.jsp").forward(request, response);
     }
 }

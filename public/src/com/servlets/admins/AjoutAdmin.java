@@ -1,4 +1,4 @@
-package com.servlets.logs;
+package com.servlets.admins;
 
 import com.models.Admins;
 import com.utils.controllers.InscriptionForm;

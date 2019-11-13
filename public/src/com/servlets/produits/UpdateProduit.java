@@ -1,4 +1,4 @@
-package com.servlets.logs;
+package com.servlets.produits;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

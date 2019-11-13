@@ -1,4 +1,4 @@
-package com.servlets.logs;
+package com.servlets.admins;
 
 
 import org.mindrot.jbcrypt.BCrypt;
