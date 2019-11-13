@@ -19,7 +19,7 @@ public class SendMail extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String mail = request.getParameter("mail");
-        Mail.sendMail(mail);
+        Mail.sendMail("deshais.armand@gmail.com");
+
     }
 }

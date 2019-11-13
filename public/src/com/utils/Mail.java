@@ -8,43 +8,36 @@ import java.util.Date;
 import java.util.Properties;
 
 public class Mail {
-    public static void sendMail(String Mail) {
+    public static void sendMail(String mail) {
 
-        //Le compte google par lequel les messages sont envoyés :
-        final String mail = "bankroot.contact@gmail.com";
-        final String password = "mNb*n1roakFo$t&ls41Kza!";
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.auth", "true");
 
-        Properties prop = new Properties();
-        prop.put("mail.smtp.host", "smtp.gmail.com");
-        prop.put("mail.smtp.port", "587");
-        prop.put("mail.smtp.auth", "true");
-        prop.put("mail.smtp.starttls.enable", "true");
-
-        Session session = Session.getInstance(prop,
-                new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentification() {
-                        return new PasswordAuthentication(mail, password);
-                    }
-                });
-
+        Session session = Session.getInstance(props, new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication("contact.bankroot@gmail.com", "gT3u?l12$(T&7IX");
+            }
+        });
         try {
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("contact@bankroot.fr"));
-            message.setRecipients(
-                    Message.RecipientType.TO,
-                    InternetAddress.parse("test@gmail.com, test@hotmail.fr")
-            );
-            String send_at = new SimpleDateFormat("ddmmyyyy_hh-mm-ss").format(new Date());
-            message.setSubject("Nouvelle offre");
-            message.setSentDate(new Date());
-            message.setText("Salut Michel," + "\n\n Une nouvelle offre pour toi !");
 
-            Transport.send(message);
-
-            System.out.println("Message sent.");
-
-        } catch (MessagingException e) {
-            System.out.println("Message not sent" + e);
+            MimeMessage msg = new MimeMessage(session);
+            String to = mail; //
+            InternetAddress[] address = InternetAddress.parse(to, true);
+            msg.setRecipients(Message.RecipientType.TO, address);
+            String timeStamp = new SimpleDateFormat("yyyymmdd_hh-mm-ss").format(new Date());
+            msg.setSubject("Nouvelle offre pour vous !");
+            msg.setSentDate(new Date());
+            msg.setText("Vous etes eligible a une nouvelle offre exceptionnelle");
+            msg.setHeader("XPriority", "1");
+            Transport.send(msg);
+            System.out.println("Mail has been sent successfully");
+        } catch (MessagingException mex) {
+            System.out.println("Unable to send an email" + mex);
         }
     }
+
 }
