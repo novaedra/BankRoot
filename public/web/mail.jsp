@@ -5,10 +5,10 @@
 
 
 <form action="SendMail" method="post">
-    To:<input type="text" name="to"  /><br/>
-    Subject:<input type="text" name="subject"  /><br/>
-    Message:<input type="text" name="message"  /><br/>
-    <input type="submit" value="send" />
+    Destinataire&nbsp;:&nbsp;<input type="text" name="to"  /><br/>
+    Sujet&nbsp;:&nbsp;<input type="text" name="subject"  /><br/>
+    Message&nbsp;:&nbsp;<textarea name="content" id="" cols="70" rows="5"></textarea><br/>
+    <input type="submit" value="Envoyer" />
 </form>
 
 <%@include file="includes/footer.jsp" %>
