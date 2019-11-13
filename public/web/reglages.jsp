@@ -3,7 +3,7 @@
 <%@include file="includes/session.jsp" %>
 <%@include file="includes/navbar.jsp" %>
 
-<form action="UpdatePassword" method="post">
+<form action="Reglages" method="post">
     <h2>Changement de mot de passe</h2><br/>
     <input type="password" name="oldPassword" placeholder="Votre mot de passe actuel">
     <input type="password" name="newPassword" placeholder="Nouveau mot de passe">

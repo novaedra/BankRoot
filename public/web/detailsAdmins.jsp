@@ -13,7 +13,7 @@
     for (Admins admin : admins) {
 %>
 
-<form action="DetailsAdmins" method="post">
+<form action="DetailsAdmins" method="post" accept-charset="ISO-8859-1">
     <h2>Informations admins</h2><br/>
     <input type="hidden" value="<%= admin.getId()%>" name="id">
     <input type="hidden" value="<%= admin.getPassword()%>" name="hash">

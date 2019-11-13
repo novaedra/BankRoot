@@ -6,7 +6,7 @@
 
     <!--  Page d'accueil  -->
     <welcome-file-list>
-        <welcome-file>login.jsp</welcome-file>
+        <welcome-file>/Login</welcome-file>
     </welcome-file-list>
 
     <!--  Servlets et leur mapping  -->
@@ -20,7 +20,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Dashboard</servlet-name>
-        <servlet-class>com.servlets.filtreBdd.Dashboard</servlet-class>
+        <servlet-class>com.servlets.Dashboard</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard</servlet-name>
@@ -74,6 +74,14 @@
         <servlet-name>AjoutProduit</servlet-name>
         <url-pattern>/Ajout-Produit</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DetailsProduits</servlet-name>
+        <servlet-class>com.servlets.produits.DetailsProduits</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DetailsProduits</servlet-name>
+        <url-pattern>/DetailsProduits</url-pattern>
+    </servlet-mapping>
     <!-- Pages d'erreur -->
     <error-page>
         <error-code>404</error-code>
@@ -105,5 +113,6 @@
         <param-name>pass</param-name>
         <param-value>scsR2yFa8Nb79yH</param-value>
     </context-param>
+
 
 </web-app>

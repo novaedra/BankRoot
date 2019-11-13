@@ -13,6 +13,7 @@
         <% if (session.getAttribute("role").equals("supAdmin")) { %>
         <li><a href="Liste-Admins">Liste des Admins<img src="assets/img/admin.svg" alt="icone administrateur"/></a></li>
         <li><a href="Ajout-Admin">Ajout d'un Admin<img src="assets/img/plus.svg" alt="icone profil"/></a></li>
+        <li><a href="Liste-Produits">Liste des Produits</a></li>
         <% } %>
         <li><a href="Logout">Déconnexion&nbsp;<img src="assets/img/logout.svg" alt="icone déconnexion"/></a></li>
     </ul>
