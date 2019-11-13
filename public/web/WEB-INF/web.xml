@@ -9,6 +9,26 @@
         <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
 
+
+    <resource-ref>
+        <description>
+            Resource reference to a factory for javax.mail.Session
+            instances that may be used for sending electronic mail
+            messages, preconfigured to connect to the appropriate
+            SMTP server.
+        </description>
+        <res-ref-name>
+            mail/Session
+        </res-ref-name>
+        <res-type>
+            javax.mail.Session
+        </res-type>
+        <res-auth>
+            Container
+        </res-auth>
+    </resource-ref>
+
+
     <!--  Servlets et leur mapping  -->
     <servlet>
         <servlet-name>ListAdmins</servlet-name>
@@ -58,15 +78,44 @@
         <servlet-name>DetailsAdmins</servlet-name>
         <url-pattern>/DetailsAdmins</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>SendMail</servlet-name>
+        <servlet-class>com.servlets.SendMail</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SendMail</servlet-name>
+        <url-pattern>/SendMail</url-pattern>
+    </servlet-mapping>
     <!-- Pages d'erreur -->
     <error-page>
         <error-code>404</error-code>
         <location>/errorPages/notFound.jsp</location>
     </error-page>
-
     <error-page>
         <error-code>403</error-code>
         <location>/errorPages/forbidden.jsp</location>
     </error-page>
+
+    <!--  Config SMTP Server  -->
+
+    <context-param>
+        <param-name>host</param-name>
+        <param-value>smtp.gmail.com</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>port</param-name>
+        <param-value>587</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>user</param-name>
+        <param-value>bankroot.contact@gmail.com</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>pass</param-name>
+        <param-value>scsR2yFa8Nb79yH</param-value>
+    </context-param>
 
 </web-app>
