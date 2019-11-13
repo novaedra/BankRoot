@@ -14,7 +14,8 @@
         <%
             List<Clients> clients = (List<Clients>) request.getAttribute("resultat");
             for (Clients client : clients) {
-                out.println("<a class='btnClient' onclick=" + "\"" + "showClientDetail('client" + client.getId() + "')" + "\"" + ">" + client.getPrenom() + " " + client.getNom() + "</a>");
+                out.println("<a class='btnClient' onclick=" + "\"" + "showClientDetail('client" + client.getId() + "')"
+                        + "\"" + ">" + client.getPrenom() + " " + client.getNom() + "</a>");
             }
         %>
     </div>

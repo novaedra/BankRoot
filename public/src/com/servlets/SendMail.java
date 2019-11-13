@@ -1,25 +1,28 @@
 package com.servlets;
 
 import com.utils.Mail;
-import org.apache.http.HttpRequest;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "SendMail", urlPatterns = "/sendMail")
+@WebServlet(name = "SendMail", urlPatterns = "/SendMail")
 public class SendMail extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String to = request.getParameter("to");
+        String subject = request.getParameter("subject");
+        String message = request.getParameter("message");
+        Mail.sendMessage(subject, message, to, "bankroot.contact@gmail.com");
+        response.sendRedirect("Dashboard");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Mail.sendMail("deshais.armand@gmail.com");
+        request.getRequestDispatcher("mail.jsp").forward(request, response);
 
     }
 }
