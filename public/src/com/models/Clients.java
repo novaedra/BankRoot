@@ -18,13 +18,14 @@ public class Clients extends BaseModelORM {
     private Integer enfacharges;
     private Integer revenus;
     private Integer depenses;
-    private boolean autoCnil;
+    private boolean autoricnil;
     private boolean prospect;
     private Integer situtationpro;
     private String statutmatri;
     private String tableName;
     //     Méthode pour une lecture plus claire de l'âge.
     private float age;
+
 
     public String getNom() {
         return nom;
@@ -89,18 +90,19 @@ public class Clients extends BaseModelORM {
         return this;
     }
 
-    public boolean isAutoCnil() {
-        return autoCnil;
+    public boolean isAutoricnil() {
+        return autoricnil;
     }
 
-    public Clients setAutoCnil(boolean autoCnil) {
-        this.autoCnil = autoCnil;
+    public Clients setAutoricnil(boolean autoricnil) {
+        this.autoricnil = autoricnil;
         return this;
     }
 
     public boolean isProspect() {
         return prospect;
     }
+
 
     public Clients setProspect(boolean prospect) {
         this.prospect = prospect;
@@ -143,16 +145,47 @@ public class Clients extends BaseModelORM {
         return this;
     }
 
+
+    public String getAutoriCnil() {
+        String _autoriCnil = "";
+
+        if (prospect) {
+            _autoriCnil = "Oui";
+        } else {
+            _autoriCnil = "Non";
+        }
+
+        return _autoriCnil;
+    }
+
+    public String getProspect() {
+        String _prospect = "";
+
+        if (prospect) {
+            _prospect = "Oui";
+        } else {
+            _prospect = "Non";
+        }
+
+        return _prospect;
+    }
+
     public float getAge() {
         int age;
-        String date = birthday;
-        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+        try {
+            date = dateFormat.parse(birthday);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         String birthday = dateFormat.format(date);
+
         String[] parts = birthday.split("-");
+
         String part1 = parts[0];
         String part2 = parts[1];
         String part3 = parts[2];
-
         int year = Integer.parseInt(part1);
         int month = Integer.parseInt(part2);
         int day = Integer.parseInt(part3);
@@ -160,6 +193,7 @@ public class Clients extends BaseModelORM {
         int actualYear = today.get(Calendar.YEAR);
         int actualMonth = today.get(Calendar.MONTH);
         int actualDay = today.get(Calendar.DAY_OF_MONTH);
+
         if (month > actualMonth) {
             age = (actualYear - year) - 1;
         } else if (month == actualMonth && day > actualDay) {
@@ -171,9 +205,60 @@ public class Clients extends BaseModelORM {
         return age;
     }
 
-    public Clients setAge(float age) {
-        this.age = age;
-        return this;
+    public String getStatPro() {
+
+        String statPro = "";
+
+        if (situtationpro == 13) {
+            statPro = "Fonctionnaire";
+        } else if (situtationpro == 12) {
+            statPro = "Cadre Supérieur";
+        } else if (situtationpro == 11) {
+            statPro = "Cadre";
+        } else if (situtationpro == 10) {
+            statPro = "Micro-Entrepreneur";
+        } else if (situtationpro == 9) {
+            statPro = "Auto-Entrepreneur";
+        } else if (situtationpro == 8) {
+            statPro = "Salarié en CDI";
+        } else if (situtationpro == 7) {
+            statPro = "Intérimaire";
+        } else if (situtationpro == 6) {
+            statPro = "Salarié en CDD";
+        } else if (situtationpro == 5) {
+            statPro = "Apprenti";
+        } else if (situtationpro == 4) {
+            statPro = "Stagiaire";
+        } else if (situtationpro == 3) {
+            statPro = "&Eacute;tudiant";
+        } else if (situtationpro == 2) {
+            statPro = "Retraité";
+        } else if (situtationpro == 1) {
+            statPro = "Sans Emploi";
+        }
+
+        return statPro;
+    }
+
+    public String getNoteEp() {
+        String _NoteEpargnant = "";
+        int restant = revenus - depenses;
+
+        if (restant < 0.05 * revenus) {
+            _NoteEpargnant = "F";
+        } else if (restant < 0.1 * revenus) {
+            _NoteEpargnant = "E";
+        } else if (restant < 0.2 * revenus) {
+            _NoteEpargnant = "D";
+        } else if (restant < 0.3 * revenus) {
+            _NoteEpargnant = "C";
+        } else if (restant < 0.4 * revenus) {
+            _NoteEpargnant = "B";
+        } else if (restant > 0.5 * revenus) {
+            _NoteEpargnant = "A";
+        }
+
+        return _NoteEpargnant;
     }
 
     @Override
