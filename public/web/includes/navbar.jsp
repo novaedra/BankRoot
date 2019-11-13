@@ -14,7 +14,7 @@
         <li><a href="reglages.jsp">Reglages<img src="assets/img/settings.svg" alt="icone paramètre"/></a></li>
         <li><a href="Logout">Déconnexion&nbsp;<img src="assets/img/logout.svg" alt="icone déconnexion"/></a></li>
         <% if (session.getAttribute("role").equals("supAdmin")) { %>
-        <li><a href="Liste-Admins">Liste des Admins</a></li>
+        <li><a href="Liste-Admins">Liste des Admins<img src="assets/img/admin.svg" alt="icone administrateur"/></a></li>
         <li><a href="Inscription">Ajout d'un Admin</a></li>
         <% } %>
     </ul>

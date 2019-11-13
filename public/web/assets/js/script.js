@@ -1,5 +1,6 @@
 var btnContainer = document.getElementById("dropdown-content");
 var btns = btnContainer.getElementsByClassName("btnClient");
+var colorNote = { "A" : "#006638", "B" : "#7DB338", "C": "#FDC12A", "D": "#EE7A22", "E": "#E83C25", "F": "red" };
 
 for (var i = 0; i < btns.length; i++) { //ajouter classe active a l'élément cliquer
     btns[i].addEventListener("click", function() {
@@ -13,13 +14,26 @@ for (var i = 0; i < btns.length; i++) { //ajouter classe active a l'élément cl
 
 function showClientDetail(clientID) { //masquer tout les détail client puis inverser l'état du détail client choisit
 
-    var client = document.querySelectorAll('*[id^="client"]');
-    for (j = 0; j < client.length; j++) {
-        client[j].style.display = 'none';
+    var client = document.getElementById(clientID);
+    if (client.style.display === "block") { //si le client est deja affiché alors on le cache
+        var hideclients = document.querySelectorAll('*[id^="client"]');
+        for (j = 0; j < hideclients.length; j++) {
+            hideclients[j].style.display = 'none'; //cacher tout les client
+        }
     }
-    document.getElementById(clientID).style.display === 'block' ? document.getElementById(clientID).style.display = 'none' : document.getElementById(clientID).style.display = 'block';
+    else {
+        var hideclients = document.querySelectorAll('*[id^="client"]');
+        for (j = 0; j < hideclients.length; j++) {
+            hideclients[j].style.display = 'none'; //cacher tout les client
+        }
+        client.style.display = "block"; //afficher notre client choisit
+    }
 
-    if (screen.width < 640) { //fermer la liste si un client est choisit (uniquement en format large)
+    var note = client.querySelector("li#note");
+    note.style.backgroundColor = colorNote[note.innerHTML]; //changement couleur note en fonction de cell-ci
+
+
+    if (window.innerWidth < 640) { //fermer la liste si un client est choisit (uniquement en format portrait)
         showClientList();
     }
 }

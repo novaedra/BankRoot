@@ -12,24 +12,18 @@
         if (session.getAttribute("role").equals("supAdmin")) {
 
 %>
-<h1>Mes Admins</h1>
-<table>
-    <thead>
-    <th>Nom</th>
-    <th>Prénom</th>
-    <th></th>
-    </thead>
-    <tbody>
-    <%
-        List<Admins> admins = (List<Admins>) request.getAttribute("resultat");
-        for (Admins admin : admins) {
-            out.println("<tr><td>" + admin.getNom() + "</td>&nbsp;<td>" + admin.getPrenom() + "</td>" + "<td><a href='DetailsAdmins?id=" + admin.getId() + "'>Détails</a></td></tr>");
+<div class="liste">
+    <h2>Mes Admins</h2>
+    <ul>
+        <%
+            List<Admins> admins = (List<Admins>) request.getAttribute("resultat");
+            for (Admins admin : admins) {
+                out.println("<li class='admin'><a class='detail' href='DetailsAdmins?id=" + admin.getId() + "'>"+ admin.getNom() + " " + admin.getPrenom() + " " + admin.getRole() + "</a></li>");
 
-        }
-    %>
-    </tbody>
-</table>
-
+            }
+        %>
+    </ul>
+</div>
 
 <%@include file="includes/footer.jsp" %>
 <% } else {

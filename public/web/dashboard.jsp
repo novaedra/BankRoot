@@ -14,16 +14,17 @@
         <%
             List<Clients> clients = (List<Clients>) request.getAttribute("resultat");
             for (Clients client : clients) {
-                out.println("<a class='btnClient' onclick='showClientDetail(" + client.getId() + ")'>" + client.getPrenom() + " " + client.getNom() + "</a>");
+                out.println("<a class='btnClient' onclick=" + "\"" + "showClientDetail('client" + client.getId() + "')" + "\"" + ">" + client.getPrenom() + " " + client.getNom() + "</a>");
             }
         %>
     </div>
 </div>
+
 <%
     List<Clients> clientsModal = (List<Clients>) request.getAttribute("resultat");
     for (Clients clientModal : clientsModal) {
-        out.println("<div id=" + clientModal.getId() + " class='liste'>" +
-                "<ul><li>" + "Nom : " + clientModal.getNom() + " " + "<span style='font-weight: bold; color: black;'>" + clientModal.getNoteEp() + "</span>" +
+        out.println("<div id='client" + clientModal.getId() + "' class='liste' style='display:none'>" +
+                "<ul>" + "<li id='note'>" + clientModal.getNoteEp() + "</li>" + "<li>" + "Nom : " + clientModal.getNom() + " " +
                 "</li>" + "<li>" + "Prenom : " + clientModal.getPrenom() + "</li>"
                 + "<li>" + "Mail : " + clientModal.getMail() + "</li>" + "<li>" + "Date de naissance : " + clientModal.getBirthday() + "</li>"
                 + "<li>" + "&Acirc;ge : " + Math.round(clientModal.getAge()) + "</li>"
@@ -32,7 +33,7 @@
                 "Autorisation CNIL : " + clientModal.getAutoriCnil() + "</li>" + "<li>" + "Revenus annuels : " + clientModal.getRevenus() + "</li>" +
                 "<li>" + "Dépenses annuelles : " + clientModal.getDepenses() + "</li>" + "<li>" + "Situation professionelle : " + clientModal.getStatPro() + "</li>" +
                 "<li>" + "Situation matrimoniale : " + clientModal.getStatutmatri() + "</li>" +
-                "</ul><button onclick='closeClientDetail(" + clientModal.getId() + ")'>Fermer</button></div>");
+                "</ul><button onclick=" + "\"" + "closeClientDetail('client" + clientModal.getId() + "')" + "\"" + ">Fermer</button></div>");
     }
 %>
 
