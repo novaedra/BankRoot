@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
-@WebServlet(name = "UpdatePassword", urlPatterns = "/UpdatePassword")
+@WebServlet(name = "UpdatePassword", urlPatterns = "/Reglages")
 public class UpdatePassword extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -66,6 +66,6 @@ public class UpdatePassword extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        request.getRequestDispatcher("reglages.jsp").forward(request, response);
     }
 }

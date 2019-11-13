@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Inscription", urlPatterns = "/Inscription")
-public class Inscription extends HttpServlet {
+@WebServlet(name = "AjoutAdmin", urlPatterns = "/AjoutAdmin")
+public class AjoutAdmin extends HttpServlet {
 
     public static final String ATT_USER = "admins";
     public static final String ATT_FORM = "form";
-    public static final String VUE = "/inscription.jsp";
+    public static final String VUE = "/ajoutAdmin.jsp";
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
