@@ -24,10 +24,8 @@
 <%
     List<Clients> clientsModal = (List<Clients>) request.getAttribute("resultat");
     for (Clients clientModal : clientsModal) {
-        out.println("<div id='client" + clientModal.getId() + "' class='liste' style='display:none'>" +
-                "<ul>" + "<li id='note'>" + clientModal.getNoteEp() + "</li>" + "<li>" + "Nom : " + clientModal.getNom() + " " +
-                "</li>" + "<li>" + "Prenom : " + clientModal.getPrenom() + "</li>"
-                + "<li>" + "Mail : " + clientModal.getMail() + "</li>" + "<li>" + "Date de naissance : " + clientModal.getBirthday() + "</li>"
+        out.println("<div id='client" + clientModal.getId() + "' class='liste' style='display:none'>" + "<h2>" + clientModal.getPrenom() + " " + clientModal.getNom() + " " + "<span id='note'>" + clientModal.getNoteEp() + "</span>" + "</h2>"
+                + "<ul>" + "<li>" + "Mail : " + clientModal.getMail() + "</li>" + "<li>" + "Date de naissance : " + clientModal.getBirthday() + "</li>"
                 + "<li>" + "&Acirc;ge : " + Math.round(clientModal.getAge()) + "</li>"
                 + "<li>" + "Nombre d'enfants : " + clientModal.getEnfacharges() + "</li>" + "<li>"
                 + "Adresse postale : " + clientModal.getAdresse() + "</li>" + "<li>" + "Prospect : " + clientModal.getProspect() + "</li>" + "<li>" +
