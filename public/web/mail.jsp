@@ -5,10 +5,14 @@
 
 
 <form action="SendMail" method="post">
-    Destinataire&nbsp;:&nbsp;<input type="text" name="to"  /><br/>
-    Sujet&nbsp;:&nbsp;<input type="text" name="subject"  /><br/>
-    Message&nbsp;:&nbsp;<textarea name="content" id="" cols="70" rows="5"></textarea><br/>
-    <input type="submit" value="Envoyer" />
+    <img src="assets/img/BankRoot.svg" alt="logo bankroot"><br/>
+    <label for="to">Destinataire :</label><br/>
+    <input type="email" id="to" name="to" placeholder="michel@gmail.com"/><br/>
+    <label for="subject">Sujet :</label><br/>
+    <input type="text" id="subject" name="subject" placeholder="Offre de création de compte"/><br/>
+    <label for="content">Message :</label><br/>
+    <textarea id="content" name="content" id="" cols="70" rows="5"></textarea><br/>
+    <input type="submit" value="Envoyer"/>
 </form>
 
 <%@include file="includes/footer.jsp" %>
