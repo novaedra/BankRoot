@@ -12,7 +12,7 @@
 %>
 
 
-<form method="post" action="Inscription">
+<form method="post" action="Ajout-Admin" accept-charset="ISO-8859-1">
     <img src="assets/img/BankRoot.svg" alt="logo bankroot"><br/>
 
     <input class="form-control" type="text" id=nom name="nom" placeholder="Nom (*)"
