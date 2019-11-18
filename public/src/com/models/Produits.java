@@ -59,7 +59,6 @@ public class Produits extends BaseModelORM {
     public Integer getId_categorie() {
         return id_categorie;
     }
-
     public Produits setId_categorie(Integer id_categorie) {
         this.id_categorie = id_categorie;
         return this;
@@ -81,18 +80,6 @@ public class Produits extends BaseModelORM {
     public Produits setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
         return this;
-    }
-
-    public String getCategorieNom() {
-        String categorieNom = "";
-        if (id_categorie == 1) {
-            categorieNom = "Épargne";
-        } else if (id_categorie == 2) {
-            categorieNom = "Crédit";
-        } else if (id_categorie == 3) {
-            categorieNom = "Assurance";
-        }
-        return categorieNom;
     }
 
 }

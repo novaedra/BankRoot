@@ -15,7 +15,9 @@
     for (Produits produit : produits) {
 %>
 
-<form action="DetailsAdmins" method="post" accept-charset="ISO-8859-1">
+
+<form action="DetailsProduits" method="post" accept-charset="ISO-8859-1">
+
     <h2>Informations produit</h2><br/>
     <select name="categorie_id">
         <option>Catégorie</option>
@@ -36,8 +38,10 @@
     <input type="hidden" value="<%= produit.getId()%>" name="id_prod">
     <input type="text" value="<%= produit.getNom()%>" name="nom">
     <input type="text" value="<%= produit.getTaux()%>" name="taux">
-    <input type="text" value="<%= produit.getFrais()%>" name="frais">
-    <textarea name="description" cols="30" rows="10"><%= produit.getDescription()%></textarea>
+
+    <input type="text" value="<%= produit.getFrais()%>" name="frais"><br/>
+    <textarea name="description" cols="30" rows="10"><%= produit.getDescription()%></textarea><br/>
+
     <span>Produit ajouté le : <%=produit.getCreated_at()%></span><br/>
     <span>Information modifié le : <%=produit.getUpdated_at()%></span><br/>
 
