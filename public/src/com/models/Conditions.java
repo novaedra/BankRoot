@@ -1,16 +1,14 @@
 package com.models;
 
 public class Conditions extends BaseModelORM {
-    private String nom;
-    private String operateur;
-    private String value;
-    private String score;
-    private String arguments;
-    String tableName = "brconditions";
 
-    public String getTableName() {
-        return tableName;
-    }
+    private Integer id;
+    private String nom;
+    private String argument;
+    private String operateur;
+    private String valeur;
+
+    private String tableName;
 
     public String getNom() {
         return nom;
@@ -18,6 +16,15 @@ public class Conditions extends BaseModelORM {
 
     public Conditions setNom(String nom) {
         this.nom = nom;
+        return this;
+    }
+
+    public String getArgument() {
+        return argument;
+    }
+
+    public Conditions setArgument(String argument) {
+        this.argument = argument;
         return this;
     }
 
@@ -30,30 +37,19 @@ public class Conditions extends BaseModelORM {
         return this;
     }
 
-    public String getValue() {
-        return value;
+    public String getValeur() {
+        return valeur;
     }
 
-    public Conditions setValue(String value) {
-        this.value = value;
+    public Conditions setValeur(String valeur) {
+        this.valeur = valeur;
         return this;
     }
 
-    public String getScore() {
-        return score;
+    @Override
+    public String getTableName() {
+        this.tableName = "brconditions";
+        return this.tableName;
     }
 
-    public Conditions setScore(String score) {
-        this.score = score;
-        return this;
-    }
-
-    public String getArguments() {
-        return arguments;
-    }
-
-    public Conditions setArguments(String arguments) {
-        this.arguments = arguments;
-        return this;
-    }
 }

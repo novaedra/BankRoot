@@ -1,9 +1,11 @@
 package com.models;
 
 import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Admins extends BaseModelORM {
@@ -119,6 +121,12 @@ public class Admins extends BaseModelORM {
         this.updated_at = updated_at;
         return this;
     }
+
+//    public String getCreate(){
+//
+//        DateTimeFormatter creat = DateTimeFormatter.ofPaterne
+//        return new SimpleDateFormat("yyyyMMdd").format(created_at);
+//    }
 
     @Override
     public String getTableName() {

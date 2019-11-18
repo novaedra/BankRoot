@@ -82,6 +82,22 @@
         <servlet-name>DetailsProduits</servlet-name>
         <url-pattern>/DetailsProduits</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AjoutCondition</servlet-name>
+        <servlet-class>com.servlets.conditions.AjoutCondition</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AjoutCondition</servlet-name>
+        <url-pattern>/Ajout-Condition</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ListConditions</servlet-name>
+        <servlet-class>com.servlets.conditions.ListConditions</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListConditions</servlet-name>
+        <url-pattern>/Liste-Conditions</url-pattern>
+    </servlet-mapping>
     <!-- Pages d'erreur -->
     <error-page>
         <error-code>404</error-code>
