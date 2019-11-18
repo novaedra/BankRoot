@@ -35,12 +35,12 @@ h2 {
     padding: 10px;
     margin: 10px auto;
     display: inline-block;
+    text-transform: capitalize;
 }
 
 form {
     background-color: var(--custom-color);
     width: 60%;
-    min-width: 400px;
     padding-bottom: 20px;
     margin: 45vh auto;
     transform: translateY(-50%);
@@ -86,9 +86,10 @@ input[type="submit"], button[type="submit"] {
     color: white;
     text-transform: uppercase;
     transition: 0.25s;
+    font-weight: bold;
 }
 
-input[type="submit"]:hover, button[type="submit"]:hover{
+input[type="submit"]:hover, button[type="submit"]:hover {
     transition: 0.25s;
     background-color: white;
     color: var(--custom-color);
@@ -125,10 +126,13 @@ input[type="submit"]:hover, button[type="submit"]:hover{
 .liste ul li {
     color: var(--custom-color);
     font-size: 1.5em;
-    margin: 15px auto;
+    margin: 5px auto;
     padding: 10px;
     width: 100%;
 }
+
+/*=============================================================*/
+/*css menu liste admin*/
 
 .admin:hover .detail {
     color: white;
@@ -140,6 +144,19 @@ input[type="submit"]:hover, button[type="submit"]:hover{
     transition: .25s ease-out;
     border-radius: 7px;
     border: 0;
+}
+
+.admin img {
+    width:20px;
+    filter: invert(1);
+    transform: translateY(-10%);
+    transition: .25s;
+}
+
+.admin:hover img {
+    width:25px;
+    filter: invert(0);
+    transition: .25s ease-out;
 }
 
 .detail {
@@ -155,16 +172,29 @@ input[type="submit"]:hover, button[type="submit"]:hover{
     font-weight: bold;
 }
 
-.liste #note {
+.new {
+    text-align: right;
+    color: black;
     float: right;
-    display: block;
-    width: 10%;
-    padding: 10px;
-    background-color: red;
-    color: white;
-    text-align: center;
     font-weight: bold;
-    border-radius: 10px;
+    margin: -10px;
+}
+
+.new img {
+    width: 50px;
+}
+
+.new:hover {
+    color: var(--custom-color);
+}
+
+.new:hover img {
+    animation: spin 2s infinite ease-out;
+}
+
+@keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
 }
 
 /*=============================================================*/
@@ -224,14 +254,29 @@ input[type="submit"]:hover, button[type="submit"]:hover{
     width: 10%;
 }
 
+.liste #note {
+    float: right;
+    display: block;
+    margin-left: 10px;
+    padding: 15px 25px;
+    background-color: red;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+    transform: translateY(-20%);
+    border: 2px solid black;
+}
+
 /*=============================================================*/
 /*css masquer étiquette produit*/
 
 *[id^="client"] {
     width: 70%;
-    margin: 100px auto 0 auto;
+    margin: 50px auto;
     padding: 10px;
     border-radius: 25px;
+    transform: translateX(15%);
 }
 
 *[id^="client"] button {
@@ -242,6 +287,10 @@ input[type="submit"]:hover, button[type="submit"]:hover{
     background-color: var(--custom-color);
     cursor: pointer;
     border-radius: 5px;
+}
+
+*[id^="client"] h2 {
+    margin: 25px auto;
 }
 
 /*=============================================================*/
@@ -358,9 +407,10 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator:hover {
 
     *[id^="client"] {
         width: 100%;
+        margin: 100px auto;
         padding: 10px;
         position: relative;
-        margin: 100px auto 0 auto;
+        transform: translateX(0);
     }
 
     form {
