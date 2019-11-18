@@ -8,7 +8,7 @@
 <%
     /*  Seuls les admins avec le role supAdmin peuvent accéder au contenu de cette page.
      */
-    if (session != null) {
+
         if (session.getAttribute("role").equals("supAdmin")) {
 
 %>
@@ -32,8 +32,7 @@
 <%@include file="includes/footer.jsp" %>
 <% } else {
     /* S'ils ne sont qu'admin, ils sont redirigés vers le dashboard. */
-    response.sendRedirect("dashboard.jsp");
-}
+    response.sendRedirect("Dashboard");
 
 }
 %>

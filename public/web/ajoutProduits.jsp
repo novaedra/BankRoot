@@ -5,7 +5,7 @@
 <%@include file="includes/session.jsp" %>
 <%@include file="includes/navbar.jsp" %>
 
-<form action="Ajout-Produit" method="post">
+<form action="Ajout-Produit" method="post" accept-charset="ISO-8859-1">
     <select name="categorie_id">
         <option>Catégorie</option>
         <%
@@ -15,7 +15,7 @@
             if (categories != null) {
                 for (Categories categorie : categories) {
         %>
-        <option value="<%= categorie.getId() %>"><%= categorie.getNom() %>
+        <option value="<%= categorie.getId_categorie() %>"><%= categorie.getNom() %>
         </option>
         <%
                 }

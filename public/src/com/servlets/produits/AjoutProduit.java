@@ -24,6 +24,8 @@ public class AjoutProduit extends HttpServlet {
         String description = request.getParameter("description");
         String taux = request.getParameter("taux");
         String frais = request.getParameter("frais");
+        String categorie_id = request.getParameter("categorie_id");
+        Integer _categorie_id = Integer.parseInt(categorie_id);
         Integer _taux = Integer.parseInt(taux);
         Integer _frais = Integer.parseInt(frais);
         System.out.println("[DB] Try to insert a new product.");
@@ -32,11 +34,10 @@ public class AjoutProduit extends HttpServlet {
                 .setDescription(description)
                 .setTaux(_taux)
                 .setFrais(_frais)
+                .setId_categorie(_categorie_id)
                 .setCreated_at(Timestamp.valueOf(LocalDateTime.now()))
                 .setUpdated_at(null);
         Database.insert(addProduit);
-        Categories categories = new Categories().setNom(categorie);
-        Database.insert(categories);
         response.sendRedirect("Liste-Produits");
     }
 

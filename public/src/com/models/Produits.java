@@ -10,6 +10,7 @@ public class Produits extends BaseModelORM {
     private String nom;
     private Integer taux;
     private Integer frais;
+    private Integer id_categorie;
     private String description;
     private Timestamp created_at;
     private Timestamp updated_at;
@@ -52,6 +53,14 @@ public class Produits extends BaseModelORM {
 
     public Produits setDescription(String description) {
         this.description = description;
+        return this;
+    }
+
+    public Integer getId_categorie() {
+        return id_categorie;
+    }
+    public Produits setId_categorie(Integer id_categorie) {
+        this.id_categorie = id_categorie;
         return this;
     }
 

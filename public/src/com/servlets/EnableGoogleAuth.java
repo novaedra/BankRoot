@@ -1,4 +1,4 @@
-package com.servlets.settings;
+package com.servlets;
 
 import com.models.Admins;
 import com.utils.GoogleAuth;

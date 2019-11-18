@@ -5,7 +5,7 @@
         if (session.getAttribute("mail") != null) {
             System.out.println("[SESSION] Connected.");
         } else {
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("Login");
         }
     }
 %>
