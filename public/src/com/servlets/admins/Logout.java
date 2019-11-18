@@ -1,4 +1,4 @@
-package com.servlets.logs;
+package com.servlets.admins;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,6 +19,6 @@ public class Logout extends HttpServlet {
         /* On détruit la session et redirige vers la page d'accueil */
         HttpSession session = request.getSession();
         session.invalidate();
-        response.sendRedirect("login.jsp");
+        response.sendRedirect(request.getContextPath() + "/Login");
     }
 }

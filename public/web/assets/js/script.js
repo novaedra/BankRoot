@@ -1,8 +1,9 @@
 var btnContainer = document.getElementById("dropdown-content");
 var btns = btnContainer.getElementsByClassName("btnClient");
+var colorNote = {"A": "#006638", "B": "#7DB338", "C": "#FDC12A", "D": "#EE7A22", "E": "#E83C25", "F": "red"};
 
 for (var i = 0; i < btns.length; i++) { //ajouter classe active a l'élément cliquer
-    btns[i].addEventListener("click", function() {
+    btns[i].addEventListener("click", function () {
         var current = document.getElementsByClassName("active");
         if (current.length > 0) {
             current[0].className = current[0].className.replace(" active", "");
@@ -13,13 +14,24 @@ for (var i = 0; i < btns.length; i++) { //ajouter classe active a l'élément cl
 
 function showClientDetail(clientID) { //masquer tout les détail client puis inverser l'état du détail client choisit
 
-    var client = document.querySelectorAll('*[id^="client"]');
-    for (j = 0; j < client.length; j++) {
-        client[j].style.display = 'none';
-    }
-    document.getElementById(clientID).style.display === 'block' ? document.getElementById(clientID).style.display = 'none' : document.getElementById(clientID).style.display = 'block';
+    var client = document.getElementById(clientID);
+    var hideclients = document.querySelectorAll('*[id^="client"]');
 
-    if (screen.width < 640) { //fermer la liste si un client est choisit (uniquement en format large)
+    if (client.style.display === "block") { //si le client est deja affiché alors on le cache
+        for (j = 0; j < hideclients.length; j++) {
+            hideclients[j].style.display = 'none'; //cacher tout les client
+        }
+    } else {
+        for (j = 0; j < hideclients.length; j++) {
+            hideclients[j].style.display = 'none'; //cacher tout les client
+        }
+        client.style.display = "block"; //afficher notre client choisit
+    }
+
+    var note = client.querySelector("span#note");
+    note.style.backgroundColor = colorNote[note.innerHTML]; //changement couleur note en fonction de cell-ci
+
+    if (window.innerWidth < 640) { //fermer la liste si un client est choisit (uniquement en format portrait)
         showClientList();
     }
 }

@@ -1,10 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../includes/session.jsp" %>
+<%@include file="../includes/navbar.jsp" %>
 <html>
 <head>
     <title>404</title>
     <link rel="icon" type="image/png" href="../assets/img/favicon_BankRoot.png"/>
-    <link rel="stylesheet" href="../assets/css/404.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/error.css">
 </head>
 <body>
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

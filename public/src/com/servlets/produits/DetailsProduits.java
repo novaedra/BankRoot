@@ -40,6 +40,7 @@ public class DetailsProduits extends HttpServlet {
         Integer _frais = Integer.parseInt(frais);
         System.out.println(_frais);
 
+
         Produits produits = new Produits()
                 .setNom(nom)
                 .setTaux(_taux)

@@ -1,4 +1,4 @@
-package com.servlets.logs;
+package com.servlets.admins;
 
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -71,6 +71,7 @@ public class Login extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
 }

@@ -2,16 +2,16 @@ package com.models;
 
 public class Categories extends BaseModelORM {
 
-    private Integer id;
+    private Integer id_categorie;
     private String nom;
     private String tableName;
 
-    public Integer getId() {
-        return id;
+    public Integer getId_categorie() {
+        return id_categorie;
     }
 
-    public Categories setId(Integer id) {
-        this.id = id;
+    public Categories setId_categorie(Integer id_categorie) {
+        this.id_categorie = id_categorie;
         return this;
     }
 

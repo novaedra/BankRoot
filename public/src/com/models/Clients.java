@@ -208,7 +208,9 @@ public class Clients extends BaseModelORM {
     public String getStatPro() {
 
         String[] statuts =
+
                 {"Sans Emploi", "&Eacute;tudiant", "Stagiaire", "Apprenti", "Retraité", "Salarié en CDD", "Intérimaire",
+
                         "Salarié en CDI", "Auto-Entrepreneur", "Micro-Entrepreneur", "Cadre", "Cadre Supérieur", "Fonctionnaire"};
         int i = situtationpro - 1;
         return statuts[i];

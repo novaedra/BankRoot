@@ -12,13 +12,9 @@
 <%
     for (Admins admin : admins) {
 %>
-<p>Ajouté le : <%=admin.getCreated_at()%>
-</p>
-<p>Dernière modification le : <%=admin.getUpdated_at()%>
-</p>
-<form action="DetailsAdmins" method="post">
 
-
+<form action="DetailsAdmins" method="post" accept-charset="ISO-8859-1">
+    <h2>Informations admins</h2><br/>
     <input type="hidden" value="<%= admin.getId()%>" name="id">
     <input type="hidden" value="<%= admin.getPassword()%>" name="hash">
     <input type="text" value="<%= admin.getNom()%>" name="nom">
@@ -26,7 +22,9 @@
     <input type="text" value="<%= admin.getMail()%>" name="mail">
     <input type="text" value="<%= admin.getTelephone()%>" name="telephone">
     <input type="text" value="<%= admin.getRole()%>" name="role">
-    <input type="date" value="<%= admin.getBirthday()%>" name="birthday">
+    <input type="date" value="<%= admin.getBirthday()%>" name="birthday"><br/>
+    <span>Admin ajouté le : <%=admin.getCreated_at()%></span><br/>
+    <span>Information modifié le : <%=admin.getUpdated_at()%></span><br/>
 
     <input type="submit" value="Mettre à jour">
 </form>

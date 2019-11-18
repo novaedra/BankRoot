@@ -8,34 +8,31 @@
 <%
     /*  Seuls les admins avec le role supAdmin peuvent accéder au contenu de cette page.
      */
-    if (session != null) {
+
         if (session.getAttribute("role").equals("supAdmin")) {
 
 %>
-<h1>Mes Admins</h1>
-<table>
-    <thead>
-    <th>Nom</th>
-    <th>Prénom</th>
-    <th></th>
-    </thead>
-    <tbody>
-    <%
-        List<Admins> admins = (List<Admins>) request.getAttribute("resultat");
-        for (Admins admin : admins) {
-            out.println("<tr><td>" + admin.getNom() + "</td>&nbsp;<td>" + admin.getPrenom() + "</td>" + "<td><a href='DetailsAdmins?id=" + admin.getId() + "'>Détails</a></td></tr>");
+<div class="liste">
+    <h2>Mes Admins</h2>
+    <ul>
+        <%
+            List<Admins> admins = (List<Admins>) request.getAttribute("resultat");
+            for (Admins admin : admins) {
+                out.println("<li class='admin'><a class='detail' href='DetailsAdmins?id=" + admin.getId() + "'>"+ admin.getNom() + " " + admin.getPrenom());
+                String test = admin.getRole();
+                if (test.equals("supAdmin")) { out.println("<img src=\"assets/img/admin.svg\" alt=\"icone administrateur\"/>"); }
+                out.println("</a></li>");
 
-        }
-    %>
-    </tbody>
-</table>
-
+            }
+        %>
+        <a class="new" href="Ajout-Admin"> Ajouter un admin<img src="assets/img/plus.svg" alt="icone nouveau"/></a>
+    </ul>
+</div>
 
 <%@include file="includes/footer.jsp" %>
 <% } else {
     /* S'ils ne sont qu'admin, ils sont redirigés vers le dashboard. */
-    response.sendRedirect("dashboard.jsp");
-}
+    response.sendRedirect("Dashboard");
 
 }
 %>

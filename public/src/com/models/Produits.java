@@ -59,7 +59,6 @@ public class Produits extends BaseModelORM {
     public Integer getId_categorie() {
         return id_categorie;
     }
-
     public Produits setId_categorie(Integer id_categorie) {
         this.id_categorie = id_categorie;
         return this;
@@ -82,6 +81,5 @@ public class Produits extends BaseModelORM {
         this.updated_at = updated_at;
         return this;
     }
-
 
 }

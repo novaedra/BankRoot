@@ -12,7 +12,7 @@
 %>
 
 
-<form method="post" action="Inscription">
+<form method="post" action="Ajout-Admin" accept-charset="ISO-8859-1">
     <img src="assets/img/BankRoot.svg" alt="logo bankroot"><br/>
 
     <input class="form-control" type="text" id=nom name="nom" placeholder="Nom (*)"
@@ -30,12 +30,14 @@
     <input class="form-control" type="date" id="birthday" name="birthday" placeholder="Date de naissance (*)"
            value="<c:out value="${admins.birthday}"/>"><br/>
     <span>${form.erreurs['birthday']}</span><br/>
-    <label for="admin">Administrateur (*)</label>
-    <input type="radio" id="admin" name="role" value="admin" checked><br/>
-    <span>${form.erreurs['role']}</span><br/>
-    <label for="supadmin">Super Administrateur</label>
-    <input type="radio" id="supadmin" name="role" value="supAdmin" checked><br/>
-    <span>${form.erreurs['role']}</span><br/>
+    <div class="radio">
+        <label for="admin">Administrateur (*)</label>
+        <input type="radio" id="admin" name="role" value="admin" checked>
+        <span>${form.erreurs['role']}</span><br/>
+        <label for="supadmin">Super Administrateur</label>
+        <input type="radio" id="supadmin" name="role" value="supAdmin">
+        <span>${form.erreurs['role']}</span><br/>
+    </div>
     <input class="form-control" id="password" type="password" name="password" placeholder="Mot de Passe (*)"
            value="<c:out value="${admins.password}"/>"><br/>
     <span>${form.erreurs['password']}</span><br/>

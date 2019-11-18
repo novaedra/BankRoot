@@ -6,13 +6,13 @@
 
     <!--  Page d'accueil  -->
     <welcome-file-list>
-        <welcome-file>login.jsp</welcome-file>
+        <welcome-file>/Login</welcome-file>
     </welcome-file-list>
 
     <!--  Servlets et leur mapping  -->
     <servlet>
         <servlet-name>ListAdmins</servlet-name>
-        <servlet-class>com.servlets.filtreBdd.ListAdmins</servlet-class>
+        <servlet-class>com.servlets.admins.ListAdmins</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ListAdmins</servlet-name>
@@ -20,7 +20,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Dashboard</servlet-name>
-        <servlet-class>com.servlets.filtreBdd.Dashboard</servlet-class>
+        <servlet-class>com.servlets.Dashboard</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Dashboard</servlet-name>
@@ -28,45 +28,91 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>com.servlets.logs.Login</servlet-class>
+        <servlet-class>com.servlets.admins.Login</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>Inscription</servlet-name>
-        <servlet-class>com.servlets.logs.Inscription</servlet-class>
+        <servlet-name>AjoutAdmin</servlet-name>
+        <servlet-class>com.servlets.admins.AjoutAdmin</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Inscription</servlet-name>
-        <url-pattern>/Inscription</url-pattern>
+        <servlet-name>AjoutAdmin</servlet-name>
+        <url-pattern>/Ajout-Admin</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>UpdatePassword</servlet-name>
-        <servlet-class>com.servlets.logs.UpdatePassword</servlet-class>
+        <servlet-class>com.servlets.admins.UpdatePassword</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UpdatePassword</servlet-name>
-        <url-pattern>/UpdatePassword</url-pattern>
+        <url-pattern>/Reglages</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>DetailsAdmins</servlet-name>
-        <servlet-class>com.servlets.filtreBdd.DetailsAdmins</servlet-class>
+        <servlet-class>com.servlets.admins.DetailsAdmins</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DetailsAdmins</servlet-name>
         <url-pattern>/DetailsAdmins</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SendMail</servlet-name>
+        <servlet-class>com.servlets.SendMail</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SendMail</servlet-name>
+        <url-pattern>/Message</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AjoutProduit</servlet-name>
+        <servlet-class>com.servlets.produits.AjoutProduit</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AjoutProduit</servlet-name>
+        <url-pattern>/Ajout-Produit</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DetailsProduits</servlet-name>
+        <servlet-class>com.servlets.produits.DetailsProduits</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DetailsProduits</servlet-name>
+        <url-pattern>/DetailsProduits</url-pattern>
     </servlet-mapping>
     <!-- Pages d'erreur -->
     <error-page>
         <error-code>404</error-code>
         <location>/errorPages/notFound.jsp</location>
     </error-page>
-
     <error-page>
         <error-code>403</error-code>
         <location>/errorPages/forbidden.jsp</location>
     </error-page>
+
+    <!--  Config SMTP Server  -->
+
+    <context-param>
+        <param-name>host</param-name>
+        <param-value>smtp.gmail.com</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>port</param-name>
+        <param-value>587</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>user</param-name>
+        <param-value>bankroot.contact@gmail.com</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>pass</param-name>
+        <param-value>scsR2yFa8Nb79yH</param-value>
+    </context-param>
+
 
 </web-app>

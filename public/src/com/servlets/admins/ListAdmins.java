@@ -1,4 +1,4 @@
-package com.servlets.filtreBdd;
+package com.servlets.admins;
 
 import com.models.Admins;
 import com.utils.database.Database;
