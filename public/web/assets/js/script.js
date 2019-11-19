@@ -50,3 +50,15 @@ function showClientList() { //inverser affichage liste client
         document.getElementById("menuDeroulant").style.transform = "rotate(0deg)";
     }
 }
+
+function change() {
+    formunlock = document.getElementById("formAdmin");
+    formunlock.classList.remove("detailAdmin");
+    console.log(formunlock);
+    for (var i = 0; i < formunlock.length; i++) {
+        formunlock[i].removeAttribute('readonly');
+    }
+    submitButton = document.getElementById('validationAdmin');
+    submitButton.removeAttribute('disabled');
+    submitButton.style.display = "block";
+}
