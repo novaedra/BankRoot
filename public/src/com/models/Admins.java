@@ -122,12 +122,6 @@ public class Admins extends BaseModelORM {
         return this;
     }
 
-//    public String getCreate(){
-//
-//        DateTimeFormatter creat = DateTimeFormatter.ofPaterne
-//        return new SimpleDateFormat("yyyyMMdd").format(created_at);
-//    }
-
     @Override
     public String getTableName() {
         this.tableName = "bradmin";

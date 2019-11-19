@@ -7,6 +7,7 @@ public class Conditions extends BaseModelORM {
     private String argument;
     private String operateur;
     private String valeur;
+    private Integer produit_has_condition;
 
     private String tableName;
 
@@ -45,6 +46,17 @@ public class Conditions extends BaseModelORM {
         this.valeur = valeur;
         return this;
     }
+
+    public Integer getProduit_has_condition() {
+        return produit_has_condition;
+    }
+
+    public Conditions setProduit_has_condition(Integer produit_has_condition) {
+        this.produit_has_condition = produit_has_condition;
+        return this;
+    }
+
+
 
     @Override
     public String getTableName() {
