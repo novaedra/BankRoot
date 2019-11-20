@@ -56,7 +56,29 @@ public class Conditions extends BaseModelORM {
         return this;
     }
 
+    public static Boolean operateur(Integer cible, String operateur, Integer valeur) {
+        boolean isValid = true;
 
+        switch (operateur) {
+            case ">":
+                isValid = valeur > cible;
+                break;
+            case ">=":
+                isValid = valeur >= cible;
+                break;
+            case "<":
+                isValid = valeur < cible;
+                break;
+            case "<=":
+                isValid = valeur <= cible;
+                break;
+            case "=":
+                isValid = valeur.equals(cible);
+                break;
+        }
+
+        return isValid;
+    }
 
     @Override
     public String getTableName() {

@@ -15,7 +15,7 @@
         <option value="=">&Eacute;gal à</option>
         <option value="&ne;">Différent de</option>
     </select>
-    <input type="number" step="any" name="valeur" placeholder="Valeur">
+    <input type="text"  name="valeur" placeholder="Valeur">
     <input type="submit" value="Ajouter">
 </form>
 

@@ -237,6 +237,31 @@ public class Clients extends BaseModelORM {
         return _NoteEpargnant;
     }
 
+    public Integer getNoteInt() {
+        int noteEpargnant = 0;
+        switch (getNoteEp()) {
+            case "A":
+                noteEpargnant = 1;
+                break;
+            case "B":
+                noteEpargnant = 2;
+                break;
+            case "C":
+                noteEpargnant = 3;
+                break;
+            case "D":
+                noteEpargnant = 4;
+                break;
+            case "E":
+                noteEpargnant = 5;
+                break;
+            case "F":
+                noteEpargnant = 6;
+                break;
+        }
+        return noteEpargnant;
+    }
+
     @Override
     public String getTableName() {
         this.tableName = "brclients";
