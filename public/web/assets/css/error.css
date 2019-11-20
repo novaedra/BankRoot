@@ -1,0 +1,228 @@
+:root {
+    --custom-color: #176734;
+}
+
+* {
+    font-family: 'Roboto', sans-serif !important;
+    box-sizing: border-box;
+    color: white;
+}
+
+body {
+    background-color: black;
+    text-align: center;
+}
+
+h2 {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-decoration: underline;
+}
+
+svg {
+    width: 350px;
+    margin: 150px auto 0 auto;
+}
+
+#groot {
+    opacity: 0;
+    animation: 1.5s animation-groot-show forwards;
+}
+
+@keyframes animation-groot-show {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, -100px, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0px, 0);
+    }
+}
+
+#eyeLeft {
+    animation: 1.5s linear animation-eye infinite alternate;
+}
+
+#eyeRight {
+    animation: 1.5s linear animation-eye infinite alternate;
+}
+
+@keyframes animation-eye {
+    0% {
+        transform: translate3d(0, -2px, 0);
+    }
+    100% {
+        transform: translate3d(0, 1px, 0);
+    }
+}
+
+#mouth {
+    animation: 1.5s animation-mouth linear infinite alternate;
+}
+
+@keyframes animation-mouth {
+    0% {
+        transform: translate3d(0, 2px, 0);
+    }
+    100% {
+        transform: translate3d(0, 5px, 0);
+    }
+}
+
+#head {
+    animation: 1.5s linear infinite alternate animation-head;
+}
+
+@keyframes animation-head {
+    0% {
+        transform: translate3d(0, -1px, 0);
+    }
+    100% {
+        transform: translate3d(0, 1px, 0);
+    }
+}
+
+#armLeft {
+    transform-origin: 45% 50%;
+    animation: 1.3s linear infinite alternate animation-armLeft;
+}
+
+@keyframes animation-armLeft {
+    0% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(5deg);
+    }
+}
+
+#armRight {
+    transform-origin: 48% 48%;
+    animation: 1.3s linear infinite alternate animation-armRight;
+}
+
+@keyframes animation-armRight {
+    0% {
+        transform: rotate(-8deg);
+    }
+    100% {
+        transform: rotate(3deg);
+    }
+}
+
+#leaf4 {
+    animation: 1.5s linear infinite alternate animation-left-hand;
+}
+
+@keyframes animation-left-hand {
+    0% {
+        transform: translatex(0) translatey(0);
+    }
+    100% {
+        transform: translatex(-1px) translatey(2px);
+    }
+}
+
+#leaf1 {
+    animation: 1.5s infinite alternate animation-left;
+}
+
+#leaf2 {
+    animation: 1.5s infinite alternate animation-left;
+    animation-delay: 1s;
+}
+
+#leaf3 {
+    animation: 1.5s infinite alternate animation-left;
+    animation-delay: .5s;
+}
+
+@keyframes animation-left {
+    0% {
+        transform: translatey(0);
+    }
+    100% {
+        transform: translatey(3px);
+    }
+}
+
+#leaf5 {
+    animation: 1.5s linear infinite alternate animation-leaf-body-right;
+}
+
+@keyframes animation-leaf-body-right {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-3px, 0, 0);
+    }
+}
+
+#leaf6 {
+    animation: 1.5s linear infinite alternate animation-leaf-body-left;
+}
+
+#leaf7 {
+    animation: 1.5s linear infinite alternate animation-leaf-body-left;
+    animation-delay: 1s;
+}
+
+@keyframes animation-leaf-body-left {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+/*=============================================================*/
+/*css navbar*/
+
+nav {
+    width: 100%;
+}
+
+#navbar {
+    margin: 0;
+    padding: 0;
+}
+
+#navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    overflow: hidden;
+    background-color: var(--custom-color);
+    text-align: center;
+}
+
+#navbar li {
+    display: inline-block;
+    margin: 0 20px;
+    min-width: 150px;
+}
+
+#navbar li a {
+    width: 100%;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: .5s;
+}
+
+#navbar img {
+    width: 20px;
+    float: right;
+    margin: 0 0 0 5px;
+    transform: translateY(-3px);
+}
+
+#navbar li:hover {
+    background-color: #378c45;
+}

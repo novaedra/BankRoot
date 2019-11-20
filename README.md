@@ -1,4 +1,6 @@
 # Bankroot - Projet Java
+
+
 Bankroot est une application web développé en JAVA qui doit permettre à une banque de trouver dans une base de données, les clients et prospects les plus susceptibles de répondre positivement à une offre produit. 
 
 ## Installation
@@ -31,3 +33,4 @@ Une fois l'artefact créé :
 cliquer sur edit configurations puis + pour ajouter et sélectionner Tomcat Server : local
 
 Enfin, démarrer le serveur en cliquant sur l'icône play à droite de la configuration
+
