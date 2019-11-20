@@ -5,6 +5,7 @@
 <%@include file="includes/session.jsp" %>
 <%@include file="includes/navbar.jsp" %>
 
+
 <%
     List<Admins> admins = (List<Admins>) request.getAttribute("resultat");
 %>

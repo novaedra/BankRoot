@@ -23,6 +23,7 @@
 
             }
         %>
+        <a class="new" href="Ajout-Produit"> Ajouter un Produit<img src="assets/img/plus.svg" alt="icone nouveau"/></a>
     </ul>
 </div>
 

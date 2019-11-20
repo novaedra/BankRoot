@@ -19,7 +19,6 @@ import java.util.List;
 public class AjoutProduit extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String categorie = request.getParameter("categorie");
         String nom = request.getParameter("nom");
         String description = request.getParameter("description");
         String taux = request.getParameter("taux");
