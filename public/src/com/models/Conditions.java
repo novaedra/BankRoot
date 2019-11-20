@@ -63,15 +63,15 @@ public class Conditions extends BaseModelORM {
             case ">":
                 isValid = valeur > cible;
                 break;
-            case ">=":
-                isValid = valeur >= cible;
-                break;
+//            case ">=":
+//                isValid = valeur >= cible;
+//                break;
             case "<":
                 isValid = valeur < cible;
                 break;
-            case "<=":
-                isValid = valeur <= cible;
-                break;
+//            case "<=":
+//                isValid = valeur <= cible;
+//                break;
             case "=":
                 isValid = valeur.equals(cible);
                 break;

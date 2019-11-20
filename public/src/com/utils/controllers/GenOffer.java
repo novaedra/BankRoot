@@ -1,17 +1,21 @@
 package com.utils.controllers;
 
 
+import com.fasterxml.jackson.databind.util.ISO8601Utils;
 import com.models.Clients;
 import com.models.Conditions;
 import com.models.Historique;
 import com.utils.database.Database;
 
-import java.lang.reflect.Array;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class GenOffer {
-    public static void main(String[] args) {
+    private static String Offre;
 
+    public static String Offre() {
+        String offre = "";
         Conditions conditions = new Conditions();
         Clients clients = new Clients();
         Historique historique = new Historique();
@@ -25,25 +29,7 @@ public class GenOffer {
             Integer id_client = _histo.getId_client();
             boolean statut = _histo.getStatut();
             if (!statut) {
-                Integer produit_condition = 0;
-                String argCond = "";
-                String operateur = "";
-                String valeur = "";
-                ArrayList<Integer> tabCondPro = new ArrayList<>();
-                HashMap<Integer, Integer> tab = new HashMap<Integer, Integer>();
-                for (Conditions condition : selCond) {
-                    produit_condition = condition.getProduit_has_condition();
-                    argCond = condition.getArgument();
-                    operateur = condition.getOperateur();
-                    valeur = condition.getValeur();
-                    tabCondPro.add(produit_condition);
-                }
-                long resultat = Collections.frequency(tabCondPro, selCli);
-                System.out.println(tabCondPro);
-                System.out.println(resultat);
                 for (Clients client : selCli) {
-
-
                     String client_nom = client.getNom();
                     Integer _age = Math.round(client.getAge());
                     String age = String.valueOf(_age);
@@ -57,20 +43,29 @@ public class GenOffer {
                     for (int i = 0; i < colArg.length; i++) {
                         List<String> argumList = Arrays.asList(colArg);
                         List<String> valList = Arrays.asList(valArg);
+                        for (Conditions condition : selCond) {
+                            Integer produit_condition = condition.getProduit_has_condition();
 
+                            String argCond = condition.getArgument();
+                            String operateur = condition.getOperateur();
+                            String valeur = condition.getValeur();
+                            Integer _valeur = Integer.parseInt(valeur);
+                            if (argumList.contains(argCond)) {
+                                while (colArg[i].equals(argCond)) {
+                                    if (!Conditions.operateur(intArg[i], operateur, _valeur)) {
+                                        Offre = (client.getId() + " " + client.getPrenom() + " " + client.getNom());
+                                        System.out.println(client.getPrenom() + " " + client.getNom() + " " + valArg[i] + operateur + valeur + " " + produit_condition);
 
-                        Integer _valeur = Integer.parseInt(valeur);
-                        if (argumList.contains(argCond)) {
-                            while (colArg[i].equals(argCond)) {
-                                if (!Conditions.operateur(intArg[i], operateur, _valeur)) {
+                                    }
+                                    break;
 
                                 }
-                                break;
                             }
                         }
                     }
                 }
             }
         }
+        return Offre;
     }
 }
