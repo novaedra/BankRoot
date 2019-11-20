@@ -10,7 +10,7 @@
     <ul>
         <%
             List<Clients> clients = (List<Clients>) request.getAttribute("resultat");
-            int pagination = 2;
+            Integer pagination = (Integer) request.getAttribute("pagination");
             int offset = pagination *10;
             int compteur = 0;
             for (Clients client : clients) {
@@ -22,6 +22,7 @@
             }
         %>
     </ul>
+    <a href='allClient?pagination=2'>page2</a>
 </div>
 
 <script type="text/javascript" src="assets/js/script.js"></script>
