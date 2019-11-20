@@ -14,9 +14,7 @@ html, body {
 }
 
 body {
-    min-height: 95vh;
-    min-width: 95vw;
-    background: #333 url(../img/trees.png) no-repeat fixed;
+    background: #333 url(../img/root.jpg) no-repeat fixed;
     background-size: cover;
     text-align: center;
 }
@@ -35,15 +33,21 @@ h2 {
     padding: 10px;
     margin: 10px auto;
     display: inline-block;
-    text-transform: capitalize;
+}
+
+/*=============================================================*/
+/*css formulaire*/
+
+.login {
+    margin: 0 auto;
+    transform: translateY(50%);
 }
 
 form {
     background-color: var(--custom-color);
     width: 60%;
     padding-bottom: 20px;
-    margin: 45vh auto;
-    transform: translateY(-50%);
+    margin: 5% auto;
 }
 
 form img {
@@ -95,6 +99,20 @@ input[type="submit"]:hover, button[type="submit"]:hover {
     color: var(--custom-color);
 }
 
+textarea {
+    width: 80%;
+    min-height: 100px;
+    font-size: .9rem;
+    letter-spacing: 1px;
+    padding: 10px;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 2px solid grey;
+}
+
+/*=============================================================*/
+/*css menu liste générale*/
+
 .liste {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     width: 60%;
@@ -138,18 +156,18 @@ input[type="submit"]:hover, button[type="submit"]:hover {
     color: white;
     text-align: left;
     background-color: var(--custom-color);
-    transform: scale(1.1);
-    padding: 20px 20px 25px 20px;
-    box-shadow: inset 0 -10px 0 0 whitesmoke;
+    transform: scale(1.0625);
+    padding: 20px 10px 25px 10px;
     transition: .25s ease-out;
     border-radius: 7px;
     border: 0;
 }
 
 .admin img {
+    float: right;
     width:20px;
     filter: invert(1);
-    transform: translateY(-10%);
+    transform: translateY(-50%);
     transition: .25s;
 }
 
@@ -165,7 +183,7 @@ input[type="submit"]:hover, button[type="submit"]:hover {
     color: black;
     padding: 10px;
     background-color: white;
-    border-bottom: 1px solid grey;
+    border-bottom: 2px solid grey;
     border-radius: 0;
     transition: .25s;
     text-decoration: none;
@@ -182,6 +200,7 @@ input[type="submit"]:hover, button[type="submit"]:hover {
 
 .new img {
     width: 50px;
+    filter: invert(0);
 }
 
 .new:hover {
@@ -189,12 +208,12 @@ input[type="submit"]:hover, button[type="submit"]:hover {
 }
 
 .new:hover img {
-    animation: spin 2s infinite ease-out;
+    animation: spin 1s infinite ease-out;
 }
 
 @keyframes spin {
     from { -webkit-transform: rotate(0deg); }
-    to { -webkit-transform: rotate(360deg); }
+    to { -webkit-transform: rotate(180deg); }
 }
 
 /*=============================================================*/
