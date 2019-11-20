@@ -22,7 +22,7 @@
             }
         %>
     </select><br>
-    <input type="text" name="nom" placeholder="Nom">
+    <input type="text" name="nomp" placeholder="Nom">
     <input type="text" name="taux" placeholder="Taux">
     <input type="text" name="frais" placeholder="Frais"><br>
     <textarea name="description" cols="67" rows="5" placeholder="Description"></textarea><br>

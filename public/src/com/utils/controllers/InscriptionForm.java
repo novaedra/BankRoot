@@ -1,5 +1,7 @@
 package com.utils.controllers;
 
+import com.models.Produits;
+import org.dom4j.util.StringUtils;
 import org.mindrot.jbcrypt.BCrypt;
 import com.models.Admins;
 import com.utils.database.Database;
@@ -20,6 +22,13 @@ public final class InscriptionForm {
     private static final String champ_birthday = "birthday";
     private static final String champ_role = "role";
     private static final String champ_password = "password";
+    private static final String champ_categorie_id = "categorie_id";
+    private static final String champ_nomp = "nomp";
+    private static final String champ_taux = "taux";
+    private static final String champ_frais = "frais";
+    private static final String champ_description = "description";
+
+
 
     private String resultat;
     private Map<String, String> erreurs = new HashMap<String, String>();
@@ -30,6 +39,50 @@ public final class InscriptionForm {
 
     public Map<String, String> getErreurs() {
         return erreurs;
+    }
+
+    public Produits ajoutProduits(HttpServletRequest request) {
+
+        String categorie_id = getValeurChamp(request, champ_categorie_id);
+        String nomp = getValeurChamp(request, champ_nomp);
+        String taux = getValeurChamp(request, champ_taux);
+        String frais = getValeurChamp(request, champ_frais);
+        String description = getValeurChamp(request, champ_description);
+
+        Produits produits = new Produits();
+        try {
+            validationNom(nomp);
+
+        } catch (Exception e) {
+            setErreur(champ_nomp, e.getMessage());
+        }
+        try {
+            validationNum(taux);
+        } catch (Exception e) {
+            setErreur(champ_taux, e.getMessage());
+        }
+        try {
+            validationNum(frais);
+        } catch (Exception e) {
+            setErreur(champ_mail, e.getMessage());
+        }
+        try {
+            validationDescrib(description);
+        } catch (Exception e) {
+            setErreur(champ_telephone, e.getMessage());
+        }
+
+        if (erreurs.isEmpty()) {
+            produits.setId_categorie(categorie_id);
+            produits.setNom(nomp);
+            produits.setTaux(taux);
+            produits.setFrais(frais);
+            produits.setDescription(description);
+               produits.setCreated_at(Timestamp.valueOf(LocalDateTime.now()));
+            produits.setUpdated_at(null);
+            Database.insert(produits);
+        }
+        return produits;
     }
 
     public Admins ajoutAdmin(HttpServletRequest request) {
@@ -95,6 +148,31 @@ public final class InscriptionForm {
             Database.insert(admins);
         }
         return admins;
+    }
+    public static boolean isNumeric(String str)
+    {
+        try
+        {
+            double d = Double.parseDouble(str);
+        }
+        catch(NumberFormatException nfe)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    private void validationNum(String num) throws Exception
+        {
+            if(!isNumeric(num)){
+                throw new Exception("Le champs doit etre un nombre.");
+            }
+        }
+
+    private void validationDescrib(String desc) throws Exception {
+        if (desc == null || desc.length() < 20 || desc.length() > 500) {
+            throw new Exception("Le nom d'utilisateur doit contenir au moins 20 caractères et avoir moins de 500 caractères.");
+        }
     }
 
     private void validationNom(String nom) throws Exception {
@@ -181,6 +259,8 @@ public final class InscriptionForm {
             return valeur.trim();
         }
     }
+
+       
 
 }
 
