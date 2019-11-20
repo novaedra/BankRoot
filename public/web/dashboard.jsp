@@ -13,17 +13,26 @@
     <div id="dropdown-content" style="display: none;">
         <%
             List<Clients> clients = (List<Clients>) request.getAttribute("resultat");
+            int compteur = 0;
             for (Clients client : clients) {
+                compteur++;
+                if (compteur == 10) {break;}
                 out.println("<a class='btnClient' onclick=" + "\"" + "showClientDetail('client" + client.getId() + "')"
                         + "\"" + ">" + client.getPrenom() + " " + client.getNom() + "</a>");
             }
         %>
+        <% if (session.getAttribute("role").equals("supAdmin")) { %>
+        <a class="btnClient seeall" href="allClient">Voir tout les clients</a>
+        <% } %>
     </div>
 </div>
 
 <%
     List<Clients> clientsModal = (List<Clients>) request.getAttribute("resultat");
+    compteur = 0;
     for (Clients clientModal : clientsModal) {
+        compteur++;
+        if (compteur == 10) {break;}
         out.println("<div id='client" + clientModal.getId() + "' class='liste' style='display:none'>" + "<h2>" + clientModal.getPrenom() + " " + clientModal.getNom() + " " + "<span id='note'>" + clientModal.getNoteEp() + "</span>" + "</h2>"
                 + "<ul>" + "<li>" + "Mail : " + clientModal.getMail() + "</li>" + "<li>" + "Date de naissance : " + clientModal.getBirthday() + "</li>"
                 + "<li>" + "&Acirc;ge : " + Math.round(clientModal.getAge()) + "</li>"

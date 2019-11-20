@@ -13,7 +13,7 @@
     for (Admins admin : admins) {
 %>
 
-<form id="formAdmin" class="detailAdmin" action="DetailsAdmins" method="post" accept-charset="ISO-8859-1">
+<form id="formAnimation" class="detailAnimation" action="DetailsAdmins" method="post" accept-charset="ISO-8859-1">
     <h2>Informations admins</h2><br/>
     <input type="hidden" value="<%= admin.getId()%>" name="id" readonly>
     <input type="hidden" value="<%= admin.getPassword()%>" name="hash" readonly>
@@ -27,7 +27,7 @@
     <input onclick="change()" type="date" value="<%= admin.getBirthday()%>" name="birthday" readonly><br/>
     <p>Admin ajouté le : <%=admin.getCreated_at()%></p>
     <p>Information modifié le : <%=admin.getUpdated_at()%></p>
-    <input id="validationAdmin" type="submit" value="Mettre à jour" style="display: none" disabled>
+    <input id="validation" type="submit" value="Mettre à jour" style="display: none" disabled>
 </form>
 <% }
 %>

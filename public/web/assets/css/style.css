@@ -106,9 +106,26 @@ textarea {
     letter-spacing: 1px;
     padding: 10px;
     line-height: 1.5;
-    border-radius: 5px;
-    border: 2px solid grey;
+    border: 1px solid white;
     background-color: whitesmoke;
+    transition: .25s;
+    margin: 10px 0;
+}
+
+select {
+    width: 40%;
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    box-sizing: content-box;
+    padding: 10px;
+    margin: 10px auto;
+    transition: .25s;
+}
+
+option {
+    background-color: white;
+    color: black;
 }
 
 /*=============================================================*/
@@ -218,13 +235,24 @@ textarea {
     to { -webkit-transform: rotate(180deg); }
 }
 
-.detailAdmin {
-
-}
-
-.detailAdmin input {
+.detailAnimation input, .detailAnimation textarea {
     background-color: var(--custom-color) !important;
     color: white !important;
+}
+
+.detailAnimation select {
+    width: 40%;
+    background-color: transparent;
+    border: 1px solid whitesmoke;
+    color: white;
+    box-sizing: content-box;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+.detailAnimation option {
+    background-color: var(--custom-color);
+    color: white;
 }
 
 /*=============================================================*/
@@ -274,6 +302,17 @@ textarea {
     color: white;
 }
 
+.seeall {
+    font-style: italic;
+    font-weight: bold;
+    border-top: 1px solid black;
+    color: var(--custom-color);
+}
+
+.seeall:hover {
+    border: 0;
+}
+
 #dropdown-content a:hover {
     background-color: #41AC53;
     color: white;
@@ -288,14 +327,16 @@ textarea {
     float: right;
     display: block;
     margin-left: 10px;
-    padding: 15px 25px;
+    width: 50px;
+    padding: 5px;
     background-color: red;
     color: white;
     text-align: center;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 1px;
     transform: translateY(-20%);
-    border: 2px solid black;
+    border: 1px solid black;
+    clear: both;
 }
 
 /*=============================================================*/
@@ -346,8 +387,7 @@ nav {
 
 #navbar li {
     display: inline-block;
-    margin: 0 20px;
-    min-width: 150px;
+    margin: 0 5px;
 }
 
 #navbar li a {
@@ -457,5 +497,10 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator:hover {
 
     .liste, .liste ul, .liste li {
         width: 90%
+    }
+
+    #navbar li {
+        display: inline-block;
+        margin: 0 auto;
     }
 }
