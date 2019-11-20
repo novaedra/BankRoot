@@ -10,7 +10,7 @@
     <ul>
         <%
             List<Clients> clients = (List<Clients>) request.getAttribute("resultat");
-            Integer pagination = (Integer) request.getAttribute("pagination");
+            Integer pagination = (Integer) request.getAttribute("pagination"); //probleme ici entre pagination appeler et pagination en int
             int offset = pagination *10;
             int compteur = 0;
             for (Clients client : clients) {
