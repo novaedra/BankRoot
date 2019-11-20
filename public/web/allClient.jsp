@@ -11,18 +11,21 @@
         <%
             List<Clients> clients = (List<Clients>) request.getAttribute("resultat");
             Integer pagination = (Integer) request.getAttribute("pagination"); //probleme ici entre pagination appeler et pagination en int
-            int offset = pagination *10;
+            int offset = pagination * 10;
             int compteur = 0;
             for (Clients client : clients) {
                 compteur++;
-                if (compteur >= offset-10) {
+                if (compteur >= offset - 10) {
                     out.println("<li>" + client.getPrenom() + " " + client.getNom() + " <span id='note'>" + client.getNoteEp() + "</span></li>");
                 }
-                if (compteur == offset) {break;}
+                if (compteur == offset) {
+                    break;
+                }
             }
         %>
     </ul>
-    <a href='allClient?pagination=2'>page2</a>
+
+    <a href="allClient?pagination=<%=compteur++%>">page<%=compteur%></a>
 </div>
 
 <script type="text/javascript" src="assets/js/script.js"></script>
