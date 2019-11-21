@@ -1,7 +1,6 @@
-package com.servlets;
+package com.servlets.conditions;
 
-import com.models.Clients;
-import com.utils.controllers.GenOffer;
+import com.models.Conditions;
 import com.utils.database.Database;
 
 import javax.servlet.ServletException;
@@ -13,22 +12,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "Dashboard", urlPatterns = "/Dashboard")
-public class Dashboard extends HttpServlet {
+@WebServlet(name = "ListConditions")
+public class ListConditions extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        Clients clients = new Clients();
+        Conditions conditions = new Conditions();
         ArrayList f = new ArrayList();
 
         f.add("*");
-        List resultat = Database.select(clients, f);
 
+        List resultat = Database.select(conditions, f);
         request.setAttribute("resultat", resultat);
-        request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+        request.getRequestDispatcher("listeConditions.jsp").forward(request, response);
     }
-
 }

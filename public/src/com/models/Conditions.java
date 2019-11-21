@@ -1,16 +1,15 @@
 package com.models;
 
 public class Conditions extends BaseModelORM {
-    private String nom;
-    private String operateur;
-    private String value;
-    private String score;
-    private String arguments;
-    String tableName = "brconditions";
 
-    public String getTableName() {
-        return tableName;
-    }
+    private Integer id;
+    private String nom;
+    private String argument;
+    private String operateur;
+    private String valeur;
+    private Integer produit_has_condition;
+
+    private String tableName;
 
     public String getNom() {
         return nom;
@@ -18,6 +17,15 @@ public class Conditions extends BaseModelORM {
 
     public Conditions setNom(String nom) {
         this.nom = nom;
+        return this;
+    }
+
+    public String getArgument() {
+        return argument;
+    }
+
+    public Conditions setArgument(String argument) {
+        this.argument = argument;
         return this;
     }
 
@@ -30,30 +38,52 @@ public class Conditions extends BaseModelORM {
         return this;
     }
 
-    public String getValue() {
-        return value;
+    public String getValeur() {
+        return valeur;
     }
 
-    public Conditions setValue(String value) {
-        this.value = value;
+    public Conditions setValeur(String valeur) {
+        this.valeur = valeur;
         return this;
     }
 
-    public String getScore() {
-        return score;
+    public Integer getProduit_has_condition() {
+        return produit_has_condition;
     }
 
-    public Conditions setScore(String score) {
-        this.score = score;
+    public Conditions setProduit_has_condition(Integer produit_has_condition) {
+        this.produit_has_condition = produit_has_condition;
         return this;
     }
 
-    public String getArguments() {
-        return arguments;
+    public static Boolean operateur(Integer cible, String operateur, Integer valeur) {
+        boolean isValid = true;
+
+        switch (operateur) {
+            case ">":
+                isValid = valeur > cible;
+                break;
+//            case ">=":
+//                isValid = valeur >= cible;
+//                break;
+            case "<":
+                isValid = valeur < cible;
+                break;
+//            case "<=":
+//                isValid = valeur <= cible;
+//                break;
+            case "=":
+                isValid = valeur.equals(cible);
+                break;
+        }
+
+        return isValid;
     }
 
-    public Conditions setArguments(String arguments) {
-        this.arguments = arguments;
-        return this;
+    @Override
+    public String getTableName() {
+        this.tableName = "brconditions";
+        return this.tableName;
     }
+
 }

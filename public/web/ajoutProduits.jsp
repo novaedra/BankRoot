@@ -23,8 +23,8 @@
         %>
     </select><br>
     <input type="text" name="nom" placeholder="Nom">
-    <input type="text" name="taux" placeholder="Taux">
-    <input type="text" name="frais" placeholder="Frais"><br>
+    <input type="number" step="any" name="taux" placeholder="Taux">
+    <input type="number" step="any" name="frais" placeholder="Frais"><br>
     <textarea name="description" cols="67" rows="5" placeholder="Description"></textarea><br>
     <input type="submit">
 </form>

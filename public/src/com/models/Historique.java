@@ -9,7 +9,7 @@ public class Historique extends BaseModelORM {
     private Integer id_historique;
     private Integer id_client;
     private Integer id_produit;
-    private Boolean statut;
+    private boolean statut;
     private Integer id_admin;
     private Timestamp created_at;
     private Timestamp updated_at;
@@ -21,6 +21,11 @@ public class Historique extends BaseModelORM {
 
     public Integer getId_historique() {
         return id_historique;
+    }
+
+    public Historique setId_historique(Integer id_historique) {
+        this.id_historique = id_historique;
+        return this;
     }
 
     public Integer getId_client() {
@@ -41,14 +46,16 @@ public class Historique extends BaseModelORM {
         return this;
     }
 
-    public Boolean getStatut() {
+    public boolean getStatut() {
         return statut;
     }
 
-    public Historique setStatut(Boolean statut) {
+    public Historique setStatut(boolean statut) {
         this.statut = statut;
         return this;
     }
+
+
 
     public Integer getId_admin() {
         return id_admin;
