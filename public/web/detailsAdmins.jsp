@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.models.Admins" %>
+<%@ page import="com.utils.controllers.GenOffer" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="includes/head.jsp" %>
 <%@include file="includes/session.jsp" %>

@@ -1,21 +1,22 @@
 package com.utils.controllers;
 
 
-import com.fasterxml.jackson.databind.util.ISO8601Utils;
 import com.models.Clients;
 import com.models.Conditions;
 import com.models.Historique;
 import com.utils.database.Database;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class GenOffer {
-    private static String Offre;
 
-    public static String Offre() {
-        String offre = "";
+    public static HashMap<Integer, Integer
+            > Offre() {
+        HashMap<Integer, Integer> resultat = new HashMap<Integer, Integer>();
         Conditions conditions = new Conditions();
         Clients clients = new Clients();
         Historique historique = new Historique();
@@ -30,6 +31,7 @@ public class GenOffer {
             boolean statut = _histo.getStatut();
             if (!statut) {
                 for (Clients client : selCli) {
+                    Integer id = client.getId();
                     String client_nom = client.getNom();
                     Integer _age = Math.round(client.getAge());
                     String age = String.valueOf(_age);
@@ -45,7 +47,7 @@ public class GenOffer {
                         List<String> valList = Arrays.asList(valArg);
                         for (Conditions condition : selCond) {
                             Integer produit_condition = condition.getProduit_has_condition();
-
+                            String str_ProdCond = String.valueOf(produit_condition);
                             String argCond = condition.getArgument();
                             String operateur = condition.getOperateur();
                             String valeur = condition.getValeur();
@@ -53,9 +55,8 @@ public class GenOffer {
                             if (argumList.contains(argCond)) {
                                 while (colArg[i].equals(argCond)) {
                                     if (!Conditions.operateur(intArg[i], operateur, _valeur)) {
-                                        Offre = (client.getId() + " " + client.getPrenom() + " " + client.getNom());
-                                        System.out.println(client.getPrenom() + " " + client.getNom() + " " + valArg[i] + operateur + valeur + " " + produit_condition);
-
+                                        resultat.put(id, produit_condition);
+                                        System.out.println(resultat);
                                     }
                                     break;
 
@@ -66,6 +67,6 @@ public class GenOffer {
                 }
             }
         }
-        return Offre;
+        return resultat;
     }
 }
