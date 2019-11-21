@@ -18,7 +18,7 @@
             int page_max = clients.size()/10+1;
             for (Clients client : clients) {
                 if (compteur >= offset - 9) {
-                    out.println("<a><li>" + client.getPrenom() + " " + client.getNom() + " <span id='note'>" + client.getNoteEp() + "</span></li></a>");
+                    out.println("<a href='detailsClient.jsp'><li>" + client.getPrenom() + " " + client.getNom() + " <span id='note'>" + client.getNoteEp() + "</span></li></a>");
                 }
                 if (compteur == offset) {
                     break;
