@@ -20,15 +20,17 @@ public class AllClient extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String pagination = request.getParameter("pagination");
-        Integer _pagination = Integer.parseInt(pagination);
-        System.out.println(pagination);
+        String pagination = request.getParameter("page");
+        Integer _pagination = 1;
+
+        if (pagination.matches("[0-9]+")) {
+            _pagination = Integer.parseInt(pagination);
+        }
         Clients clients = new Clients();
         ArrayList f = new ArrayList();
 
         f.add("*");
         List resultat = Database.select(clients, f);
-
         request.setAttribute("pagination", _pagination);
         request.setAttribute("resultat", resultat);
         request.getRequestDispatcher("allClient.jsp").forward(request, response);

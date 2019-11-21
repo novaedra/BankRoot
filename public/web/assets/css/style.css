@@ -339,6 +339,28 @@ option {
     clear: both;
 }
 
+.pagination a {
+    color: black;
+    margin: 5px 10px;
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 10px;
+    transition: .25s;
+}
+
+.pagination .active {
+    background-color: black;
+    color: white;
+}
+
+.pagination img[alt] {
+    color: black;
+}
+
+.imgpagination {
+    width: 15px !important;
+}
+
 /*=============================================================*/
 /*css masquer étiquette produit*/
 

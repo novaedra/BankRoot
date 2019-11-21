@@ -22,7 +22,7 @@
             }
         %>
         <% if (session.getAttribute("role").equals("supAdmin")) { %>
-        <a class="btnClient seeall" href="allClient?pagination=1">Voir tout les clients</a>
+        <a class="btnClient seeall" href="allClient?page=1">Voir tout les clients</a>
         <% } %>
     </div>
 </div>
