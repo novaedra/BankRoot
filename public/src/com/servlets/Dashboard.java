@@ -1,6 +1,7 @@
 package com.servlets;
 
 import com.models.Clients;
+import com.utils.controllers.GenOffer;
 import com.utils.database.Database;
 
 import javax.servlet.ServletException;
@@ -25,7 +26,6 @@ public class Dashboard extends HttpServlet {
 
         f.add("*");
         List resultat = Database.select(clients, f);
-
 
         request.setAttribute("resultat", resultat);
         request.getRequestDispatcher("dashboard.jsp").forward(request, response);

@@ -6,17 +6,13 @@ import com.models.Conditions;
 import com.models.Historique;
 import com.utils.database.Database;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class GenOffer {
 
-    public static HashMap<Integer, Integer
-            > Offre() {
-        HashMap<Integer, Integer> resultat = new HashMap<Integer, Integer>();
+    public static HashMap<Integer, HashSet> Offre() {
+        HashMap<Integer, HashSet> resultat = new HashMap<>();
+        HashSet<Integer> resPC = new HashSet<>();
         Conditions conditions = new Conditions();
         Clients clients = new Clients();
         Historique historique = new Historique();
@@ -53,9 +49,10 @@ public class GenOffer {
                             String valeur = condition.getValeur();
                             Integer _valeur = Integer.parseInt(valeur);
                             if (argumList.contains(argCond)) {
-                                while (colArg[i].equals(argCond)) {
+                                while (colArg[i].equals(argCond) && i < colArg[i].length()) {
                                     if (!Conditions.operateur(intArg[i], operateur, _valeur)) {
-                                        resultat.put(id, produit_condition);
+                                        resPC.add(produit_condition);
+                                        resultat.put(id, resPC);
                                         System.out.println(resultat);
                                     }
                                     break;
