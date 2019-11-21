@@ -19,6 +19,8 @@ public class BaseModelORM {
     private String selectQueryString = "SELECT ";
     private String deleteQueryString = "DELETE FROM ";
     private String updateIdQueryString = "UPDATE ";
+    private String limitQueryString = "LIMIT ";
+    private String offsetQueryString = "OFFSET ";
 
 
     private String ucFirst(String string) {
@@ -471,5 +473,4 @@ public class BaseModelORM {
         }
         return this;
     }
-
 }

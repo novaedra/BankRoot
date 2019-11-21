@@ -10,9 +10,7 @@ public class Database {
     private static Connection dbConnection;
     private static String database = "bankroot";
     private static String user = "postgres";
-
     private static String password = "€wy@Tu$QM0_Ffw6m_GkW_6lçw3u_tA.6ù9zjùO%wToM%a93KPJD4CmpF!ry4an%nùTùLk4lhS4TWfRsbZcn.M%?SLrDRIrùçJ*ç,tU!d.vl.PZoD%hmzzzaQ0Zohhk5X";
-
     private static String url = "jdbc:postgresql://localhost:5432/";
 
     public static void connect() {

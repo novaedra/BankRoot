@@ -11,7 +11,7 @@
     <label for="subject">Sujet :</label><br/>
     <input type="text" id="subject" name="subject" placeholder="Offre de création de compte"/><br/>
     <label for="content">Message :</label><br/>
-    <textarea id="content" name="content" id="" cols="70" rows="5"></textarea><br/>
+    <textarea id="content" name="content" cols="70" rows="5"></textarea><br/>
     <input type="submit" value="Envoyer"/>
 </form>
 
