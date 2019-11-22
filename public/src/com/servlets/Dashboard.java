@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Iterator;
 
 @WebServlet(name = "Dashboard", urlPatterns = "/Dashboard")
 public class Dashboard extends HttpServlet {
@@ -26,6 +27,10 @@ public class Dashboard extends HttpServlet {
 
         f.add("*");
         List resultat = Database.select(clients, f);
+
+        final List<Integer> offres = GenOffer.Offre();
+        DivideList<Integer> offre = DivideList.ofSize(offres, 2);
+        request.setAttribute("offre", offre);
 
         request.setAttribute("resultat", resultat);
         request.getRequestDispatcher("dashboard.jsp").forward(request, response);

@@ -36,14 +36,14 @@
         %>
     </select><br>
     <input type="hidden" value="<%= produit.getId()%>" name="id_prod">
+
     <input onclick="change()" type="text" value="<%= produit.getNom()%>" name="nom" readonly>
     <input onclick="change()" type="text" value="<%= produit.getTaux()%>" name="taux" readonly>
 
     <input onclick="change()" type="text" value="<%= produit.getFrais()%>" name="frais" readonly><br/>
     <textarea onclick="change()" name="description" cols="30" rows="10" readonly><%= produit.getDescription()%></textarea><br/>
-    <p>Produit ajouté le : <%=produit.getCreated_at()%></p>
-    <p>Information modifié le : <%=produit.getUpdated_at()%></p>
     <input type="submit" value="Mettre à jour" disabled>
+
 </form>
 <% }
 %>

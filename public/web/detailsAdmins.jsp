@@ -17,6 +17,7 @@
 
 <form id="formAnimation" class="detailAnimation" action="DetailsAdmins" method="post" accept-charset="ISO-8859-1">
     <h2>Informations admins</h2><br/>
+
     <input type="hidden" value="<%= admin.getId()%>" name="id" readonly>
     <input type="hidden" value="<%= admin.getPassword()%>" name="hash" readonly>
     <input onclick="change()" type="text" value="<%= admin.getNom()%>" name="nom" readonly>
@@ -27,9 +28,8 @@
     <input onclick="change()" type="text" value="<%= admin.getRole()%>" name="role" readonly>
     <% }%>
     <input onclick="change()" type="date" value="<%= admin.getBirthday()%>" name="birthday" readonly><br/>
-    <p>Admin ajouté le : <%=admin.getCreated_at()%></p>
-    <p>Information modifié le : <%=admin.getUpdated_at()%></p>
     <input id="validation" type="submit" value="Mettre à jour" style="display: none" disabled>
+
 </form>
 <% }
 %>

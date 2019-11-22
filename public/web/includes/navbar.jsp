@@ -6,8 +6,8 @@
 %>
 <nav id="navbar">
     <ul>
-        <li><a href="Dashboard">Mes clients </a></li>
-        <li><a href="Message">Mail <img src="assets/img/email.svg" alt="icone mail"/></a></li>
+        <li><a href="Dashboard">Bonjour <%= _prenom + " " + _nom%><img src="assets/img/avatar.svg" alt="icone profil"/></a></li>
+        <li><a href="Reglages">Reglages<img src="assets/img/settings.svg" alt="icone paramètre"/></a></li>
         <% if (session.getAttribute("role").equals("supAdmin")) { %>
         <li><a href="Liste-Admins">Liste des admins</a></li>
         <li><a href="Liste-Produits">Liste des Produits</a></li>
