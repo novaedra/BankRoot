@@ -273,6 +273,14 @@ textarea {
     width: 10%;
 }
 
+.mail {
+    padding: 5px;
+    width: 90%;
+    background-color: var(--custom-color);
+    border: none;
+    color:white;
+}
+
 .liste #note {
     float: right;
     display: block;

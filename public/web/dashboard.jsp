@@ -28,14 +28,15 @@
                     String[] arrayOffre = offre.split(", ");
 
                     int idclient = Integer.parseInt(arrayOffre[0].substring(1));
+                    int idproduit = Integer.parseInt(arrayOffre[1].substring(0, arrayOffre[1].length() - 1));
 
                     if (client.getId() == idclient) {
                         compteur++;
-                        if (compteur == 10) {
+                        if (compteur > 10) {
                             break;
                         }
                         out.println("<a class='btnClient' onclick=" + "\"" + "showClientDetail('client" + client.getId() + "')"
-                                + "\"" + ">" + client.getPrenom() + " " + client.getNom() + "</a>");
+                                + "\"" + ">" + client.getPrenom() + " " + client.getNom() + "</a><a href='Message?dest=" + client.getMail() + "&idproduit=" + idproduit + "'><button class='mail'>Envoi d\'un mail</button></a>");
                     }
                 }
             }
@@ -58,9 +59,10 @@
 
             if (clientModal.getId() == idclient) {
                 compteur++;
-                if (compteur == 10) {
+                if (compteur > 10) {
                     break;
                 }
+                System.out.println(idclient + "->" + idproduit);
                 out.println("<div id='client" + clientModal.getId() + "' class='liste' style='display:none'>" + "<h2>" + clientModal.getPrenom() + " " + clientModal.getNom() + " " + "<span id='note'>" + clientModal.getNoteEp() + "</span>" + "</h2>"
                         + "<ul>" + "<li>" + "Mail : " + clientModal.getMail() + " " + msg + "</li>" + "<li>" + "Date de naissance : " + clientModal.getBirthday() + "</li>"
                         + "<li>" + "&Acirc;ge : " + Math.round(clientModal.getAge()) + "</li>" + "</li>"
@@ -69,7 +71,7 @@
                         "Autorisation CNIL : " + clientModal.getAutoriCnil() + "</li>" + "<li>" + "Revenus annuels : " + clientModal.getRevenus() + "</li>" +
                         "<li>" + "Dépenses annuelles : " + clientModal.getDepenses() + "</li>" + "<li>" + "Situation professionelle : " + clientModal.getStatPro() + "</li>" +
                         "<li>" + "Situation matrimoniale : " + clientModal.getStatutmatri() + "</li>" +
-                        "</ul><a class='btnClient' href='Message?dest=" + clientModal.getMail() + "&idproduit=" + idproduit + "'><button>Envoi d'un mail</button></a><button onclick=" + "\"" + "closeClientDetail('client" + clientModal.getId() + "')" + "\"" + ">Fermer</button>" + "</div>");
+                        "</ul><button onclick=" + "\"" + "closeClientDetail('client" + clientModal.getId() + "')" + " " + ">Fermer</button>" + "</div>");
             }
         }
     }

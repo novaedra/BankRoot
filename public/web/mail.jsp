@@ -11,7 +11,9 @@
     String nom = (String) request.getAttribute("nom");
     String des = (String) request.getAttribute("des");
 
-
+    if (destinataire == null) {
+        destinataire = "client@gmail.com";
+    }
 %>
 
 <form action="SendMail" method="post">

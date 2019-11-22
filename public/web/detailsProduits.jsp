@@ -42,8 +42,6 @@
     <input type="text" value="<%= produit.getFrais()%>" name="frais"><br/>
     <textarea name="description" cols="30" rows="10"><%= produit.getDescription()%></textarea><br/>
 
-    <span>Produit ajouté le : <%=produit.getCreated_at()%></span><br/>
-    <span>Information modifié le : <%=produit.getUpdated_at()%></span><br/>
 
     <input type="submit" value="Mettre à jour">
 </form>
