@@ -1,7 +1,6 @@
 package com.servlets;
 
 import com.models.Clients;
-import com.utils.controllers.GenOffer;
 import com.utils.database.Database;
 
 import javax.servlet.ServletException;
@@ -12,28 +11,28 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Iterator;
 
-@WebServlet(name = "Dashboard", urlPatterns = "/Dashboard")
-public class Dashboard extends HttpServlet {
+@WebServlet(name = "AllClient", urlPatterns = "/allClient")
+public class AllClient extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String pagination = request.getParameter("page");
+        Integer _pagination = 1;
+
+        if (pagination.matches("[0-9]+")) {
+            _pagination = Integer.parseInt(pagination);
+        }
         Clients clients = new Clients();
         ArrayList f = new ArrayList();
 
         f.add("*");
         List resultat = Database.select(clients, f);
-
-        final List<Integer> offres = GenOffer.Offre();
-        DivideList<Integer> offre = DivideList.ofSize(offres, 2);
-        request.setAttribute("offre", offre);
-
+        request.setAttribute("pagination", _pagination);
         request.setAttribute("resultat", resultat);
-        request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+        request.getRequestDispatcher("allClient.jsp").forward(request, response);
     }
-
 }
