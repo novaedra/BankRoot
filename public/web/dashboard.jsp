@@ -39,8 +39,12 @@
                                 + "\"" + ">" + client.getPrenom() + " " + client.getNom() + "</a><a href='Message?dest=" + client.getMail() + "&idproduit=" + idproduit + "'><button class='mail'>Envoi d\'un mail</button></a>");
                     }
                 }
+
             }
         %>
+        <% if (session.getAttribute("role").equals("supAdmin")) { %>
+        <a class="btnClient seeall" href="allClient?page=1">Voir tout les clients</a>
+        <% } %>
     </div>
 </div>
 
@@ -49,6 +53,7 @@
     List<Clients> clientsModal = (List<Clients>) request.getAttribute("resultat");
     compteur = 0;
     for (Clients clientModal : clientsModal) {
+
 
         for (int i = 0; i < _offre.size(); i++) {
             String offre = "" + _offre.get(i);
@@ -74,6 +79,7 @@
                         "</ul><button onclick=" + "\"" + "closeClientDetail('client" + clientModal.getId() + "')" + " " + ">Fermer</button>" + "</div>");
             }
         }
+
     }
 %>
 

@@ -20,11 +20,7 @@ body {
 }
 
 body::-webkit-scrollbar {
-    width: 1em;
-}
-
-body::-webkit-scrollbar-thumb {
-    background-color: var(--custom-color);
+    width: 0;
 }
 
 h2 {
@@ -54,6 +50,10 @@ form img {
     width: 15%;
     padding: 0;
     margin: 10px auto
+}
+
+input {
+    background-color: whitesmoke;
 }
 
 input:not([type="radio"]) {
@@ -100,14 +100,32 @@ input[type="submit"]:hover, button[type="submit"]:hover {
 }
 
 textarea {
-    width: 80%;
+    width: 65%;
     min-height: 100px;
     font-size: .9rem;
     letter-spacing: 1px;
     padding: 10px;
     line-height: 1.5;
-    border-radius: 5px;
-    border: 2px solid grey;
+    border: 1px solid white;
+    background-color: whitesmoke;
+    transition: .25s;
+    margin: 10px 0;
+}
+
+select {
+    width: 40%;
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    box-sizing: content-box;
+    padding: 10px;
+    margin: 10px auto;
+    transition: .25s;
+}
+
+option {
+    background-color: white;
+    color: black;
 }
 
 /*=============================================================*/
@@ -196,6 +214,7 @@ textarea {
     float: right;
     font-weight: bold;
     margin: -10px;
+    text-decoration: none;
 }
 
 .new img {
@@ -214,6 +233,26 @@ textarea {
 @keyframes spin {
     from { -webkit-transform: rotate(0deg); }
     to { -webkit-transform: rotate(180deg); }
+}
+
+.detailAnimation input, .detailAnimation textarea {
+    background-color: var(--custom-color) !important;
+    color: white !important;
+}
+
+.detailAnimation select {
+    width: 40%;
+    background-color: transparent;
+    border: 1px solid whitesmoke;
+    color: white;
+    box-sizing: content-box;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+.detailAnimation option {
+    background-color: var(--custom-color);
+    color: white;
 }
 
 /*=============================================================*/
@@ -263,6 +302,17 @@ textarea {
     color: white;
 }
 
+.seeall {
+    font-style: italic;
+    font-weight: bold;
+    border-top: 1px solid black;
+    color: var(--custom-color);
+}
+
+.seeall:hover {
+    border: 0;
+}
+
 #dropdown-content a:hover {
     background-color: #41AC53;
     color: white;
@@ -285,14 +335,38 @@ textarea {
     float: right;
     display: block;
     margin-left: 10px;
-    padding: 15px 25px;
+    width: 50px;
+    padding: 5px;
     background-color: red;
     color: white;
     text-align: center;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 1px;
     transform: translateY(-20%);
-    border: 2px solid black;
+    border: 1px solid black;
+    clear: both;
+}
+
+.pagination a {
+    color: black;
+    margin: 5px 10px;
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 10px;
+    transition: .25s;
+}
+
+.pagination .active {
+    background-color: black;
+    color: white;
+}
+
+.pagination img[alt] {
+    color: black;
+}
+
+.imgpagination {
+    width: 15px !important;
 }
 
 /*=============================================================*/
@@ -302,7 +376,7 @@ textarea {
     width: 70%;
     margin: 50px auto;
     padding: 10px;
-    border-radius: 25px;
+    border-radius: 15px;
     transform: translateX(15%);
 }
 
@@ -343,8 +417,7 @@ nav {
 
 #navbar li {
     display: inline-block;
-    margin: 0 20px;
-    min-width: 150px;
+    margin: 0 5px;
 }
 
 #navbar li a {
@@ -448,7 +521,16 @@ input[type="date"]:hover::-webkit-calendar-picker-indicator:hover {
         width: 90%;
     }
 
-    .liste {
-        width: 90%;
+    textarea {
+        min-width: 90%;
+    }
+
+    .liste, .liste ul, .liste li {
+        width: 90%
+    }
+
+    #navbar li {
+        display: inline-block;
+        margin: 0 auto;
     }
 }
